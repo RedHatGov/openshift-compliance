@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'toc'
 
 # General information about the project.
-project = u'OpenShift Compliance'
+project = u'OpenShift Compliance Guide'
 copyright = u'2016, Nick Sabine, Ken Evensen, Mark Shoger, Jason Callaway'
 author = u'Nick Sabine, Ken Evensen, Mark Shoger, Jason Callaway'
 
