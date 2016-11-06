@@ -1,4 +1,4 @@
-.. _ssp_template.rst:
+.. _ssp_template:
 
 ************
 SSP Template
