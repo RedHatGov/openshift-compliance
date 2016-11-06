@@ -90,13 +90,7 @@
 <li><a class="reference internal" href="#via-git-or-download">Via git or download</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#project-wide-configuration">Project-wide configuration</a></li>
-<li><a class="reference internal" href="#page-level-configuration">Page-level configuration</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#changelog">Changelog</a><ul>
-<li><a class="reference internal" href="#v0-1-10-alpha">v0.1.10-alpha</a></li>
 <li><a class="reference internal" href="#v0-1-9">v0.1.9</a></li>
 <li><a class="reference internal" href="#v0-1-8">v0.1.8</a></li>
 </ul>
@@ -167,26 +161,20 @@
 <li><a class="reference internal" href="#via-git-or-download" id="id5">Via git or download</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#configuration" id="id6">Configuration</a><ul>
-<li><a class="reference internal" href="#project-wide-configuration" id="id7">Project-wide configuration</a></li>
-<li><a class="reference internal" href="#page-level-configuration" id="id8">Page-level configuration</a></li>
+<li><a class="reference internal" href="#changelog" id="id6">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-1-9" id="id7">v0.1.9</a></li>
+<li><a class="reference internal" href="#v0-1-8" id="id8">v0.1.8</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#changelog" id="id9">Changelog</a><ul>
-<li><a class="reference internal" href="#v0-1-10-alpha" id="id10">v0.1.10-alpha</a></li>
-<li><a class="reference internal" href="#v0-1-9" id="id11">v0.1.9</a></li>
-<li><a class="reference internal" href="#v0-1-8" id="id12">v0.1.8</a></li>
+<li><a class="reference internal" href="#how-the-table-of-contents-builds" id="id9">How the Table of Contents builds</a></li>
+<li><a class="reference internal" href="#contributing-or-modifying-the-theme" id="id10">Contributing or modifying the theme</a><ul>
+<li><a class="reference internal" href="#set-up-your-environment" id="id11">Set up your environment</a></li>
+<li><a class="reference internal" href="#before-you-create-an-issue" id="id12">Before you create an issue</a></li>
+<li><a class="reference internal" href="#before-you-send-a-pull-request" id="id13">Before you send a Pull Request</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-the-table-of-contents-builds" id="id13">How the Table of Contents builds</a></li>
-<li><a class="reference internal" href="#contributing-or-modifying-the-theme" id="id14">Contributing or modifying the theme</a><ul>
-<li><a class="reference internal" href="#set-up-your-environment" id="id15">Set up your environment</a></li>
-<li><a class="reference internal" href="#before-you-create-an-issue" id="id16">Before you create an issue</a></li>
-<li><a class="reference internal" href="#before-you-send-a-pull-request" id="id17">Before you send a Pull Request</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#using-this-theme-locally-then-building-on-read-the-docs" id="id18">Using this theme locally, then building on Read the Docs?</a></li>
-<li><a class="reference internal" href="#todo" id="id19">TODO</a></li>
+<li><a class="reference internal" href="#using-this-theme-locally-then-building-on-read-the-docs" id="id14">Using this theme locally, then building on Read the Docs?</a></li>
+<li><a class="reference internal" href="#todo" id="id15">TODO</a></li>
 </ul>
 </li>
 </ul>
@@ -226,51 +214,10 @@ conf.py file:</p>
 </div>
 </div>
 </div>
-<div class="section" id="configuration">
-<h2><a class="toc-backref" href="#id6">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>You can configure different parts of the theme.</p>
-<div class="section" id="project-wide-configuration">
-<h3><a class="toc-backref" href="#id7">Project-wide configuration</a><a class="headerlink" href="#project-wide-configuration" title="Permalink to this headline">¶</a></h3>
-<p>The theme&#8217;s project-wide options are defined in the <code class="docutils literal"><span class="pre">sphinx_rtd_theme/theme.conf</span></code>
-file of this repository, and can be defined in your project&#8217;s <code class="docutils literal"><span class="pre">conf.py</span></code> via
-<code class="docutils literal"><span class="pre">html_theme_options</span></code>. For example:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;collapse_navigation&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">&#39;display_version&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">&#39;navigation_depth&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="page-level-configuration">
-<h3><a class="toc-backref" href="#id8">Page-level configuration</a><a class="headerlink" href="#page-level-configuration" title="Permalink to this headline">¶</a></h3>
-<p>Pages support metadata that changes how the theme renders.
-You can currently add the following:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">:github_url:</span></code> This will force the &#8220;Edit on GitHub&#8221; to the configured URL</li>
-<li><code class="docutils literal"><span class="pre">:bitbucket_url:</span></code> This will force the &#8220;Edit on Bitbucket&#8221; to the configured URL</li>
-</ul>
-</div>
-</div>
 <div class="section" id="changelog">
-<h2><a class="toc-backref" href="#id9">Changelog</a><a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="v0-1-10-alpha">
-<h3><a class="toc-backref" href="#id10">v0.1.10-alpha</a><a class="headerlink" href="#v0-1-10-alpha" title="Permalink to this headline">¶</a></h3>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This is a pre-release version</p>
-</div>
-<ul class="simple">
-<li>Removes Sphinx dependency</li>
-<li>Fixes hamburger on mobile display</li>
-<li>Adds a <code class="docutils literal"><span class="pre">body_begin</span></code> block to the template</li>
-<li>Add <code class="docutils literal"><span class="pre">prev_next_buttons_location</span></code> which can take the value <code class="docutils literal"><span class="pre">bottom</span></code>,
-<code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">both</span></code> , <code class="docutils literal"><span class="pre">None</span></code> and will display the &#8220;Next&#8221; and &#8220;Previous&#8221;
-buttons accordingly</li>
-</ul>
-</div>
+<h2><a class="toc-backref" href="#id6">Changelog</a><a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="v0-1-9">
-<h3><a class="toc-backref" href="#id11">v0.1.9</a><a class="headerlink" href="#v0-1-9" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">v0.1.9</a><a class="headerlink" href="#v0-1-9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Intermittent scrollbar visibility bug fixed. This change introduces a
 backwards incompatible change to the theme&#8217;s layout HTML. This should only be
@@ -286,7 +233,7 @@ document footer block</li>
 </ul>
 </div>
 <div class="section" id="v0-1-8">
-<h3><a class="toc-backref" href="#id12">v0.1.8</a><a class="headerlink" href="#v0-1-8" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">v0.1.8</a><a class="headerlink" href="#v0-1-8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Start keeping changelog :)</li>
 <li>Support for third and fourth level headers in the sidebar</li>
@@ -297,7 +244,7 @@ document footer block</li>
 </div>
 </div>
 <div class="section" id="how-the-table-of-contents-builds">
-<h2><a class="toc-backref" href="#id13">How the Table of Contents builds</a><a class="headerlink" href="#how-the-table-of-contents-builds" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">How the Table of Contents builds</a><a class="headerlink" href="#how-the-table-of-contents-builds" title="Permalink to this headline">¶</a></h2>
 <p>Currently the left menu will build based upon any <code class="docutils literal"><span class="pre">toctree(s)</span></code> defined in your index.rst file.
 It outputs 2 levels of depth, which should give your visitors a high level of access to your
 docs. If no toctrees are set the theme reverts to sphinx&#8217;s usual local toctree.</p>
@@ -312,7 +259,7 @@ is vertically too large, it will revert to static positioning. To disable the st
 altogether change the setting in <code class="docutils literal"><span class="pre">conf.py</span></code>.</p>
 </div>
 <div class="section" id="contributing-or-modifying-the-theme">
-<h2><a class="toc-backref" href="#id14">Contributing or modifying the theme</a><a class="headerlink" href="#contributing-or-modifying-the-theme" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Contributing or modifying the theme</a><a class="headerlink" href="#contributing-or-modifying-the-theme" title="Permalink to this headline">¶</a></h2>
 <p>The sphinx_rtd_theme is primarily a <a class="reference external" href="http://www.sass-lang.com">sass</a> project that requires a few other sass libraries. I&#8217;m
 using <a class="reference external" href="http://www.bower.io">bower</a> to manage these dependencies and <a class="reference external" href="http://www.sass-lang.com">sass</a> to build the css. The good news is
 I have a very nice set of <a class="reference external" href="http://www.gruntjs.com">grunt</a> operations that will not only load these dependencies, but watch
@@ -320,7 +267,7 @@ for changes, rebuild the sphinx demo docs and build a distributable version of t
 The bad news is this means you&#8217;ll need to set up your environment similar to that
 of a front-end developer (vs. that of a python developer). That means installing node and ruby.</p>
 <div class="section" id="set-up-your-environment">
-<h3><a class="toc-backref" href="#id15">Set up your environment</a><a class="headerlink" href="#set-up-your-environment" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Set up your environment</a><a class="headerlink" href="#set-up-your-environment" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Install <a class="reference external" href="http://www.sphinx-doc.org">sphinx</a> into a virtual environment.</li>
 </ol>
@@ -361,7 +308,7 @@ or .css files.</li>
 </ol>
 </div>
 <div class="section" id="before-you-create-an-issue">
-<h3><a class="toc-backref" href="#id16">Before you create an issue</a><a class="headerlink" href="#before-you-create-an-issue" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Before you create an issue</a><a class="headerlink" href="#before-you-create-an-issue" title="Permalink to this headline">¶</a></h3>
 <p>I don&#8217;t have a lot of time to maintain this project due to other responsibilities.
 I know there are a lot of Python engineers out there that can&#8217;t code sass / css and
 are unable to submit pull requests. That said, submitting random style bugs without
@@ -371,14 +318,14 @@ in a lot of ways. I don&#8217;t have time to research your problem for you, but 
 have time to fix the actual styling issue if you can replicate the problem for me.</p>
 </div>
 <div class="section" id="before-you-send-a-pull-request">
-<h3><a class="toc-backref" href="#id17">Before you send a Pull Request</a><a class="headerlink" href="#before-you-send-a-pull-request" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Before you send a Pull Request</a><a class="headerlink" href="#before-you-send-a-pull-request" title="Permalink to this headline">¶</a></h3>
 <p>When you&#8217;re done with your edits, you can run <code class="docutils literal"><span class="pre">grunt</span> <span class="pre">build</span></code> to clean out the old
 files and rebuild a new distribution, compressing the css and cleaning out
 extraneous files. Please do this before you send in a PR.</p>
 </div>
 </div>
 <div class="section" id="using-this-theme-locally-then-building-on-read-the-docs">
-<h2><a class="toc-backref" href="#id18">Using this theme locally, then building on Read the Docs?</a><a class="headerlink" href="#using-this-theme-locally-then-building-on-read-the-docs" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Using this theme locally, then building on Read the Docs?</a><a class="headerlink" href="#using-this-theme-locally-then-building-on-read-the-docs" title="Permalink to this headline">¶</a></h2>
 <p>Currently if you import sphinx_rtd_theme in your local sphinx build, then pass
 that same config to Read the Docs, it will fail, since RTD gets confused. If
 you want to run this theme locally and then also have it build on RTD, then
@@ -396,7 +343,7 @@ you can add something like this to your config. Thanks to Daniel Oaks for this.<
 </div>
 </div>
 <div class="section" id="todo">
-<h2><a class="toc-backref" href="#id19">TODO</a><a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">TODO</a><a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Separate some sass variables at the theme level so you can overwrite some basic colors.</li>
 </ul>
