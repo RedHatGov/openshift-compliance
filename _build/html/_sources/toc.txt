@@ -10,6 +10,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   index
    fisma
    reference_architecture
    security_controls

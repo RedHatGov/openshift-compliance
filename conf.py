@@ -49,7 +49,7 @@ master_doc = 'toc'
 
 # General information about the project.
 project = u'OpenShift Compliance Guide'
-copyright = u'2016, Nick Sabine, Ken Evensen, Mark Shoger, Jason Callaway'
+copyright = u'2016, Red Hat'
 author = u'Nick Sabine, Ken Evensen, Mark Shoger, Jason Callaway'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -99,7 +99,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
 #
-# show_authors = False
+show_authors = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
