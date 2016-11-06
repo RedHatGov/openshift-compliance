@@ -12,11 +12,11 @@ Overview
 *****************
 Table of Contents
 *****************
-#. :ref:`fisma.rst`
-#. :ref:`reference_architecture.rst`
-#. :ref:`security_controls.rst`
-#. :ref:`ansible.rst`
-#. :ref:`continuous_compliance.rst`
-#. :ref:`ssp_template.rst`
-#. :ref:`template_poam.rst`
+#. :ref:`fisma`
+#. :ref:`reference_architecture`
+#. :ref:`security_controls`
+#. :ref:`ansible`
+#. :ref:`continuous_compliance`
+#. :ref:`ssp_template`
+#. :ref:`template_poam`
 

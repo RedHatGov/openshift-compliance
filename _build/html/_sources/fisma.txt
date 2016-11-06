@@ -1,4 +1,4 @@
-.. _fisma.rst:
+.. _fisma:
 
 ****************
 FISMA Compliance
