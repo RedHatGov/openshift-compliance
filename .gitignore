@@ -90,5 +90,4 @@ ENV/
 # OS X Nonesense
 .DS_Store
 
-_build/
-_build/doctrees/
+.idea/
