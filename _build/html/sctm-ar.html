@@ -1,0 +1,728 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; OpenShift Compliance Guide 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="OpenShift Compliance Guide 1 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="toc.html" class="icon icon-home"> OpenShift Compliance Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">  Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fisma.html">  FISMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference_architecture.html">  Reference Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security_controls.html">  Security Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible.html">  Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous_compliance.html">  Continuous Compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssp_template.html">  SSP Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template_poam.html">  POA&amp;M Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">  Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">OpenShift Compliance Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="toc.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/sctm-ar.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="2%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="4%" />
+<col width="1%" />
+<col width="18%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>NIST Ref #</strong></td>
+<td><strong>Control Family</strong></td>
+<td><strong>Org Ref #</strong></td>
+<td><strong>Baseline Low</strong></td>
+<td><strong>Baseline Moderate</strong></td>
+<td><strong>Baseline High</strong></td>
+<td><strong>Confidentiality Low</strong></td>
+<td><strong>Confidentiality Moderate</strong></td>
+<td><strong>Confidentiality High</strong></td>
+<td><strong>Integrity Low</strong></td>
+<td><strong>Integrity Moderate</strong></td>
+<td><strong>Integrity High</strong></td>
+<td><strong>Availability Low</strong></td>
+<td><strong>Availability Moderate</strong></td>
+<td><strong>Availability High</strong></td>
+<td><strong>References</strong></td>
+<td><strong>Red Hat Response</strong></td>
+<td><strong>Requirements</strong></td>
+<td><strong>Supplemental Guidance</strong></td>
+</tr>
+<tr class="row-even"><td>AR-1</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-1_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a;
+E-Government Act of 2002 (P.L. 107-347);
+Federal Information Security Management Act (FISMA) of 2002, 44 U.S.C. § 3541;
+OMB M-03-22;
+OMB M-05-08;
+OMB M-07-16;
+OMB Circular A-130;
+Federal Enterprise Architecture Security and Privacy Profile;</td>
+<td>&nbsp;</td>
+<td>GOVERNANCE AND PRIVACY PROGRAM
+Control: The organization:
+a. Appoints a Senior Agency Official for Privacy (SAOP)/Chief Privacy Officer (CPO) accountable for developing, implementing, and maintaining an organization-wide governance and privacy program to ensure compliance with all applicable laws and regulations regarding the collection, use, maintenance, sharing, and disposal of personally identifiable information (PII) by programs and information systems;</td>
+<td>The development and implementation of a comprehensive governance and privacy program demonstrates organizational accountability for and commitment to the protection of individual privacy. Accountability begins with the appointment of an SAOP/CPO with the authority, mission, resources, and responsibility to develop and implement a multifaceted privacy program. The SAOP/CPO, in consultation with legal counsel, information security officials, and others as appropriate: (i) ensures the development, implementation, and enforcement of privacy policies and procedures; (ii) defines roles and responsibilities for protecting PII; (iii) determines the level of information sensitivity with regard to PII holdings; (iv) identifies the laws, regulations, and internal policies that apply to the PII; (v) monitors privacy best practices; and (vi) monitors/audits compliance with identified privacy controls.
+To further accountability, the SAOP/CPO develops privacy plans to document the privacy requirements of organizations and the privacy and security controls in place or planned for meeting those requirements. The plan serves as evidence of organizational privacy operations and supports resource requests by the SAOP/CPO. A single plan or multiple plans may be necessary depending upon the organizational structures, requirements, and resources, and the plan(s) may vary in comprehensiveness. For example, a one-page privacy plan may cover privacy policies, documentation, and controls already in place, such as Privacy Impact Assessments (PIA) and System of Records Notices (SORN). A comprehensive plan may include a baseline of privacy controls selected from this appendix and include: (i) processes for conducting privacy risk assessments; (ii) templates and guidance for completing PIAs and SORNs; (iii) privacy training and awareness requirements; (iv) requirements for contractors processing PII; (v) plans for eliminating unnecessary PII holdings; and (vi) a framework for measuring annual performance goals and objectives for implementing identified privacy controls.</td>
+</tr>
+<tr class="row-odd"><td>AR-1</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-1_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Monitors federal privacy laws and policy for changes that affect the privacy program;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-1</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-1_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Allocates [Assignment: organization-defined allocation of budget and staffing] sufficient resources to implement and operate the organization-wide privacy program;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AR-1</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-1_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="4">
+<li>Develops a strategic organizational privacy plan for implementing applicable privacy controls, policies, and procedures;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-1</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-1_N_04</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="5">
+<li>Develops, disseminates, and implements operational privacy policies and procedures that govern the appropriate privacy and security controls for programs, information systems, or technologies involving PII; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AR-1</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-1_N_05</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="6">
+<li>Updates privacy plan, policies, and procedures [Assignment: organization-defined frequency, at least biennially].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-2</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-2_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Section 208, E-Government Act of 2002 (P.L. 107-347);
+Federal Information Security Management Act (FISMA) of 2002, 44 U.S.C. § 3541;
+OMB M-03-22;
+OMB M-05-08;
+OMB M-10-23;</td>
+<td>&nbsp;</td>
+<td>PRIVACY IMPACT AND RISK ASSESSMENT
+Control: The organization:
+a. Documents and implements a privacy risk management process that assesses privacy risk to individuals resulting from the collection, sharing, storing, transmitting, use, and disposal of personally identifiable information (PII); and</td>
+<td>Organizational privacy risk management processes operate across the life cycles of all mission/business processes that collect, use, maintain, share, or dispose of PII. The tools and processes for managing risk are specific to organizational missions and resources. They include, but are not limited to, the conduct of PIAs. The PIA is both a process and the document that is the outcome of that process. OMB Memorandum 03-22 provides guidance to organizations for implementing the privacy provisions of the E-Government Act of 2002, including guidance on when PIAs are required for information systems. Some organizations may be required by law or policy to extend the PIA requirement to other activities involving PII or otherwise impacting privacy (e.g., programs, projects, or regulations). PIAs are conducted to identify privacy risks and identify methods to mitigate those risks. PIAs are also conducted to ensure that programs or information systems comply with legal, regulatory, and policy requirements. PIAs also serve as notice to the public of privacy practices. PIAs are performed before developing or procuring information systems, or initiating programs or projects, that collect, use, maintain, or share PII and are updated when changes create new privacy risks.</td>
+</tr>
+<tr class="row-odd"><td>AR-2</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-2_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Conducts Privacy Impact Assessments (PIAs) for information systems, programs, or other activities that pose a privacy risk in accordance with applicable law, OMB policy, or any existing organizational policies and procedures.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-3</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-3_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a(m);
+Federal Acquisition Regulation, 48 C.F.R. Part 24;
+OMB Circular A-130;</td>
+<td>&nbsp;</td>
+<td>PRIVACY REQUIREMENTS FOR CONTRACTORS AND SERVICE PROVIDERS
+Control: The organization:
+a. Establishes privacy roles, responsibilities, and access requirements for contractors and service providers; and</td>
+<td>Contractors and service providers include, but are not limited to, information providers, information processors, and other organizations providing information system development, information technology services, and other outsourced applications. Organizations consult with legal counsel, the Senior Agency Official for Privacy (SAOP)/Chief Privacy Officer (CPO), and contracting officers about applicable laws, directives, policies, or regulations that may impact implementation of this control. Related control: AR-1, AR-5, SA-4.</td>
+</tr>
+<tr class="row-odd"><td>AR-3</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-3_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Includes privacy requirements in contracts and other acquisition-related documents.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-4</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-4_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a;
+Federal Information Security Management Act (FISMA) of 2002, 44 U.S.C. § 3541;
+Section 208, E-Government Act of 2002 (P.L. 107-347);
+OMB M-03-22;
+OMB M-05-08;
+OMB M-06-16;
+OMB M-07-16;
+OMB Circular A-130;</td>
+<td>&nbsp;</td>
+<td>PRIVACY MONITORING AND AUDITING
+Control: The organization monitors and audits privacy controls and internal privacy policy [Assignment: organization-defined frequency] to ensure effective implementation.</td>
+<td>To promote accountability, organizations identify and address gaps in privacy compliance, management, operational, and technical controls by conducting regular assessments (e.g., internal risk assessments). These assessments can be self-assessments or third-party audits that result in reports on compliance gaps identified in programs, projects, and information systems. In addition to auditing for effective implementation of all privacy controls identified in this appendix, organizations assess whether they: (i) implement a process to embed privacy considerations into the life cycle of personally identifiable information (PII), programs, information systems, mission/business processes, and technology; (ii) monitor for changes to applicable privacy laws, regulations, and policies; (iii) track programs, information systems, and applications that collect and maintain PII to ensure compliance; (iv) ensure that access to PII is only on a need-to-know basis; and (v) ensure that PII is being maintained and used only for the legally authorized purposes identified in the public notice(s).
+Organizations also: (i) implement technology to audit for the security, appropriate use, and loss of PII; (ii) perform reviews to ensure physical security of documents containing PII; (iii) assess contractor compliance with privacy requirements; and (iv) ensure that corrective actions identified as part of the assessment process are tracked and monitored until audit findings are corrected. The organization Senior Agency Official for Privacy (SAOP)/Chief Privacy Officer (CPO) coordinates monitoring and auditing efforts with information security officials and ensures that the results are provided to senior managers and oversight officials. Related controls: AR-6, AR-7, AU-1, AU-2, AU-3, AU-6, AU-12, CA-7, TR-1, UL-2.</td>
+</tr>
+<tr class="row-odd"><td>AR-5</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-5_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a(e);
+Section 208, E-Government Act of 2002 (P.L. 107-347);
+OMB M-03-22;
+OMB M-07-16;</td>
+<td>&nbsp;</td>
+<td>PRIVACY AWARENESS AND TRAINING
+Control: The organization:
+a. Develops, implements, and updates a comprehensive training and awareness strategy aimed at ensuring that personnel understand privacy responsibilities and procedures;</td>
+<td>Through implementation of a privacy training and awareness strategy, the organization promotes a culture of privacy. Privacy training and awareness programs typically focus on broad topics, such as responsibilities under the Privacy Act of 1974 and E-Government Act of 2002 and the consequences of failing to carry out those responsibilities, how to identify new privacy risks, how to mitigate privacy risks, and how and when to report privacy incidents. Privacy training may also target data collection and use requirements identified in public notices, such as Privacy Impact Assessments (PIAs) or System of Records Notices (SORNs) for a program or information system. Specific training methods may include: (i) mandatory annual privacy awareness training; (ii) targeted, role-based training; (iii) internal privacy program websites; (iv) manuals, guides, and handbooks; (v) slide presentations; (vi) events (e.g., privacy awareness week, privacy clean-up day); (vii) posters and brochures; and (viii) email messages to all employees and contractors. Organizations update training based on changing statutory, regulatory, mission, program, business process, and information system requirements, or on the results of compliance monitoring and auditing. Where appropriate, organizations may provide privacy training as part of existing information security training. Related controls: AR-3, AT-2, AT-3, TR-1.</td>
+</tr>
+<tr class="row-even"><td>AR-5</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-5_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Administers basic privacy training [Assignment: organization-defined frequency, at least annually] and targeted, role-based privacy training for personnel having responsibility for personally identifiable information (PII) or for activities that involve PII [Assignment: organization-defined frequency, at least annually]; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AR-5</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-5_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Ensures that personnel certify (manually or electronically) acceptance of responsibilities for privacy requirements [Assignment: organization-defined frequency, at least annually].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-6</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-6_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a;
+Section 208, E-Government Act of 2002 (P.L. 107-347);
+Federal Information Security Management Act (FISMA) of 2002, 44 U.S.C. § 3541;
+Section 803, 9/11 Commission Act, 42 U.S.C. § 2000ee-1;
+Section 804, 9/11 Commission Act, 42 U.S.C. § 2000ee-3;
+Section 522, Consolidated Appropriations Act of 2005 (P.L. 108-447);
+OMB M-03-22;
+OMB Circular A-130;</td>
+<td>&nbsp;</td>
+<td>PRIVACY REPORTING
+Control: The organization develops, disseminates, and updates reports to the Office of Management and Budget (OMB), Congress, and other oversight bodies, as appropriate, to demonstrate accountability with specific statutory and regulatory privacy program mandates, and to senior management and other personnel with responsibility for monitoring privacy program progress and compliance.</td>
+<td>Through internal and external privacy reporting, organizations promote accountability and transparency in organizational privacy operations. Reporting also helps organizations to determine progress in meeting privacy compliance requirements and privacy controls, compare performance across the federal government, identify vulnerabilities and gaps in policy and implementation, and identify success models. Types of privacy reports include: (i) annual Senior Agency Official for Privacy (SAOP) reports to OMB; (ii) reports to Congress required by the Implementing Regulations of the 9/11 Commission Act; and (iii) other public reports required by specific statutory mandates or internal policies of organizations. The organization Senior Agency Official for Privacy (SAOP)/Chief Privacy Officer (CPO) consults with legal counsel, where appropriate, to ensure that organizations meet all applicable privacy reporting requirements.</td>
+</tr>
+<tr class="row-odd"><td>AR-7</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-7_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a(e)(10);
+Sections 208(b) and(c), E-Government Act of 2002 (P.L. 107-347);
+OMB M-03-22;</td>
+<td>&nbsp;</td>
+<td>PRIVACY-ENHANCED SYSTEM DESIGN AND DEVELOPMENT
+Control: The organization designs information systems to support privacy by automating privacy controls.</td>
+<td>To the extent feasible, when designing organizational information systems, organizations employ technologies and system capabilities that automate privacy controls on the collection, use, retention, and disclosure of personally identifiable information (PII). By building privacy controls into system design and development, organizations mitigate privacy risks to PII, thereby reducing the likelihood of information system breaches and other privacy-related incidents. Organizations also conduct periodic reviews of systems to determine the need for updates to maintain compliance with the Privacy Act and the organization’s privacy policy. Regardless of whether automated privacy controls are employed, organizations regularly monitor information system use and sharing of PII to ensure that the use/sharing is consistent with the authorized purposes identified in the Privacy Act and/or in the public notice of organizations, or in a manner compatible with those purposes. Related controls: AC-6, AR-4, AR-5, DM-2, TR-1.</td>
+</tr>
+<tr class="row-even"><td>AR-8</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-8_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>The Privacy Act of 1974, 5 U.S.C. § 552a (c)(1), (c)(3), (j), (k);</td>
+<td>&nbsp;</td>
+<td>ACCOUNTING OF DISCLOSURES
+Control: The organization:
+a. Keeps an accurate accounting of disclosures of information held in each system of records under its control, including:
+(1) Date, nature, and purpose of each disclosure of a record; and</td>
+<td>The Senior Agency Official for Privacy (SAOP)/Chief Privacy Officer (CPO) periodically consults with managers of organization systems of record to ensure that the required accountings of disclosures of records are being properly maintained and provided to persons named in those records consistent with the dictates of the Privacy Act. Organizations are not required to keep an accounting of disclosures when the disclosures are made to individuals with a need to know, are made pursuant to the Freedom of Information Act, or are made to a law enforcement agency pursuant to 5 U.S.C. § 552a(c)(3). Heads of agencies can promulgate rules to exempt certain systems of records from the requirement to provide the accounting of disclosures to individuals. Related control: IP-2.</td>
+</tr>
+<tr class="row-odd"><td>AR-8</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-8_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Name and address of the person or agency to which the disclosure was made;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AR-8</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-8_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Retains the accounting of disclosures for the life of the record or five years after the disclosure is made, whichever is longer; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AR-8</td>
+<td>Accountability, Audit, and Risk Management</td>
+<td>AR-8_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Makes the accounting of disclosures available to the person named in the record upon request.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Red Hat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

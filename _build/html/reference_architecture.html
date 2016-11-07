@@ -87,7 +87,48 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">  Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fisma.html">  FISMA</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">  Reference Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">  Reference Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#security-standards">Security Standards</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#infrastructure-view">Infrastructure View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#actors">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diagram">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#architecture-rational">Architecture Rational</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#platform-view">Platform View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Architecture Rational</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#application-view">Application View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Architecture Rational</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#container-view">Container View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Architecture Rational</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="security_controls.html">  Security Controls</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ansible.html">  Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="continuous_compliance.html">  Continuous Compliance</a></li>
@@ -140,6 +181,203 @@
             
   <div class="section" id="reference-architeture">
 <span id="reference-architecture"></span><h1>Reference Architeture<a class="headerlink" href="#reference-architeture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The reference architecture details, at various levels of abstraction, a
+deployment of Red Hat&#8217;s OpenShift Container Platform (OCP) deployed on Amazon Web Services (AWS).  The NIST <em>Definition of Cloud Computing</em> <a class="reference external" href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">NIST 800-145</a> succinctly describes different cloud service models and the attributes of a cloud platform.  The architecture described herein follows the definitions found in the NIST 800-145.  For example, Red Hat&#8217;s OCP is a Platform as a Service (PaaS) under NIST 800-145.  Similarly, AWS is an Infrastrucutre as a Service (IaaS) per the NIST definition.</p>
+<div class="section" id="security-standards">
+<h3>Security Standards<a class="headerlink" href="#security-standards" title="Permalink to this headline">¶</a></h3>
+<p>The Fedral Information Security Modernization Act (<a class="reference external" href="http://csrc.nist.gov/drivers/documents/FISMA-final.pdf">FISMA</a>), originally enacted in 2002, directs United States Federal Agencies to develop and implement programs to implement information and information systems security.  This reference architecture aims to describe an OCP deployment on AWS as FISMA high: high confidentiality, high integrity, high availability.</p>
+<p>In order to demonstrate FISMA high, this architecture is traced to <a class="reference external" href="https://web.nvd.nist.gov/view/800-53/home">NIST 800-53</a> <em>Security and Privacy Controls for Federal Information Systems and Organizations</em>.  The NIST 800-53 provides a catalog of controls accross multiple categories.  Many controls relate to organizational processes.  These controls will be mapped as appropriate.  The controls that are technical in nature are addressed by this architecture.</p>
+</div>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>This architecture is divided into architectural views loosely mapped to the NIST 800-145 <em>Definition of Cloud Computing</em>.  The nature of cloud computing affords the adoption of a Landlord/Tenant model.  This model allows the Landlord to take responsibility for a set of controls under NIST 800-53, relieving the tenant of the need to address those controls.  The following table lists lists the relationship of Landlord to Tenant in this reference architecture.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Landlord</th>
+<th class="head">Tenant</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AWS</td>
+<td>OCP</td>
+</tr>
+<tr class="row-odd"><td>OCP</td>
+<td>Applications</td>
+</tr>
+</tbody>
+</table>
+<p>As stated prviously, the IaaS in this architecture is AWS.  Red Hat&#8217;s OCP is the PaaS.  Tenant applications are deployed in containers, managed by OCP.</p>
+<div class="section" id="infrastructure-view">
+<h3>Infrastructure View<a class="headerlink" href="#infrastructure-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="definition">
+<h4>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The NIST 800-145 defines the following as an Infrastructure as a Service:</dt>
+<dd>The capability provided to the consumer is to provision processing, storage, networks, and other fundamental computing resources where the consumer is able to deploy and run arbitrary software, which can include operating systems and applications. The consumer does not manage or control the underlying cloud infrastructure but has control over operating systems, storage, and deployed applications; and possibly limited control of select networking components (e.g., host firewalls).</dd>
+</dl>
+</div>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>AWS provides this capability.  Amazon provides the underlying hardware infastructure that supports the self-service provisioning into the cloud of what has traditionaly been based in hardware.  This includes, but is not limited to compute, storage, and networking services.</p>
+</div>
+<div class="section" id="actors">
+<h4>Actors<a class="headerlink" href="#actors" title="Permalink to this headline">¶</a></h4>
+<p>Platform administrators require AWS console access and the ability to deploy and/or configure the following AWS components.</p>
+<blockquote>
+<div><ul class="simple">
+<li>VPC</li>
+<li>Elastic IP</li>
+<li>Elastic Cloud Compute (EC2)</li>
+<li>VPC Peering</li>
+<li>Route Tables</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="diagram">
+<h4>Diagram<a class="headerlink" href="#diagram" title="Permalink to this headline">¶</a></h4>
+<p>The following diagram illustrates the high level deployment of OCP in AWS and the necessary AWS components to support OCP.
+<img alt="Infrastructure View" src="_images/InfrastructureView.png" /></p>
+<p>The following table describes each AWS component and relates it to the implementation in the OCP reference architecture.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="61%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">AWS Component</th>
+<th class="head">Description</th>
+<th class="head">OCP Component</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="2">VPC</td>
+<td rowspan="2">A logically isolated section of AWS in which resources
+are connected via a virtual networking environment.</td>
+<td>Red Hat VPC</td>
+</tr>
+<tr class="row-odd"><td>1..n Dedicated VPC&#8217;s</td>
+</tr>
+<tr class="row-even"><td rowspan="4">Subnet</td>
+<td rowspan="4">Virtually isolated network used on which traffic
+is isolatedbecause isolation makes for great neighbors.</td>
+<td>Management Subnet</td>
+</tr>
+<tr class="row-odd"><td>Staging Subnet</td>
+</tr>
+<tr class="row-even"><td>Operations Subnet</td>
+</tr>
+<tr class="row-odd"><td>Dedicated Subnet</td>
+</tr>
+<tr class="row-even"><td>EC2 Compute
+Instance</td>
+<td>A scalable compute capacity in AWS.  Compute instances
+are instantiated from cloud images with pre-installed
+operating systems, for example Red Hat Enterprise Linux.</td>
+<td>All OCP Platform
+components.</td>
+</tr>
+<tr class="row-odd"><td>Route Table</td>
+<td>A route table defines rules as to how network traffic
+in a VPC is routed internally.</td>
+<td>Red Hat VPC</td>
+</tr>
+<tr class="row-even"><td rowspan="6">Elastic IP</td>
+<td rowspan="6">An Elastic IP is associated with an EC2 Instance and is
+publically reacheable.</td>
+<td>Staging HA Proxy</td>
+</tr>
+<tr class="row-odd"><td>Staging Auth Proxy</td>
+</tr>
+<tr class="row-even"><td>Operations HA   Proxy</td>
+</tr>
+<tr class="row-odd"><td>Operations Auth Proxy</td>
+</tr>
+<tr class="row-even"><td>Dedicated HA Proxy</td>
+</tr>
+<tr class="row-odd"><td>Dedicated Auth Proxy</td>
+</tr>
+<tr class="row-even"><td>VPC Peering</td>
+<td>A VPC peering connection is a networking connection
+between two VPCs that enables traffic to be routed
+between them using private IP addresses.</td>
+<td>Between the Red Hat
+VPC and any Dedicated
+VPC</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="architecture-rational">
+<h4>Architecture Rational<a class="headerlink" href="#architecture-rational" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>Staging VPC</strong> provides an isolated area for platform administrators to apply regular patches and test configuration changes before applying these to the operations cluster.  One cluster of OCP is deployed in this VPC.</p>
+<p>The <strong>Operations VPC</strong> contains a single deployment of OpenShift where tenants will deploy applications.  OCP Nodes will be labled and functionally grouped to support development, test, and production deployments of an application.  This is described in detail in the <em>Platform View</em>.</p>
+<p>The <strong>Management VPC</strong> contains the Trusted Container Repository as well as the Package Repository.  A route table allows the <strong>Managent VPC</strong> to communicate to the <strong>Staging VPC</strong>, <strong>Operations VPC</strong>, and any <strong>Dedicated VPC&#8217;s</strong>.  However, the latter three VPC&#8217;s cannot communicate with each other.</p>
+<p><strong>Dedicated VPC&#8217;s</strong> are VPC&#8217;s that are deployed to support specific isolation needs of a particular tenant.  These may be created and destroyed per organizational needs.</p>
+</div>
+</div>
+<div class="section" id="platform-view">
+<h3>Platform View<a class="headerlink" href="#platform-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Definition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id2">
+<h4>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id3">
+<h4>Actors<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id4">
+<h4>Diagram<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id5">
+<h4>Architecture Rational<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="application-view">
+<h3>Application View<a class="headerlink" href="#application-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Definition<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id7">
+<h4>Description<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id8">
+<h4>Actors<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id9">
+<h4>Diagram<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id10">
+<h4>Architecture Rational<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="container-view">
+<h3>Container View<a class="headerlink" href="#container-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4>Definition<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id12">
+<h4>Description<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id13">
+<h4>Actors<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id14">
+<h4>Diagram<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id15">
+<h4>Architecture Rational<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
 </div>
 
 

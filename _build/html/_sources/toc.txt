@@ -10,6 +10,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :glob:
 
      Overview <index.rst>
      FISMA <fisma.rst>
