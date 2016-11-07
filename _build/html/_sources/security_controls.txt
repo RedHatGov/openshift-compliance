@@ -17,6 +17,12 @@ security controls are broken down into "Control Families." The following
 sections detail control families with technical controls that can be implemeted
 by OpenShift and its certified images.
 
+Security Control Traceability Matrix
+####################################
+
+TODO: break down by control family... full matrix is 18MB
+
+
 Access Control
 **************
 
@@ -183,7 +189,7 @@ AU-9 Enable SELinux
 ===================
 
 AU-9 Ensure SELinux Not Disabled in /etc/grub{2}.conf
-==================================================
+=====================================================
 
 
 Configuration Management
