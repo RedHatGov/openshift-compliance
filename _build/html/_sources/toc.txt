@@ -11,14 +11,14 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-     <index.rst>
-     <fisma.rst>
-     <reference_architecture.rst>
-     <security_controls.rst>
-     <ansible.rst>
-     <continuous_compliance.rst>
-     <ssp_template.rst>
-     <template_poam.rst>
+     Overview <index.rst>
+     FISMA <fisma.rst>
+     Reference Architecture <reference_architecture.rst>
+     Security Controls <security_controls.rst>
+     Ansible <ansible.rst>
+     Continuous Compliance <continuous_compliance.rst>
+     SSP Template <ssp_template.rst>
+     POA&M Template <template_poam.rst>
 
 
 
