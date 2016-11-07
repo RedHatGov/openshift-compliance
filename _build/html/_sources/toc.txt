@@ -10,14 +10,15 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   index
-   fisma
-   reference_architecture
-   security_controls
-   ansible
-   continuous_compliance
-   ssp_template
-   template_poam
+
+     index <index.rst>
+     fisma <fisma.rst>
+     reference_architecture <reference_architecture.rst>
+     security_controls <security_controls.rst>
+     ansible <ansible.rst>
+     continuous_compliance <continuous_compliance.rst>
+     ssp_template <ssp_template.rst>
+     template_poam <template_poam.rst>
 
 
 
@@ -27,4 +28,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
