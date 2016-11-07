@@ -47,8 +47,8 @@ Contributing
 ************
 
 Security is an ongoing effort, and we appreciate any feedback or recommendations
- that you may have. Please use this project's `GitHub <https://github.com/jason-callaway/openshift-compliance>`_
- page to submit issues or pull requests.
+that you may have. Please use this project's `GitHub <https://github.com/jason-callaway/openshift-compliance>`_
+page to submit issues or pull requests.
 
 
 .. _Docker: https://www.openshift.com/container-platform/containers.html
