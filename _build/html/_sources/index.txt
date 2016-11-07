@@ -4,9 +4,9 @@
 The OpenShift Compliance Guide
 ##############################
 
-********
-Overview
-********
+*****
+About
+*****
 
 OpenShift is a container management platform based on Docker_ containers and the
 Kubernetes_ container cluster manager. OpenShift adds developer and operational
