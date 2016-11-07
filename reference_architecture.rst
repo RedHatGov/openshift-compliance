@@ -42,11 +42,12 @@ AWS provides this capability.  Amazon provides the underlying hardware infastruc
 Actors
 ~~~~~~
 Platform administrators require AWS console access and the ability to deploy and/or configure the following AWS components.
-* VPC
-* Elastic IP
-* Elastic Cloud Compute (EC2)
-* VPC Peering
-* Route Tables
+
+ - VPC
+ - Elastic IP
+ - Elastic Cloud Compute (EC2)
+ - VPC Peering
+ - Route Tables
 
 Diagram
 ~~~~~~~
@@ -106,12 +107,42 @@ The **Management VPC** contains the Trusted Container Repository as well as the 
 
 Platform View
 -------------
+Definition
+~~~~~~~~~~
+Description
+~~~~~~~~~~~
+Actors
+~~~~~~
+Diagram
+~~~~~~~
+Architecture Rational
+~~~~~~~~~~~~~~~~~~~~~
 
 Application View
 ----------------
+Definition
+~~~~~~~~~~
+Description
+~~~~~~~~~~~
+Actors
+~~~~~~
+Diagram
+~~~~~~~
+Architecture Rational
+~~~~~~~~~~~~~~~~~~~~~
 
 Container View
 --------------
+Definition
+~~~~~~~~~~
+Description
+~~~~~~~~~~~
+Actors
+~~~~~~
+Diagram
+~~~~~~~
+Architecture Rational
+~~~~~~~~~~~~~~~~~~~~~
 
 .. _NIST 800-145: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
 .. _FISMA: http://csrc.nist.gov/drivers/documents/FISMA-final.pdf
