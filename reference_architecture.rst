@@ -30,18 +30,19 @@ As stated prviously, the IaaS in this architecture is AWS.  Red Hat's OCP is the
 
 Infrastructure View
 -------------------
-Definition
+The infrastructure view describes the OCP components at the infrastructure level.  These components are necessary to serve OCP in AWS and achieving FISMA high.
+
+IaaS Definition - NIST 800-145
 ~~~~~~~~~~
-The NIST 800-145 defines the following as an Infrastructure as a Service:
   The capability provided to the consumer is to provision processing, storage, networks, and other fundamental computing resources where the consumer is able to deploy and run arbitrary software, which can include operating systems and applications. The consumer does not manage or control the underlying cloud infrastructure but has control over operating systems, storage, and deployed applications; and possibly limited control of select networking components (e.g., host firewalls).
 
 Description
 ~~~~~~~~~~~
 AWS provides this capability.  Amazon provides the underlying hardware infastructure that supports the self-service provisioning into the cloud of what has traditionaly been based in hardware.  This includes, but is not limited to compute, storage, and networking services.
 
-Actors
+Stakeholders
 ~~~~~~
-Platform administrators require AWS console access and the ability to deploy and/or configure the following AWS components.
+**OCP administrators** require AWS console access and the ability to deploy and/or configure the following AWS components.
 
  - VPC
  - Elastic IP
@@ -49,73 +50,143 @@ Platform administrators require AWS console access and the ability to deploy and
  - VPC Peering
  - Route Tables
 
+**Application developers** do not have a role at the infrastructure level.
+
+**Application consumers** do not have a role at the infrastructure level.
+
 Diagram
 ~~~~~~~
 The following diagram illustrates the high level deployment of OCP in AWS and the necessary AWS components to support OCP.
 |Infrastructure View|
 
+Components
+~~~~~~~~~~
 The following table describes each AWS component and relates it to the implementation in the OCP reference architecture.
++---------------+---------------------------------------------------------+------------------------+
+| AWS Component | Description                                             |  OCP Component         |
++===============+=========================================================+========================+
+| VPC           | A logically isolated section of AWS in which resources  | Red Hat VPC            |
+|               | are connected via a virtual networking environment.     +------------------------+
+|               |                                                         | 1..n Dedicated VPC's   |
++---------------+---------------------------------------------------------+------------------------+
+| Subnet        | Virtually isolated network used on which traffic        | Management Subnet      |
+|               | is isolatedbecause isolation makes for great neighbors. +------------------------+
+|               |                                                         | Staging Subnet         |
+|               |                                                         +------------------------+
+|               |                                                         | Operations Subnet      |
+|               |                                                         +------------------------+
+|               |                                                         | Dedicated Subnet       |
++---------------+---------------------------------------------------------+------------------------+
+| EC2 Compute   | A scalable compute capacity in AWS.  Compute instances  | All OCP Platform       |
+| Instance      | are instantiated from cloud images with pre-installed   | components.            |
+|               | operating systems, for example Red Hat Enterprise Linux.|                        |
++---------------+---------------------------------------------------------+------------------------+
+| Route Table   | A route table defines rules as to how network traffic   | Red Hat VPC            |
+|               | in a VPC is routed internally.                          |                        |
++---------------+---------------------------------------------------------+------------------------+
+| Elastic IP    | An Elastic IP is associated with an EC2 Instance and is | Staging HA Proxy       |
+|               | publically reacheable.                                  +------------------------+
+|               |                                                         | Staging Authentication |
+|               |                                                         +------------------------+
+|               |                                                         | Staging App. Traffic   |
+|               |                                                         +------------------------+
+|               |                                                         | Bastion                |
+|               |                                                         +------------------------+
+|               |                                                         | Ansible Tower          |
++---------------+---------------------------------------------------------+------------------------+
+| VPC Peering   | A VPC peering connection is a networking connection     | Between the Red Hat    |
+|               | between two VPCs that enables traffic to be routed      | VPC and any Dedicated  |
+|               | between them using private IP addresses.                | VPC                    |
++---------------+---------------------------------------------------------+------------------------+
+| Elastic Load  | An ELB automatically distributes traffic among EC2      | Operations API         |
+| Balancer      | instances.                                              +------------------------+
+|               |                                                         | Operations Application |
+|               |                                                         +------------------------+
+|               |                                                         | Dedicated API          |
+|               |                                                         +------------------------+
+|               |                                                         | Dedicated Application  |
++---------------+---------------------------------------------------------+------------------------+
 
-+---------------+---------------------------------------------------------+----------------------+
-| AWS Component | Description                                             |  OCP Component       |
-+===============+=========================================================+======================+
-| VPC           | A logically isolated section of AWS in which resources  | Red Hat VPC          |
-|               | are connected via a virtual networking environment.     +----------------------+
-|               |                                                         | 1..n Dedicated VPC's |
-+---------------+---------------------------------------------------------+----------------------+
-| Subnet        | Virtually isolated network used on which traffic        | Management Subnet    |
-|               | is isolatedbecause isolation makes for great neighbors. +----------------------+
-|               |                                                         | Staging Subnet       |
-|               |                                                         +----------------------+
-|               |                                                         | Operations Subnet    |
-|               |                                                         +----------------------+
-|               |                                                         | Dedicated Subnet     |
-+---------------+---------------------------------------------------------+----------------------+
-| EC2 Compute   | A scalable compute capacity in AWS.  Compute instances  | All OCP Platform     |
-| Instance      | are instantiated from cloud images with pre-installed   | components.          |
-|               | operating systems, for example Red Hat Enterprise Linux.|                      |
-+---------------+---------------------------------------------------------+----------------------+
-| Route Table   | A route table defines rules as to how network traffic   | Red Hat VPC          |
-|               | in a VPC is routed internally.                          |                      |
-+---------------+---------------------------------------------------------+----------------------+
-| Elastic IP    | An Elastic IP is associated with an EC2 Instance and is | Staging HA Proxy     |
-|               | publically reacheable.                                  +----------------------+
-|               |                                                         | Staging Auth Proxy   |
-|               |                                                         +----------------------+
-|               |                                                         | Operations HA   Proxy|
-|               |                                                         +----------------------+
-|               |                                                         | Operations Auth Proxy|
-|               |                                                         +----------------------+
-|               |                                                         | Dedicated HA Proxy   |
-|               |                                                         +----------------------+
-|               |                                                         | Dedicated Auth Proxy |
-+---------------+---------------------------------------------------------+----------------------+
-| VPC Peering   | A VPC peering connection is a networking connection     | Between the Red Hat  |
-|               | between two VPCs that enables traffic to be routed      | VPC and any Dedicated|
-|               | between them using private IP addresses.                | VPC                  |
-+---------------+---------------------------------------------------------+----------------------+
+Network Architecture
+~~~~~~~~~~~~~~~~~~~~
+The **Staging Subnet** provides an isolated area for platform administrators to apply regular patches and test configuration changes before applying these to the operations cluster.  One cluster of OCP is deployed in this VPC.
 
-Architecture Rational
-~~~~~~~~~~~~~~~~~~~~~
-The **Staging VPC** provides an isolated area for platform administrators to apply regular patches and test configuration changes before applying these to the operations cluster.  One cluster of OCP is deployed in this VPC.
+The **Operations Subnet** contains a single deployment of OpenShift where tenants will deploy applications.  OCP Nodes will be labled and functionally grouped to support development, test, and production deployments of an application.  This is described in detail in the *Platform View*.
 
-The **Operations VPC** contains a single deployment of OpenShift where tenants will deploy applications.  OCP Nodes will be labled and functionally grouped to support development, test, and production deployments of an application.  This is described in detail in the *Platform View*.
-
-The **Management VPC** contains the Trusted Container Repository as well as the Package Repository.  A route table allows the **Managent VPC** to communicate to the **Staging VPC**, **Operations VPC**, and any **Dedicated VPC's**.  However, the latter three VPC's cannot communicate with each other.
+The **Management Subnet** contains the Trusted Container Repository as well as the Package Repository.  A route table allows the **Managent Subnet** to communicate to the **Staging Subnet**, **Operations Subnet**.  The **Staging Subnet** and **Operations Subnet** are not permitted to communicate with each other. A VPC peering connection allows the **Management Subnet** in the **Red Hat VPC** to communicate with any **Dedicated VPC's**.
 
 **Dedicated VPC's** are VPC's that are deployed to support specific isolation needs of a particular tenant.  These may be created and destroyed per organizational needs.
 
+The **bastion host** allows OCP Administrators and only OCP Administrators the ability to access the underlying hosts in each VPC.
+
+**Application Developers** interact with OCP via a command line interface (CLI) and web user interface (WebUI).  An application router, internal to OCP, handles application traffic.  Therefore certain ports in a security group must be exposed on the **Red Hat VPC** to allow ths traffic.  The same is true of any **Dedicated VPC's**.  The following table details this information.
+
++----------+---------------------+-------------------------------------------+
+| VPC Port | VPC/Subnet          | Exposed Component                         |
++==========+=====================+===========================================+
+| 443/TCP  | Red Hat/Operations  | ELB - API Traffic                         |
++          +                     +-------------------------------------------+
+|          |                     | ELB - Application Traffic                 |
++          +---------------------+-------------------------------------------+
+|          | Red Hat/Staging     | Elastic IP - API HA Proxy                 |
++          +                     +-------------------------------------------+
+|          |                     | Elastic IP - Application Traffic          |
++          +---------------------+-------------------------------------------+
+|          | Red Hat/Management  | Elastic IP - Ansible Tower                |
++          +---------------------+-------------------------------------------+
+|          | Dedicated/Dedicated | ELB - API Traffic                         |
++          +                     +-------------------------------------------+
+|          |                     | ELB - Application Traffic                 |
++----------+---------------------+-------------------------------------------+
+| 4444/TCP | Red Hat/Operations  | ELB - API Traffic - Authentication        |
++          +---------------------+-------------------------------------------+
+|          | Red Hat/Staging     | Elastic IP - API Traffic - Authentication |
++          +---------------------+-------------------------------------------+
+|          | Dedicated/Dedicated | ELB - API Traffic - Authentication        |
++----------+---------------------+-------------------------------------------+
+| 22/TCP   | Red Hat/Management  | Elastic IP - SSH Bastion                  |
++----------+---------------------+-------------------------------------------+
+
 Platform View
 -------------
-Definition
+The platform view describes the OCP architecture at the platform level.  This view abastracts out the AWS components and focuses primarily on the functional components of OCP.
+
+PaaS Definition - NIST 800-145
 ~~~~~~~~~~
+  The capability provided to the consumer is to deploy onto the cloud infrastructure consumer-created or acquired applications created using programming languages, libraries, services, and tools supported by the provider.  The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, or storage, but has control over the deployed applications and possibly configuration settings for the application-hosting environment.
+
 Description
 ~~~~~~~~~~~
-Actors
-~~~~~~
+The OpenShift Container Platform provides application developer's the ability to rappidly deploy applications in a variety of application frameworks.
+
+Stakeholders
+~~~~~~~~~~~~
+**OCP Administrators** are responsible for the operations and proper function of the platform.  They have the ability to affect OCP security policies surrounding developer interaction and container function.
+
+**Application Developers** have access to the OCP WebUI and CLI to deploy applications.
+
+**Application Users** do not have a role at the platform level.
+
 Diagram
 ~~~~~~~
-Architecture Rational
+The following diagram details the minimum highly-available configuration of OCP to meet FISMA high at the platform level.
+|Platform View|
+
+Components
+~~~~~~~~~~
++---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Component           | Description                                                                                                                                                                                                                                                                                                       |
++---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Master              | The OCP Master provides the API and WebUI entry points for Application Developers and OCP administrators. The OCP Master is also responsible for scheduling containers on each node.                                                                                                                              |
++---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ETCD                | The ETCD servers are key-value stores used for maintaining information about the state of the OCP cluster.                                                                                                                                                                                                        |
++---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Application Node    | The Application Nodes handle executing application containers.                                                                                                                                                                                                                                                    |
++---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Infrastructure Node | In an OCP cluster, a containerized HA proxy routes application traffic.  A containerized integrated container registry in OCP is a mechanism in the automated build and deployment flow.  Both the application router and integrated container registry and only these components run on the Infrastructure Node. |
++---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Network Architecture
 ~~~~~~~~~~~~~~~~~~~~~
 
 **Gluster**
@@ -160,3 +231,4 @@ Architecture Rational
 .. _NIST 800-53: https://web.nvd.nist.gov/view/800-53/home
 
 .. |Infrastructure View| image:: /images/architecture/InfrastructureView.png
+.. |Platform View| image:: /images/architecture/PlatformView.png
