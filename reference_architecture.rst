@@ -33,7 +33,7 @@ Infrastructure View
 The infrastructure view describes the OCP components at the infrastructure level.  These components are necessary to serve OCP in AWS and achieving FISMA high.
 
 IaaS Definition - NIST 800-145
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   The capability provided to the consumer is to provision processing, storage, networks, and other fundamental computing resources where the consumer is able to deploy and run arbitrary software, which can include operating systems and applications. The consumer does not manage or control the underlying cloud infrastructure but has control over operating systems, storage, and deployed applications; and possibly limited control of select networking components (e.g., host firewalls).
 
 Description
@@ -41,7 +41,7 @@ Description
 AWS provides this capability.  Amazon provides the underlying hardware infastructure that supports the self-service provisioning into the cloud of what has traditionaly been based in hardware.  This includes, but is not limited to compute, storage, and networking services.
 
 Stakeholders
-~~~~~~
+~~~~~~~~~~~~
 **OCP administrators** require AWS console access and the ability to deploy and/or configure the following AWS components.
 
  - VPC
@@ -62,6 +62,7 @@ The following diagram illustrates the high level deployment of OCP in AWS and th
 Components
 ~~~~~~~~~~
 The following table describes each AWS component and relates it to the implementation in the OCP reference architecture.
+
 +---------------+---------------------------------------------------------+------------------------+
 | AWS Component | Description                                             |  OCP Component         |
 +===============+=========================================================+========================+
@@ -154,7 +155,7 @@ Platform View
 The platform view describes the OCP architecture at the platform level.  This view abastracts out the AWS components and focuses primarily on the functional components of OCP.
 
 PaaS Definition - NIST 800-145
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   The capability provided to the consumer is to deploy onto the cloud infrastructure consumer-created or acquired applications created using programming languages, libraries, services, and tools supported by the provider.  The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, or storage, but has control over the deployed applications and possibly configuration settings for the application-hosting environment.
 
 Description
@@ -190,7 +191,64 @@ Components
 
 Network Architecture
 ~~~~~~~~~~~~~~~~~~~~~
+The network architecture in the platform view is broken into two parts.  The first is the internal networking from between the EC2 instances supporting the platorm.  The second is the software defined networking layer enabling multi-tenant deployment of container based applications.
 
+The following diagram illustrates the internetworking of the platform components of OCP.
+
+|Platform Network|
+
+The following table describes the port information of the internal platform components.
+
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| From                        | To                           | Port            | Notes                                                                                                                                                                                                                                      |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Application Traffic ELB     | OCP Infrastructure Node      | 443/TCP         |                                                                                                                                                                                                                                            |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| API Traffic ELB             | HA and Authentication Proxy  | 8443/TCP        |                                                                                                                                                                                                                                            |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| HA and Authentication Proxy | OCP Master                   | 8443/TCP        |                                                                                                                                                                                                                                            |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Master                  | OCP Master and Loop          | 8053/TCP        | Required for DNS resolution of clustered services.                                                                                                                                                                                         |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Master                  | OCP Master and Loop          | 8053/UDP        | Required for DNS resolution of clustered services.                                                                                                                                                                                         |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Master                  | OCP Master                   | 2379/TCP        | Used for standalone etcd (clustered) to accept changes in state.                                                                                                                                                                           |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Master                  | OCP Master                   | 2380/TCP        | etcd requires this port be open between masters for leader election and peering connections when using standalone etcd (clustered).                                                                                                        |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Master                  | OCP Node                     | 4789/UDP        | Required for SDN communication between pods on separate hosts.                                                                                                                                                                             |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Master                  | OCP Node                     | 10250/TCP       | The master proxies to node hosts via the Kubelet for oc commands.                                                                                                                                                                          |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Node                    | OCP Master                   | 4789/UDP        | Required for SDN communication between pods on separate hosts.                                                                                                                                                                             |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Node                    | OCP Master                   | 8053/TCP        | Required for DNS resolution of clustered services.                                                                                                                                                                                         |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Node                    | OCP Master                   | 8053/UDP        | Required for DNS resolution of clustered services.                                                                                                                                                                                         |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Node                    | OCP Master                   | 8443/TCP        |                                                                                                                                                                                                                                            |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| All                         | Package Repository           | 443/TCP         |                                                                                                                                                                                                                                            |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Node                    | Trusted Container Repository | 443/TCP         |                                                                                                                                                                                                                                            |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Bastion                     | All                          | 22/TCP          | SSH                                                                                                                                                                                                                                        |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Ansible Tower               | All                          | 22/TCP          | SSH used during Ansible Plays                                                                                                                                                                                                              |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OCP Node                    | Gluster Node                 | 49152-49251/TCP | For client communication with Red Hat Gluster Storage 2.1 and for brick processes depending on the availability of the ports. The total number of ports required to be open depends on the total number of bricks exported on the machine. |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Gluster Node                | Gluster Node                 | 24007/TCP       | For glusterd (for management).                                                                                                                                                                                                             |
++-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+In order to achieve network traffic isolation between containers owned by different tenants running on the same node, the traffic must be encapsulated.  This capability is provided by OpenVSwitch which encapsulates the OSI L2 traffic from the containers in the L3 traffic between the nodes.  The packets are then tagged by an 24 bit value known as a VXLan Network Identifier (VNID).  A VNID corresponds to a project space in OCP and is transparent to both the **Application Developer** and **Application User**.  In order to utilize this option the *redhat/openshift-ovs-multitenant* must be selected during the installation.
+
+The L3 traffic between nodes is sent as UDP packets to port 4789.
+
+More information on the `software defined network`_ in OCP can be found in the online documentation.
+
+Storage Architecture
+~~~~~~~~~~~~~~~~~~~~
 **Gluster**
 Managing storage is a distinct problem from managing compute resources. OpenShift Container Platform leverages the Kubernetes persistent volume (PV) framework to allow administrators to provision persistent storage for a cluster. Using persistent volume claims (PVCs), developers can request PV resources without having specific knowledge of the underlying storage infrastructure.
 
@@ -231,6 +289,8 @@ Architecture Rational
 .. _NIST 800-145: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
 .. _FISMA: http://csrc.nist.gov/drivers/documents/FISMA-final.pdf
 .. _NIST 800-53: https://web.nvd.nist.gov/view/800-53/home
+.. _software defined network: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/sdn.html
 
 .. |Infrastructure View| image:: /images/architecture/InfrastructureView.png
 .. |Platform View| image:: /images/architecture/PlatformView.png
+.. |Platform Network| image:: /images/architecture/PlatformNetwork.png
