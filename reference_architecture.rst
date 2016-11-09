@@ -147,6 +147,8 @@ The **bastion host** allows OCP Administrators and only OCP Administrators the a
 | 22/TCP   | Red Hat/Management  | Elastic IP - SSH Bastion                  |
 +----------+---------------------+-------------------------------------------+
 
+Communications internal to the nodes occur in the network address space defined by VPC subnets.
+
 Platform View
 -------------
 The platform view describes the OCP architecture at the platform level.  This view abastracts out the AWS components and focuses primarily on the functional components of OCP.
