@@ -24,3 +24,10 @@ $ make html
 ```
 
 Sanity check the output for errors. The docs can be viewed in the ```_biuld/html``` directory.
+
+## Read the Docs
+
+For the time being, this project is being distributed via [Read the Docs](http://readthedocs.org)
+
+The main page is at [http://openshift-compliance-guide.readthedocs.io](http://openshift-compliance-guide.readthedocs.io/en/latest/index.html).
+
