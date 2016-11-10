@@ -371,6 +371,8 @@ Definition
 ~~~~~~~~~~
 A container in the context of an information system is an operating system level virtualization method, provided by kernel constructs, for isolating prcesses using a single kernel.
 
+Due to the value of containers to the information technology field, the definition for both the container image specification and runtime are managed by a community of interested parties: `Open Container Initiative`_ (OCI).  The technical definition is divided into an Image Specification (image-spec) and Runtime Specification (runtime-spec).
+
 Description
 ~~~~~~~~~~~
 The container view describes the constructs used in **OCIF** and **runc** process isolation.  This view addresses a single container regardless of being run in the OCP cluster.
@@ -391,6 +393,7 @@ A single container as it exists on the host's filesystem is actually a multi-lay
 The following graphic presents a simplified view of a layered container image.
 |Container Image|
 
+External storage can be provided to the container and mounted as a file system in the container for data persistence.  The platform layer abstracts the *Persistent Volume* from the container.  The container has no knowledge of the nature of the underlying storage share; only that it has a file system to which it can write.
 
 Kernel Components
 ~~~~~~~~~~~~~~~~~
@@ -418,6 +421,9 @@ A container is constructed using Linux kernel mechanisms, some of which have exi
 .. _software defined network: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/sdn.html
 .. _authorization policies: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#architecture-additional-concepts-authorization
 .. _security context constraints: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#security-context-constraints
+.. _Open Container Initiative: https://www.opencontainers.org/
+.. _Image Specification: http://www.github.com/opencontainers/image-spec
+.. _Runtime Specification: http://www.github.com/opencontainers/runtime-spec
 
 .. |Infrastructure View| image:: /images/architecture/InfrastructureView.png
 .. |Storage View| image:: /images/architecture/StorageView.png
