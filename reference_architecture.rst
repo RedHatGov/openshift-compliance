@@ -21,7 +21,7 @@ This architecture is divided into architectural views loosely mapped to the NIST
 +--------------+---------------+
 | Landlord     |        Tenant |
 +==============+===============+
-| AWS          |       OCP     |
+| AWS          |  OCP          |
 +--------------+---------------+
 | OCP          |  Applications |
 +--------------+---------------+
@@ -247,6 +247,27 @@ The L3 traffic between nodes is sent as UDP packets to port 4789.
 
 More information on the `software defined network`_ in OCP can be found in the online documentation.
 
+Platform Security - Platform Users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Regardless of the user role, all users are subject to `authorization policies`_ managed in the OCP cluster.  Authorization polcies dictate what a user can and cannot do.  Policies are enforce at the project (local) level, and separately at the cluster level.
+
+The following table describes the elements comprising an authorization role.
++----------+--------------------------------------------------------------------------------------------------------------+
+| Rules    | Sets of permitted verbs on a set of objects. For example, whether something can create pods.                 |
++==========+==============================================================================================================+
+| Roles    | Collections of rules. Users and groups can be associated with, or bound to, multiple roles at the same time. |
++----------+--------------------------------------------------------------------------------------------------------------+
+| Bindings | Associations between users and/or groups with a role.                                                        |
++----------+--------------------------------------------------------------------------------------------------------------+
+
+Platform Security - Container Security
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Container security occurs at multiple levels.  At the platform level, OCP applies `security context constraints`_ (SCC's) to manage what a container can and cannot do.  OCP provides a number of SCC's out of the box.  The default SCC is highly restrictive to unprivileged containers.
+
+Unprivileged containers are containers deployed in a tenant application.  Specific action is required on the part of the **Cluster Administrator** to allow an **Application Developer** the ability to deploy a container with escallated privileges.
+
+A notable attribute of SCC's is the user ID enforcement.  When a container executes, the entry process runs in the container as a specified user ID.  The *restricted* SCC forces the container to be run as a very high UID.  This prevents a container from being deployed where the internal user ID is set to 0 (root).
+
 Storage Architecture
 ~~~~~~~~~~~~~~~~~~~~
 **Gluster**
@@ -352,6 +373,7 @@ A container in the context of an information system is an operating system level
 
 Description
 ~~~~~~~~~~~
+The container view describes the constructs used in **OCIF** and **runc** process isolation.  This view addresses a single container regardless of being run in the OCP cluster.
 
 Actors
 ~~~~~~
@@ -359,13 +381,21 @@ Actors
 
 **Application Developers** do not necissarily need to be aware of the container construct in OCP.  An **Application Developer** can deploy a containerized application inside OCP simply by providing OCP a source code repository.  At this point OCP automatically builds the source into and deploys a containerized application.
 
-Diagram
-~~~~~~~
+Container Filesystem
+~~~~~~~~~~~~~~~~~~~~
+A single container as it exists on the host's filesystem is actually a multi-layer filesystem: UnionFS.  Each container image consists of a *Kernel* library layer, *bootfs*, and *Base Image*.  Additional layers may contain application libraries and binaries.  Once this container image is built, it is immutable.  This has implications:
+
+  1. Any patches to a lower layer of the container (e.g. the base image) require the container to be rebuild from that level up.
+  2. Without an externally mounted persistent storage share, any data written to the container's file system is lost when that container is destroyed.
+
+The following graphic presents a simplified view of a layered container image.
+|Container Image|
 
 
-Components
-~~~~~~~~~~
+Kernel Components
+~~~~~~~~~~~~~~~~~
 A container is constructed using Linux kernel mechanisms, some of which have existed for over 10 years.  The following table describes these kernel mechanisms and their role in isolating processes.
+
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Component           | Purpose                                                                                                                                                                                                                          |
 +=====================+==================================================================================================================================================================================================================================+
@@ -386,9 +416,12 @@ A container is constructed using Linux kernel mechanisms, some of which have exi
 .. _FISMA: http://csrc.nist.gov/drivers/documents/FISMA-final.pdf
 .. _NIST 800-53: https://web.nvd.nist.gov/view/800-53/home
 .. _software defined network: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/sdn.html
+.. _authorization policies: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#architecture-additional-concepts-authorization
+.. _security context constraints: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#security-context-constraints
 
 .. |Infrastructure View| image:: /images/architecture/InfrastructureView.png
 .. |Storage View| image:: /images/architecture/StorageView.png
 .. |Storage Replication View| image:: /images/architecture/StorageReplicationView.png
 .. |Platform View| image:: /images/architecture/PlatformView.png
 .. |Application View| image:: /images/architecture/ApplicationView.png
+.. |Container Image| image:: /images/architecture/ContainerLayers.png
