@@ -42,7 +42,7 @@ AWS provides this capability.  Amazon provides the underlying hardware infastruc
 
 Stakeholders
 ~~~~~~~~~~~~
-**OCP administrators** require AWS console access and the ability to deploy and/or configure the following AWS components.
+**Cluster Administrators** require AWS console access and the ability to deploy and/or configure the following AWS components.
 
  - VPC
  - Elastic IP
@@ -50,9 +50,9 @@ Stakeholders
  - VPC Peering
  - Route Tables
 
-**Application developers** do not have a role at the infrastructure level.
+**Application Developers** do not have a role at the infrastructure level.
 
-**Application consumers** do not have a role at the infrastructure level.
+**Application Consumers** do not have a role at the infrastructure level.
 
 Diagram
 ~~~~~~~
@@ -164,7 +164,7 @@ The OpenShift Container Platform provides application developer's the ability to
 
 Stakeholders
 ~~~~~~~~~~~~
-**OCP Administrators** are responsible for the operations and proper function of the platform.  They have the ability to affect OCP security policies surrounding developer interaction and container function.
+**Cluster Administrators** are responsible for the operations and proper function of the platform.  They have the ability to affect OCP security policies surrounding developer interaction and container function.
 
 **Application Developers** have access to the OCP WebUI and CLI to deploy applications.
 
@@ -345,16 +345,42 @@ Components
 
 Container View
 --------------
+
 Definition
 ~~~~~~~~~~
+A container in the context of an information system is an operating system level virtualization method, provided by kernel constructs, for isolating prcesses using a single kernel.
+
 Description
 ~~~~~~~~~~~
+
 Actors
 ~~~~~~
+**Platform Administrators** are responsible for two specific container processes in the OCP cluster.  The first is an itegrated container registry.  The second is an application traffic HAProxy router, running in a container.  While these nominally operate without intervention, their continued operation falls under the responsibility of the **Platform Administrators**.
+
+**Application Developers** do not necissarily need to be aware of the container construct in OCP.  An **Application Developer** can deploy a containerized application inside OCP simply by providing OCP a source code repository.  At this point OCP automatically builds the source into and deploys a containerized application.
+
 Diagram
 ~~~~~~~
-Architecture Rational
-~~~~~~~~~~~~~~~~~~~~~
+
+
+Components
+~~~~~~~~~~
+A container is constructed using Linux kernel mechanisms, some of which have existed for over 10 years.  The following table describes these kernel mechanisms and their role in isolating processes.
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Component           | Purpose                                                                                                                                                                                                                          |
++=====================+==================================================================================================================================================================================================================================+
+| SELinux             | SELinux, a core component of Red Hat Enterprise Linux, labels processes and filesystems, enforcing mandatory access control.  Each containerized process receives a unique SELinux category.                                     |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CGroups             | CGroups provide resource constraints preventing run-away processes.                                                                                                                                                              |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Kernel Namespaces   | Namespaces allow resources to have identical names in the context of that resource, but unique names from perspective of the host.  For example, the PID namespace allows for PID 0 in each container, but be PID N on the host. |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Kernel Capabilities | Capabilities are process permission controls that group system calls in different categories.  By default, all capabilities are removed for unprivileged containers.                                                             |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Secomp              | Secure computing assists with creating sandboxes by defining which system calls should be blocked.                                                                                                                               |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 
 .. _NIST 800-145: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
 .. _FISMA: http://csrc.nist.gov/drivers/documents/FISMA-final.pdf
