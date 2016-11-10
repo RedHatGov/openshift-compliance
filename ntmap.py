@@ -1,3 +1,7 @@
+# This is an index of all control names, which we don't have in the
+# master sctm sheet due to oversight. If this data is ever captured in the
+# master_sctm.xlsx sheet, we can eliminate this file.
+
 nt_map = {}
 nt_map["AC-1"] = "ACCESS CONTROL POLICY AND PROCEDURES"
 nt_map["AC-2"] = "ACCOUNT MANAGEMENT"

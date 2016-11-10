@@ -5,6 +5,8 @@ OpenShift Compliance documentation
 
 For help with ReStructuredText syntax, check out the [Quickstart Guide](http://docutils.sourceforge.net/docs/user/rst/quickstart.html).
 
+This one is good too: [Sphinx reST Syntax](http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html).
+
 ## Getting started
 
 To get started, install Sphinx and the RTD Python modules.

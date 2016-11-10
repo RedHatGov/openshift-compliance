@@ -1,33 +1,47 @@
 
-{{ r["NIST Ref #"] }} - {{ " ".join(w.capitalize() for w in r["Title"].split()) }}
+{{ key[0]['NIST Ref #'] }} - {{ key[0]['Title'] }}
 ================================================================================
 
-**Responsible Role**: {{ r["SCTM"] }}
+{{ key[0]['Original Requirements'] }}
 
-+--------------------------------+
-|   Implementation Status        |
-+================================+
-| X | Implemented                |
-+---+----------------------------+
-|   | Partially implemented      |
-+---+----------------------------+
-|   | Planned                    |
-+---+----------------------------+
-|   | Alternative implementation |
-+---+----------------------------+
-|   | Not applicable             |
-+---+----------------------------+
+Control Summary Information
+---------------------------
 
-+--------------------------------+
-|   Control Origination          |
-+================================+
-| X | Implemented                |
-+---+----------------------------+
-|   | Partially implemented      |
-+---+----------------------------+
-|   | Planned                    |
-+---+----------------------------+
-|   | Alternative implementation |
-+---+----------------------------+
-|   | Not applicable             |
-+---+----------------------------+
+**Responsible Role**: {{ key[0]['Role'] }}
+**Parameter**: {{ key[0]['Parameter'] }}
+**Implementation Status**: {{ key[0]['Implementation Status'] }}
+**Control Origin**: {{ key[0]['Control Origin'] }}
+
+{{ key[0]['NIST Ref #'] }} What is the solution and how is it implemented?
+--------------------------------------------------------------------------------
+
+{% if len(key) == 1 %}
+**Responsible Role**: {{ key[0]['Role'] }}
+**Implementation Status**: {{ key[0]['Implementation Status'] }}
+
+{{ key[0]['Red Hat Response'] }}
+{% if key[0].get('Ansible') %}
+
+Ansible Automation
+------------------
+
+{{ key[0]['Ansible'] }}
+{% endif %}
+{% else %}
+{% for part in key %}
+Part {{ part['Org Ref #'] }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Responsible Role**: {{ part['Role'] }}
+**Implementation Status**: {{ part['Implementation Status'] }}
+
+{{ part['Red Hat Response'] }}
+{% if part.get('Ansible') %}
+
+Ansible Automation
+------------------
+
+{{ part['Ansible'] }}
+{% endif %}
+{% endfor %}
+{% endif %}
