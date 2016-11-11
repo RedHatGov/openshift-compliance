@@ -28,7 +28,6 @@ reference architecture is `Amazon Web Services`_.
 *****************
 Table of Contents
 *****************
-#. :ref:`fisma`
 #. :ref:`sec_conops`
 #. :ref:`control`
 #. :ref:`ansible`

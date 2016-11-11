@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Security CONOPS &mdash; OpenShift Compliance Guide 1.0beta documentation</title>
+  <title>Security CONOPS &mdash; OpenShift Compliance Guide 1.0 beta documentation</title>
   
 
   
@@ -33,9 +33,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="OpenShift Compliance Guide 1.0beta documentation" href="index.html"/>
+    <link rel="top" title="OpenShift Compliance Guide 1.0 beta documentation" href="index.html"/>
         <link rel="next" title="Security Controls" href="controls.html"/>
-        <link rel="prev" title="FISMA Compliance" href="fisma.html"/> 
+        <link rel="prev" title="The OpenShift Compliance Guide" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,7 +86,6 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">  Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fisma.html">  FISMA</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">  Security CONOPS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#security-standards">Security Standards</a></li>
@@ -113,6 +112,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#platform-security-platform-users">Platform Security - Platform Users</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#platform-security-container-security">Platform Security - Container Security</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-security-storage-security">Platform Security - Storage Security</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id6">Diagram</a></li>
 </ul>
 </li>
@@ -120,6 +120,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#definition">Definition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id7">Description</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#actors">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-security-sensitive-configuration-data">Application Security - Sensitive Configuration Data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id8">Diagram</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id9">Components</a></li>
 </ul>
@@ -130,6 +131,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id12">Actors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#container-filesystem">Container Filesystem</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kernel-components">Kernel Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selinux">SELinux</a></li>
 </ul>
 </li>
 </ul>
@@ -189,7 +191,7 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The Security Concept of Operations (CONOPS) details, at various levels of abstraction, a
-deployment of Red Hat&#8217;s OpenShift Container Platform (OCP) deployed on Amazon Web Services (AWS).  The NIST <em>Definition of Cloud Computing</em> <a class="reference external" href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">NIST 800-145</a> succinctly describes different cloud service models and the attributes of a cloud platform.  The architecture described herein follows the definitions found in the NIST 800-145.  For example, Red Hat&#8217;s OCP is a Platform as a Service (PaaS) under NIST 800-145.  Similarly, AWS is an Infrastrucutre as a Service (IaaS) per the NIST definition.</p>
+deployment of Red Hat&#8217;s OpenShift Container Platform (OCP) deployed on Amazon Web Services (AWS).  The NIST <em>Definition of Cloud Computing</em> (<a class="reference external" href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">NIST 800-145</a>) succinctly describes different cloud service models and the attributes of a cloud platform.  The architecture described herein follows the definitions found in the NIST 800-145.  For example, Red Hat&#8217;s OCP is a Platform as a Service (PaaS) under NIST 800-145.  Similarly, AWS is an Infrastrucutre as a Service (IaaS) per the NIST definition.</p>
 <div class="section" id="security-standards">
 <h3>Security Standards<a class="headerlink" href="#security-standards" title="Permalink to this headline">¶</a></h3>
 <p>The Fedral Information Security Modernization Act (<a class="reference external" href="http://csrc.nist.gov/drivers/documents/FISMA-final.pdf">FISMA</a>), originally enacted in 2002, directs United States Federal Agencies to develop and implement programs to implement information and information systems security.  This reference architecture aims to describe an OCP deployment on AWS as FISMA high: high confidentiality, high integrity, high availability.</p>
@@ -630,17 +632,21 @@ Cannot modify access to the project.</td>
 </div>
 <div class="section" id="storage-architecture">
 <h4>Storage Architecture<a class="headerlink" href="#storage-architecture" title="Permalink to this headline">¶</a></h4>
-<p><strong>Gluster</strong>
-Managing storage is a distinct problem from managing compute resources. OpenShift Container Platform leverages the Kubernetes persistent volume (PV) framework to allow administrators to provision persistent storage for a cluster. Using persistent volume claims (PVCs), developers can request PV resources without having specific knowledge of the underlying storage infrastructure.</p>
+<p>Managing storage is a distinct problem from managing compute resources. OpenShift Container Platform leverages the Kubernetes persistent volume (PV) framework to allow administrators to provision persistent storage for a cluster. Using persistent volume claims (PVCs), developers can request PV resources without having specific knowledge of the underlying storage infrastructure.</p>
 <p>In this reference architecture, storage services are provided through a managed storage tier, implemented by Red Hat Gluster Storage (Gluster).  Gluster provides a fault-tolerant and highly available network storage resource, efficiently rationed to tenant applications as PVs.  Since the storage interface to developers is managed by the Kubernetes PVC resource, the details of the underlying storage implementation are abstracted.</p>
 <p>PVCs are specific to a project and are created and used by developers as a means to use a PV. PV resources on their own are not scoped to any single project; they can be shared across the entire OpenShift Container Platform cluster and claimed from any project. After a PV has been bound to a PVC, however, that PV cannot then be bound to additional PVCs. This has the effect of scoping a bound PV to a single namespace (that of the binding project).</p>
-<p>The Gluster storage services are provided through a dedicated cluster of AWS instances within the scope of the platform VPC.  Administrators allocate storage resources, creating a pool of available PVs in standard sizes, and monitor the capacity of the underlying storage resources.  As PVs are released, administrators ensure the deletion and reclaimation of storage resources, returning capacity to the pool of available PVs.</p>
-<p>Gluster complies with data protecture requirements through secure configuration of the storage resources and transport protols.  At rest, data is protected by LUKS encryption of the of the AWS EBS devices.  This ensures that access to EBS volumes or snapshots by unauthorized mechanisms are unable to extract any usable information from the storage tier.  During transit, information is protected through configuration of SSL connections, and enforcement of mutually authenticated TLS connections.</p>
+<p>The Gluster storage services are provided through a dedicated cluster of AWS instances within the scope of the platform VPC.  Administrators allocate storage resources, creating a pool of available PVs in standard sizes, and monitor the capacity of the underlying storage resources.  As PVs are released, administrators ensure the deletion and reclamation of storage resources, returning capacity to the pool of available PVs.</p>
+</div>
+<div class="section" id="platform-security-storage-security">
+<h4>Platform Security - Storage Security<a class="headerlink" href="#platform-security-storage-security" title="Permalink to this headline">¶</a></h4>
+<p>Gluster complies with data protection requirements through secure configuration of the storage resources and transport protocols.  At rest, data is protected by LUKS encryption of the of the AWS EBS devices.  This ensures that access to EBS volumes or snapshots by unauthorized mechanisms are unable to extract any usable information from the storage tier.  Configuration of LUKS encryption in Red Hat Enterprise Linux 7 is configured according to the <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html">Encryption chapter of the RHEL 7 Security Guide</a>.</p>
+<p>During transit, information is protected through configuration of SSL connections, and enforcement of mutually authenticated TLS connections.  For more information, refer to <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Storage/3.1/html/Administration_Guide/chap-Network_Encryption.html">Configuring Network Encryption in Red Hat Gluster Storage</a>.</p>
 </div>
 <div class="section" id="id6">
 <h4>Diagram<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
-<p>The following diagrams depict the mapping of storage devices to application resources within OCP, as well as the synchonous replication across IaaS availability zones.</p>
+<p>The following diagram depicts the mapping of storage devices to application resources within OCP.  The LUKS encryption is enabled at the EBS device, ensuring that all data is encrypted prior to writing to disk.  This architecture is designed to be compatible with the OCP and Kubernetes roadmaps, specifically with reference to upcoming dynamic provisioning features.</p>
 <p><img alt="Storage View" src="_images/StorageView.png" /></p>
+<p>In this view, the synchronous replication is shown between availability zones of the IaaS tier.  This ensures high availability and integrity of data stored within the platform.</p>
 <p><img alt="Storage Replication View" src="_images/StorageReplicationView.png" /></p>
 </div>
 </div>
@@ -660,6 +666,10 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
 <p><strong>Project Administrators</strong> are responsible for assignment of proper roles within the scope of a single tenant project.  They have the ability to affect security policies surrounding developer interaction and container function, including the ability to grant privileges to administer, edit, or view project level resources.</p>
 <p><strong>Application Developers</strong> have access to the OCP WebUI and CLI to create, build, deploy, and delete applications within the scope of a project, subject to the roles and privileges assigned by the Project Administrators.</p>
 <p><strong>Application Users</strong> do not have a role at the application level.</p>
+</div>
+<div class="section" id="application-security-sensitive-configuration-data">
+<h4>Application Security - Sensitive Configuration Data<a class="headerlink" href="#application-security-sensitive-configuration-data" title="Permalink to this headline">¶</a></h4>
+<p>There is often a need to provide sensitive data for the proper configuration of the application or service component.  For instance, it may be necessary to provide encryption keys, passwords, configuration files, private source repository credentials, and other data considered sensitive.  This data often varies between environments, such as database passwords or SSL server certificates.  Secrets provide a mechanism to decouple sensitive content from the pods that use it, removing the necessity of storing this data on the filesystem or within the container image itself.  This mechanism promotes best practices for abstracting environment-specific configuration data away from the build process, as well as provides an encrypted storage mechanism.  For more information on this topic, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html">Secrets documentation</a>.</p>
 </div>
 <div class="section" id="id8">
 <h4>Diagram<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
@@ -689,10 +699,10 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
 <td>The source code configuration management system.  For this architecture, the git service is assumed to be provided externally, as a corporate or project team resource.</td>
 </tr>
 <tr class="row-odd"><td>Build Config</td>
-<td>A build configuration describes a single build definition and a set of triggers for when a new build should be created.  For in depth description of builds and OCP build configurations, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/builds.html">https://docs.openshift.com/container-platform/3.3/dev_guide/builds.html</a></td>
+<td>A build configuration describes a single build definition and a set of triggers for when a new build should be created.  For in depth description of builds and OCP build configurations, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/builds.html">Build documentation</a></td>
 </tr>
 <tr class="row-even"><td>Integrated Registry</td>
-<td>The OCP integrated registry is a controlled container image registry for storing OCP container images and completed application builds.  For more information regarding the integrated registry, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/infrastructure_components/image_registry.html">https://docs.openshift.com/container-platform/3.3/architecture/infrastructure_components/image_registry.html</a></td>
+<td>The OCP integrated registry is a controlled container image registry for storing OCP container images and completed application builds.  For more information regarding the integrated registry, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/infrastructure_components/image_registry.html">Image Registry documentation</a>.</td>
 </tr>
 <tr class="row-odd"><td>Builder Image</td>
 <td>A builder image is a pre-defined container image that stores the build process for compilation and assembly of application source code.  It houses the compiler binaries required for interpretation of source code, and the tools necessary for building application images.</td>
@@ -704,13 +714,13 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
 <td>An Application Image is produced as a result of the application build process.  It is composed of a certified base image, application server components, required configurations, and finally, the compiled application source code.</td>
 </tr>
 <tr class="row-even"><td>Deployment Config</td>
-<td>The deployment config defines the requirements and configuration of resources necessary for operations of the application component.  For more information regarding the deployment config, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/deployments.html">https://docs.openshift.com/container-platform/3.3/dev_guide/deployments.html</a></td>
+<td>The deployment config defines the requirements and configuration of resources necessary for operations of the application component.  For more information regarding the deployment config, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/deployments.html">Deployment documentation</a>.</td>
 </tr>
 <tr class="row-odd"><td>Deployer</td>
 <td>The deployer is container responsible for setting up the operational environment of the application container.</td>
 </tr>
 <tr class="row-even"><td>Pod</td>
-<td>OpenShift Container Platform leverages the Kubernetes concept of a pod, which is one or more containers deployed together on one host, and the smallest compute unit that can be defined, deployed, and managed.  For more information regarding Pods, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#pods">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#pods</a></td>
+<td>OpenShift Container Platform leverages the Kubernetes concept of a pod, which is one or more containers deployed together on one host, and the smallest compute unit that can be defined, deployed, and managed.  For more information regarding Pods, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#pods">Pod documentation</a></td>
 </tr>
 <tr class="row-odd"><td>App Container</td>
 <td>The application container is the running instance of an application image, as defined by the deployment configuration.</td>
@@ -719,25 +729,25 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
 <td>EtcD is the key-value database for OCP state and configuration information.</td>
 </tr>
 <tr class="row-odd"><td>Secrets</td>
-<td>Secrets provide a mechanism to hold information such as encryption keys, passwords, config files, private source repository credentials, and other data considered sensitive. Secrets decouple sensitive content from the pods that use it and can be mounted into containers using a volume plug-in or used by the system to perform actions on behalf of a pod.  For more information regarding Secrets, refer to the following documentation:  <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html">https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html</a></td>
+<td>Secrets provide a mechanism to hold information such as encryption keys, passwords, config files, private source repository credentials, and other data considered sensitive. Secrets decouple sensitive content from the pods that use it and can be mounted into containers using a volume plug-in or used by the system to perform actions on behalf of a pod.  For more information regarding Secrets, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html">Secrets documentation</a>.</td>
 </tr>
 <tr class="row-even"><td>Persistent Volume</td>
-<td>A Persistent Volume is a storage resource in OCP. Storage is provisioned by the cluster administrators by creating PersistentVolume objects from the storage infrastructure system.  Application Developers utilize Persistent Volumes by creating a Persistent Volume Claim within the scope of the project.  For more information regarding persistent storage, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/storage.html">https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/storage.html</a></td>
+<td>A Persistent Volume is a storage resource in OCP. Storage is provisioned by the cluster administrators by creating PersistentVolume objects from the storage infrastructure system.  Application Developers utilize Persistent Volumes by creating a Persistent Volume Claim within the scope of the project.  For more information regarding persistent storage, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/storage.html">Storage documentation</a>.</td>
 </tr>
 <tr class="row-odd"><td>Log Aggregation</td>
-<td>In OCP, Log Aggregation is implemented as the integrated deployment of Elastic Search, FluentD, and Kibana (EFK).  This stack aggregates logs for a range of OCP services, including project resources deployed on the platform. Application developers can view the logs of the projects for which they have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods.  For more information regarding log aggregation in OCP, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/install_config/aggregate_logging.html">https://docs.openshift.com/container-platform/3.3/install_config/aggregate_logging.html</a></td>
+<td>In OCP, Log Aggregation is implemented as the integrated deployment of Elastic Search, FluentD, and Kibana (EFK).  This stack aggregates logs for a range of OCP services, including project resources deployed on the platform. Application developers can view the logs of the projects for which they have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods.  For more information regarding log aggregation in OCP, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/install_config/aggregate_logging.html">Aggregate Logging documentation</a>.</td>
 </tr>
 <tr class="row-even"><td>Replication Controller</td>
-<td>A replication controller ensures that a specified number of replicas of a pod are running at all times. If pods exit or are deleted, the replication controller acts to instantiate more up to the defined number. Likewise, if there are more running than desired, it deletes as many as necessary to match the defined amount.  For more information regarding replication controllers, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/deployments.html#replication-controllers">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/deployments.html#replication-controllers</a></td>
+<td>A replication controller ensures that a specified number of replicas of a pod are running at all times. If pods exit or are deleted, the replication controller acts to instantiate more up to the defined number. Likewise, if there are more running than desired, it deletes as many as necessary to match the defined amount.  For more information regarding replication controllers, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/deployments.html#replication-controllers">Replication Controller documentation</a>.</td>
 </tr>
 <tr class="row-odd"><td>Services</td>
-<td>A service serves as an internal load balancer. It identifies a set of replicated pods in order to proxy the connections it receives to them. Backing pods can be added to or removed from a service arbitrarily while the service remains consistently available, enabling anything that depends on the service to refer to it at a consistent internal address.  For more information regarding services, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#services">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#services</a></td>
+<td>A service serves as an internal load balancer. It identifies a set of replicated pods in order to proxy the connections it receives to them. Backing pods can be added to or removed from a service arbitrarily while the service remains consistently available, enabling anything that depends on the service to refer to it at a consistent internal address.  For more information regarding services, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#services">Services documentation</a>.</td>
 </tr>
 <tr class="row-even"><td>Routes</td>
-<td>An OpenShift Container Platform route exposes a service at a host name, like www.example.com, so that external clients can reach it by name.  For more information regarding routes, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html</a></td>
+<td>An OpenShift Container Platform route exposes a service at a host name, like www.example.com, so that external clients can reach it by name.  For more information regarding routes, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html">Routes documentation</a>.</td>
 </tr>
 <tr class="row-odd"><td>Router</td>
-<td>Routers enable routes created by developers to be used by external clients. A router uses the service selector to find the service and the endpoints backing the service. When both router and service provide load balancing, OCP uses the router load balancing. A routers detects relevant changes in the IP addresses of its services, and adapts its configuration accordingly.  For more information regarding routers, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html#routers">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html#routers</a></td>
+<td>Routers enable routes created by developers to be used by external clients. A router uses the service selector to find the service and the endpoints backing the service. When both router and service provide load balancing, OCP uses the router load balancing. A routers detects relevant changes in the IP addresses of its services, and adapts its configuration accordingly.  For more information regarding routers, refer to the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html#routers">Routers documentation</a>.</td>
 </tr>
 <tr class="row-even"><td>User</td>
 <td>In this context, a user is the entity attempting to access the application deployed within the platform.  They are assigned no special roles or permissions within the platform, and only have access to the resources exposed via routes by the application developers.</td>
@@ -807,6 +817,10 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
 </tbody>
 </table>
 </div>
+<div class="section" id="selinux">
+<h4>SELinux<a class="headerlink" href="#selinux" title="Permalink to this headline">¶</a></h4>
+<p>The criticality of protecting the platform in a multi-tenant environment cannot be understated.  As a result, the protection offered by SELinux Multi-Category Security (MCS) as an integral component of the layered security model within the <a class="reference external" href="https://access.redhat.com/documentation/en/red-hat-enterprise-linux-atomic-host/7/paged/container-security-guide/chapter-6-docker-selinux-security-policy">Red Hat Enterprise Linux Docker Security Policy</a> is indispensable.  RHEL&#8217;s Container MCS policy is derived and extended from <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Security_Guide/chap-Virtualization_Security_Guide-sVirt.html">sVirt</a>, the SELinux policy for isolating virtual machine hypervisor processes.  sVirt policy has been developed, refined, and continuously tested since 2009, and offers a mature and validated model for infrastructure protection.  It is the gold standard of preventing a compromised process from gaining additional privileges or access to components of the system that have not been specifically allowed by policy.</p>
+</div>
 </div>
 </div>
 </div>
@@ -821,7 +835,7 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
         <a href="controls.html" class="btn btn-neutral float-right" title="Security Controls" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="fisma.html" class="btn btn-neutral" title="FISMA Compliance" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="The OpenShift Compliance Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -852,7 +866,7 @@ Managing storage is a distinct problem from managing compute resources. OpenShif
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0beta',
+            VERSION:'1.0 beta',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
