@@ -1,0 +1,2594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCTM for Change Management &mdash; OpenShift Compliance Guide 1.0beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="OpenShift Compliance Guide 1.0beta documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../toc.html" class="icon icon-home"> OpenShift Compliance Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">  Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fisma.html">  FISMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sec_conops.html">  Security CONOPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controls.html">  Security Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ansible.html">  Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous_compliance.html">  Continuous Compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">  Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../toc.html">OpenShift Compliance Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../toc.html">Docs</a> &raquo;</li>
+      
+    <li>SCTM for Change Management</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/deprecated/sctm/sctm-cm.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sctm-for-change-management">
+<span id="sctm-cm"></span><h1>SCTM for Change Management<a class="headerlink" href="#sctm-for-change-management" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="13%" />
+<col width="12%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>NIST Ref #</strong></td>
+<td><strong>Control Family</strong></td>
+<td><strong>Org Ref #</strong></td>
+<td><strong>Baseline Low</strong></td>
+<td><strong>Baseline Moderate</strong></td>
+<td><strong>Baseline High</strong></td>
+<td><strong>Confidentiality Low</strong></td>
+<td><strong>Confidentiality Moderate</strong></td>
+<td><strong>Confidentiality High</strong></td>
+<td><strong>Integrity Low</strong></td>
+<td><strong>Integrity Moderate</strong></td>
+<td><strong>Integrity High</strong></td>
+<td><strong>Availability Low</strong></td>
+<td><strong>Availability Moderate</strong></td>
+<td><strong>Availability High</strong></td>
+<td><strong>References</strong></td>
+<td><strong>Red Hat Response</strong></td>
+<td><strong>Requirements</strong></td>
+<td><strong>Supplemental Guidance</strong></td>
+</tr>
+<tr class="row-even"><td>CM-1</td>
+<td>Configuration Management</td>
+<td>CM-1_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-12;
+SP 800-100;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>CONFIGURATION MANAGEMENT POLICY AND PROCEDURES
+Control: The organization:
+a. Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:
+1. A configuration management policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</td>
+<td>This control addresses the establishment of policy and procedures for the effective implementation of selected security controls and control enhancements in the CM family. Policy and procedures reflect applicable federal laws, Executive Orders, directives, regulations, policies, standards, and guidance. Security program policies and procedures at the organization level may make the need for system-specific policies and procedures unnecessary. The policy can be included as part of the general information security policy for organizations or conversely, can be represented by multiple policies reflecting the complex nature of certain organizations. The procedures can be established for the security program in general and for particular information systems, if needed. The organizational risk management strategy is a key factor in establishing policy and procedures. Related control: PM-9.</td>
+</tr>
+<tr class="row-odd"><td>CM-1</td>
+<td>Configuration Management</td>
+<td>CM-1_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Procedures to facilitate the implementation of the configuration management policy and associated configuration management controls; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-1</td>
+<td>Configuration Management</td>
+<td>CM-1_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>b. Reviews and updates the current:
+1. Configuration management policy [Assignment: organization-defined frequency]; and</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-1</td>
+<td>Configuration Management</td>
+<td>CM-1_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Configuration management procedures [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-2</td>
+<td>Configuration Management</td>
+<td>CM-2_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-128;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION
+Control: The organization develops, documents, and maintains under configuration control, a current baseline configuration of the information system.</td>
+<td>This control establishes baseline configurations for information systems and system components including communications and connectivity-related aspects of systems. Baseline configurations are documented, formally reviewed and agreed-upon sets of specifications for information systems or configuration items within those systems. Baseline configurations serve as a basis for future builds, releases, and/or changes to information systems. Baseline configurations include information about information system components (e.g., standard software packages installed on workstations, notebook computers, servers, network components, or mobile devices; current version numbers and patch information on operating systems and applications; and configuration settings/parameters), network topology, and the logical placement of those components within the system architecture. Maintaining baseline configurations requires creating new baselines as organizational information systems change over time. Baseline configurations of information systems reflect the current enterprise architecture. Related controls: CM-3, CM-6, CM-8, CM-9, SA-10, PM-5, PM-7.</td>
+</tr>
+<tr class="row-odd"><td>CM-2(1)</td>
+<td>Configuration Management</td>
+<td>CM-2(1)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | REVIEWS AND UPDATES
+The organization reviews and updates the baseline configuration of the information system:
+(a) [Assignment: organization-defined frequency];</td>
+<td>Related control: CM-5.</td>
+</tr>
+<tr class="row-even"><td>CM-2(1)</td>
+<td>Configuration Management</td>
+<td>CM-2(1)_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>When required due to [Assignment organization-defined circumstances]; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-2(1)</td>
+<td>Configuration Management</td>
+<td>CM-2(1)_N_02</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>As an integral part of information system component installations and upgrades.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-2(2)</td>
+<td>Configuration Management</td>
+<td>CM-2(2)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | AUTOMATION SUPPORT FOR ACCURACY / CURRENCY
+The organization employs automated mechanisms to maintain an up-to-date, complete, accurate, and readily available baseline configuration of the information system.</td>
+<td>Automated mechanisms that help organizations maintain consistent baseline configurations for information systems include, for example, hardware and software inventory tools, configuration management tools, and network management tools. Such tools can be deployed and/or allocated as common controls, at the information system level, or at the operating system or component level (e.g., on workstations, servers, notebook computers, network components, or mobile devices). Tools can be used, for example, to track version numbers on operating system applications, types of software installed, and current patch levels. This control enhancement can be satisfied by the implementation of CM-8 (2) for organizations that choose to combine information system component inventory and baseline configuration activities. Related controls: CM-7, RA-5.</td>
+</tr>
+<tr class="row-odd"><td>CM-2(3)</td>
+<td>Configuration Management</td>
+<td>CM-2(3)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | RETENTION OF PREVIOUS CONFIGURATIONS
+The organization retains [Assignment: organization-defined previous versions of baseline configurations of the information system] to support rollback.</td>
+<td>Retaining previous versions of baseline configurations to support rollback may include, for example, hardware, software, firmware, configuration files, and configuration records.</td>
+</tr>
+<tr class="row-even"><td>CM-2(4)</td>
+<td>Configuration Management</td>
+<td>CM-2(4)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | UNAUTHORIZED SOFTWARE
+[Withdrawn: Incorporated into CM-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-2(5)</td>
+<td>Configuration Management</td>
+<td>CM-2(5)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | AUTHORIZED SOFTWARE
+[Withdrawn: Incorporated into CM-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-2(6)</td>
+<td>Configuration Management</td>
+<td>CM-2(6)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | DEVELOPMENT AND TEST ENVIRONMENTS
+The organization maintains a baseline configuration for information system development and test environments that is managed separately from the operational baseline configuration.</td>
+<td>Establishing separate baseline configurations for development, testing, and operational environments helps protect information systems from unplanned/unexpected events related to development and testing activities. Separate baseline configurations allow organizations to apply the configuration management that is most appropriate for each type of configuration. For example, management of operational configurations typically emphasizes the need for stability, while management of development/test configurations requires greater flexibility. Configurations in the test environment mirror the configurations in the operational environment to the extent practicable so that the results of the testing are representative of the proposed changes to the operational systems. This control enhancement requires separate configurations but not necessarily separate physical environments. Related controls: CM-4, SC-3, SC-7.</td>
+</tr>
+<tr class="row-odd"><td>CM-2(7)</td>
+<td>Configuration Management</td>
+<td>CM-2(7)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BASELINE CONFIGURATION | CONFIGURE SYSTEMS, COMPONENTS, OR DEVICES FOR HIGH-RISK AREAS
+The organization:
+(a) Issues [Assignment: organization-defined information systems, system components, or devices] with [Assignment: organization-defined configurations] to individuals traveling to locations that the organization deems to be of significant risk; and</td>
+<td>When it is known that information systems, system components, or devices (e.g., notebook computers, mobile devices) will be located in high-risk areas, additional security controls may be implemented to counter the greater threat in such areas coupled with the lack of physical security relative to organizational-controlled areas. For example, organizational policies and procedures for notebook computers used by individuals departing on and returning from travel include, for example, determining which locations are of concern, defining required configurations for the devices, ensuring that the devices are configured as intended before travel is initiated, and applying specific safeguards to the device after travel is completed. Specially configured notebook computers include, for example, computers with sanitized hard drives, limited applications, and additional hardening (e.g., more stringent configuration settings). Specified safeguards applied to mobile devices upon return from travel include, for example, examining the device for signs of physical tampering and purging/reimaging the hard disk drive. Protecting information residing on mobile devices is covered in the media protection family.</td>
+</tr>
+<tr class="row-even"><td>CM-2(7)</td>
+<td>Configuration Management</td>
+<td>CM-2(7)_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Applies [Assignment: organization-defined security safeguards] to the devices when the individuals return.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-128;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL
+Control: The organization:
+a. Determines the types of changes to the information system that are configuration-controlled;</td>
+<td>Configuration change controls for organizational information systems involve the systematic proposal, justification, implementation, testing, review, and disposition of changes to the systems, including system upgrades and modifications. Configuration change control includes changes to baseline configurations for components and configuration items of information systems, changes to configuration settings for information technology products (e.g., operating systems, applications, firewalls, routers, and mobile devices), unscheduled/unauthorized changes, and changes to remediate vulnerabilities. Typical processes for managing configuration changes to information systems include, for example, Configuration Control Boards that approve proposed changes to systems. For new development information systems or systems undergoing major upgrades, organizations consider including representatives from development organizations on the Configuration Control Boards. Auditing of changes includes activities before and after changes are made to organizational information systems and the auditing activities required to implement such changes. Related controls: CM-2, CM-4, CM-5, CM-6, CM-9, SA-10, SI-2, SI-12.</td>
+</tr>
+<tr class="row-even"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Reviews proposed configuration-controlled changes to the information system and approves or disapproves such changes with explicit consideration for security impact analyses;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_02</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Documents configuration change decisions associated with the information system;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_03</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="4">
+<li>Implements approved configuration-controlled changes to the information system;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_04</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="5">
+<li>Retains records of configuration-controlled changes to the information system for [Assignment: organization-defined time period];</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_05</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="6">
+<li>Audits and reviews activities associated with configuration-controlled changes to the information system; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3</td>
+<td>Configuration Management</td>
+<td>CM-3_N_06</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="7">
+<li>Coordinates and provides oversight for configuration change control activities through [Assignment: organization-defined configuration change control element (e.g., committee, board] that convenes [Selection (one or more): [Assignment: organization-defined frequency]; [Assignment: organization-defined configuration change conditions]].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3(1)</td>
+<td>Configuration Management</td>
+<td>CM-3(1)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL | AUTOMATED DOCUMENT / NOTIFICATION / PROHIBITION OF CHANGES
+The organization employs automated mechanisms to:
+(a) Document proposed changes to the information system;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3(1)</td>
+<td>Configuration Management</td>
+<td>CM-3(1)_N_01</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Notify [Assignment: organized-defined approval authorities] of proposed changes to the information system and request change approval;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3(1)</td>
+<td>Configuration Management</td>
+<td>CM-3(1)_N_02</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Highlight proposed changes to the information system that have not been approved or disapproved by [Assignment: organization-defined time period];</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3(1)</td>
+<td>Configuration Management</td>
+<td>CM-3(1)_N_03</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="4">
+<li>Prohibit changes to the information system until designated approvals are received;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3(1)</td>
+<td>Configuration Management</td>
+<td>CM-3(1)_N_04</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="5">
+<li>Document all changes to the information system; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-3(1)</td>
+<td>Configuration Management</td>
+<td>CM-3(1)_N_05</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="6">
+<li>Notify [Assignment: organization-defined personnel] when approved changes to the information system are completed.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3(2)</td>
+<td>Configuration Management</td>
+<td>CM-3(2)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL | TEST / VALIDATE / DOCUMENT CHANGES
+The organization tests, validates, and documents changes to the information system before implementing the changes on the operational system.</td>
+<td>Changes to information systems include modifications to hardware, software, or firmware components and configuration settings defined in CM-6. Organizations ensure that testing does not interfere with information system operations. Individuals/groups conducting tests understand organizational security policies and procedures, information system security policies and procedures, and the specific health, safety, and environmental risks associated with particular facilities/processes. Operational systems may need to be taken off-line, or replicated to the extent feasible, before testing can be conducted. If information systems must be taken off-line for testing, the tests are scheduled to occur during planned system outages whenever possible. If testing cannot be conducted on operational systems, organizations employ compensating controls (e.g., testing on replicated systems).</td>
+</tr>
+<tr class="row-odd"><td>CM-3(3)</td>
+<td>Configuration Management</td>
+<td>CM-3(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL | AUTOMATED CHANGE IMPLEMENTATION
+The organization employs automated mechanisms to implement changes to the current information system baseline and deploys the updated baseline across the installed base.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-3(4)</td>
+<td>Configuration Management</td>
+<td>CM-3(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL | SECURITY REPRESENTATIVE
+The organization requires an information security representative to be a member of the [Assignment: organization-defined configuration change control element].</td>
+<td>Information security representatives can include, for example, senior agency information security officers, information system security officers, or information system security managers. Representation by personnel with information security expertise is important because changes to information system configurations can have unintended side effects, some of which may be security-relevant. Detecting such changes early in the process can help avoid unintended, negative consequences that could ultimately affect the security state of organizational information systems. The configuration change control element in this control enhancement reflects the change control elements defined by organizations in CM-3.</td>
+</tr>
+<tr class="row-odd"><td>CM-3(5)</td>
+<td>Configuration Management</td>
+<td>CM-3(5)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL | AUTOMATED SECURITY RESPONSE
+The information system implements [Assignment: organization-defined security responses] automatically if baseline configurations are changed in an unauthorized manner.</td>
+<td>Security responses include, for example, halting information system processing, halting selected system functions, or issuing alerts/notifications to organizational personnel when there is an unauthorized modification of a configuration item.</td>
+</tr>
+<tr class="row-even"><td>CM-3(6)</td>
+<td>Configuration Management</td>
+<td>CM-3(6)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION CHANGE CONTROL | CRYPTOGRAPHY MANAGEMENT
+The organization ensures that cryptographic mechanisms used to provide [Assignment: organization-defined security safeguards] are under configuration management.</td>
+<td>Regardless of the cryptographic means employed (e.g., public key, private key, shared secrets), organizations ensure that there are processes and procedures in place to effectively manage those means. For example, if devices use certificates as a basis for identification and authentication, there needs to be a process in place to address the expiration of those certificates. Related control: SC-13.</td>
+</tr>
+<tr class="row-odd"><td>CM-4</td>
+<td>Configuration Management</td>
+<td>CM-4_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-128;</td>
+<td>&nbsp;</td>
+<td>SECURITY IMPACT ANALYSIS
+Control: The organization analyzes changes to the information system to determine potential security impacts prior to change implementation.</td>
+<td>Organizational personnel with information security responsibilities (e.g., Information System Administrators, Information System Security Officers, Information System Security Managers, and Information System Security Engineers) conduct security impact analyses. Individuals conducting security impact analyses possess the necessary skills/technical expertise to analyze the changes to information systems and the associated security ramifications. Security impact analysis may include, for example, reviewing security plans to understand security control requirements and reviewing system design documentation to understand control implementation and how specific changes might affect the controls. Security impact analyses may also include assessments of risk to better understand the impact of the changes and to determine if additional security controls are required. Security impact analyses are scaled in accordance with the security categories of the information systems. Related controls: CA-2, CA-7, CM-3, CM-9, SA-4, SA-5, SA-10, SI-2.</td>
+</tr>
+<tr class="row-even"><td>CM-4(1)</td>
+<td>Configuration Management</td>
+<td>CM-4(1)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY IMPACT ANALYSIS | SEPARATE TEST ENVIRONMENTS
+The organization analyzes changes to the information system in a separate test environment before implementation in an operational environment, looking for security impacts due to flaws, weaknesses, incompatibility, or intentional malice.</td>
+<td>Separate test environment in this context means an environment that is physically or logically isolated and distinct from the operational environment. The separation is sufficient to ensure that activities in the test environment do not impact activities in the operational environment, and information in the operational environment is not inadvertently transmitted to the test environment. Separate environments can be achieved by physical or logical means. If physically separate test environments are not used, organizations determine the strength of mechanism required when implementing logical separation (e.g., separation achieved through virtual machines). Related controls: SA-11, SC-3, SC-7.</td>
+</tr>
+<tr class="row-odd"><td>CM-4(2)</td>
+<td>Configuration Management</td>
+<td>CM-4(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY IMPACT ANALYSIS | VERIFICATION OF SECURITY FUNCTIONS
+The organization, after the information system is changed, checks the security functions to verify that the functions are implemented correctly, operating as intended, and producing the desired outcome with regard to meeting the security requirements for the system.</td>
+<td>Implementation is this context refers to installing changed code in the operational information system. Related control: SA-11.</td>
+</tr>
+<tr class="row-even"><td>CM-5</td>
+<td>Configuration Management</td>
+<td>CM-5_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE
+Control: The organization defines, documents, approves, and enforces physical and logical access restrictions associated with changes to the information system.</td>
+<td>Any changes to the hardware, software, and/or firmware components of information systems can potentially have significant effects on the overall security of the systems. Therefore, organizations permit only qualified and authorized individuals to access information systems for purposes of initiating changes, including upgrades and modifications. Organizations maintain records of access to ensure that configuration change control is implemented and to support after-the-fact actions should organizations discover any unauthorized changes. Access restrictions for change also include software libraries. Access restrictions include, for example, physical and logical access controls (see AC-3 and PE-3), workflow automation, media libraries, abstract layers (e.g., changes implemented into third-party interfaces rather than directly into information systems), and change windows (e.g., changes occur only during specified times, making unauthorized changes easy to discover). Related controls: AC-3, AC-6, PE-3.</td>
+</tr>
+<tr class="row-odd"><td>CM-5(1)</td>
+<td>Configuration Management</td>
+<td>CM-5(1)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | AUTOMATED ACCESS ENFORCEMENT / AUDITING
+The information system enforces access restrictions and supports auditing of the enforcement actions.</td>
+<td>Related controls: AU-2, AU-12, AU-6, CM-3, CM-6.</td>
+</tr>
+<tr class="row-even"><td>CM-5(2)</td>
+<td>Configuration Management</td>
+<td>CM-5(2)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | REVIEW SYSTEM CHANGES
+The organization reviews information system changes [Assignment: organization-defined frequency] and [Assignment: organization-defined circumstances] to determine whether unauthorized changes have occurred.</td>
+<td>Indications that warrant review of information system changes and the specific circumstances justifying such reviews may be obtained from activities carried out by organizations during the configuration change process. Related controls: AU-6, AU-7, CM-3, CM-5, PE-6, PE-8.</td>
+</tr>
+<tr class="row-odd"><td>CM-5(3)</td>
+<td>Configuration Management</td>
+<td>CM-5(3)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | SIGNED COMPONENTS
+The information system prevents the installation of [Assignment: organization-defined software and firmware components] without verification that the component has been digitally signed using a certificate that is recognized and approved by the organization.</td>
+<td>Software and firmware components prevented from installation unless signed with recognized and approved certificates include, for example, software and firmware version updates, patches, service packs, device drivers, and basic input output system (BIOS) updates. Organizations can identify applicable software and firmware components by type, by specific items, or a combination of both. Digital signatures and organizational verification of such signatures, is a method of code authentication. Related controls: CM-7, SC-13, SI-7.</td>
+</tr>
+<tr class="row-even"><td>CM-5(4)</td>
+<td>Configuration Management</td>
+<td>CM-5(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | DUAL AUTHORIZATION
+The organization enforces dual authorization for implementing changes to [Assignment: organization-defined information system components and system-level information].</td>
+<td>Organizations employ dual authorization to ensure that any changes to selected information system components and information cannot occur unless two qualified individuals implement such changes. The two individuals possess sufficient skills/expertise to determine if the proposed changes are correct implementations of approved changes. Related controls: AC-5, CM-3.</td>
+</tr>
+<tr class="row-odd"><td>CM-5(5)</td>
+<td>Configuration Management</td>
+<td>CM-5(5)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | LIMIT PRODUCTION / OPERATIONAL PRIVILEGES
+The organization:
+(a) Limits privileges to change information system components and system-related information within a production or operational environment; and</td>
+<td>In many organizations, information systems support multiple core missions/business functions. Limiting privileges to change information system components with respect to operational systems is necessary because changes to a particular information system component may have far-reaching effects on mission/business processes supported by the system where the component resides. The complex, many-to-many relationships between systems and mission/business processes are in some cases, unknown to developers. Related control: AC-2.</td>
+</tr>
+<tr class="row-even"><td>CM-5(5)</td>
+<td>Configuration Management</td>
+<td>CM-5(5)_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Reviews and reevaluates privileges [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-5(6)</td>
+<td>Configuration Management</td>
+<td>CM-5(6)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | LIMIT LIBRARY PRIVILEGES
+The organization limits privileges to change software resident within software libraries.</td>
+<td>Software libraries include privileged programs. Related control: AC-2.</td>
+</tr>
+<tr class="row-even"><td>CM-5(7)</td>
+<td>Configuration Management</td>
+<td>CM-5(7)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>ACCESS RESTRICTIONS FOR CHANGE | AUTOMATIC IMPLEMENTATION OF SECURITY SAFEGUARDS
+[Withdrawn: Incorporated into SI-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-6</td>
+<td>Configuration Management</td>
+<td>CM-6_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OMB M-07-11;
+OMB M-07-18;
+OMB M-08-22;
+SP 800-70;
+SP 800-128;
+Web: nvd.nist.gov, checklists.nist.gov, www.nsa.gov;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION SETTINGS
+Control: The organization:
+a. Establishes and documents configuration settings for information technology products employed within the information system using [Assignment: organization-defined security configuration checklists] that reflect the most restrictive mode consistent with operational requirements;</td>
+<td>Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the information system that affect the security posture and/or functionality of the system. Information technology products for which security-related configuration settings can be defined include, for example, mainframe computers, servers (e.g., database, electronic mail, authentication, web, proxy, file, domain name), workstations, input/output devices (e.g., scanners, copiers, and printers), network components (e.g., firewalls, routers, gateways, voice and data switches, wireless access points, network appliances, sensors), operating systems, middleware, and applications. Security-related parameters are those parameters impacting the security state of information systems including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: (i) registry settings; (ii) account, file, directory permission settings; and (iii) settings for functions, ports, protocols, services, and remote connections. Organizations establish organization-wide configuration settings and subsequently derive specific settings for information systems. The established settings become part of the systems configuration baseline.
+Common secure configurations (also referred to as security configuration checklists, lockdown and hardening guides, security reference guides, security technical implementation guides) provide recognized, standardized, and established benchmarks that stipulate secure configuration settings for specific information technology platforms/products and instructions for configuring those information system components to meet operational requirements. Common secure configurations can be developed by a variety of organizations including, for example, information technology product developers, manufacturers, vendors, consortia, academia, industry, federal agencies, and other organizations in the public and private sectors. Common secure configurations include the United States Government Configuration Baseline (USGCB) which affects the implementation of CM-6 and other controls such as AC-19 and CM-7. The Security Content Automation Protocol (SCAP) and the defined standards within the protocol (e.g., Common Configuration Enumeration) provide an effective method to uniquely identify, track, and control configuration settings. OMB establishes federal policy on configuration requirements for federal information systems. Related controls: AC-19, CM-2, CM-3, CM-7, SI-4.</td>
+</tr>
+<tr class="row-even"><td>CM-6</td>
+<td>Configuration Management</td>
+<td>CM-6_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Implements the configuration settings;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-6</td>
+<td>Configuration Management</td>
+<td>CM-6_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Identifies, documents, and approves any deviations from established configuration settings for [Assignment: organization-defined information system components] based on [Assignment: organization-defined operational requirements]; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-6</td>
+<td>Configuration Management</td>
+<td>CM-6_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="4">
+<li>Monitors and controls changes to the configuration settings in accordance with organizational policies and procedures.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-6(1)</td>
+<td>Configuration Management</td>
+<td>CM-6(1)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION SETTINGS | AUTOMATED CENTRAL MANAGEMENT / APPLICATION / VERIFICATION
+The organization employs automated mechanisms to centrally manage, apply, and verify configuration settings for [Assignment: organization-defined information system components].</td>
+<td>Related controls: CA-7, CM-4.</td>
+</tr>
+<tr class="row-even"><td>CM-6(2)</td>
+<td>Configuration Management</td>
+<td>CM-6(2)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION SETTINGS | RESPOND TO UNAUTHORIZED CHANGES
+The organization employs [Assignment: organization-defined security safeguards] to respond to unauthorized changes to [Assignment: organization-defined configuration settings].</td>
+<td>Responses to unauthorized changes to configuration settings can include, for example, alerting designated organizational personnel, restoring established configuration settings, or in extreme cases, halting affected information system processing. Related controls: IR-4, SI-7.</td>
+</tr>
+<tr class="row-odd"><td>CM-6(3)</td>
+<td>Configuration Management</td>
+<td>CM-6(3)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION SETTINGS | UNAUTHORIZED CHANGE DETECTION
+[Withdrawn: Incorporated into SI-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-6(4)</td>
+<td>Configuration Management</td>
+<td>CM-6(4)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION SETTINGS | CONFORMANCE DEMONSTRATION
+[Withdrawn: Incorporated into CM-4].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-7</td>
+<td>Configuration Management</td>
+<td>CM-7_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DoD Instruction 8551.01;</td>
+<td>Dependent on the individual deployment / project / scope of the project.</td>
+<td>LEAST FUNCTIONALITY
+Control: The organization:
+a. Configures the information system to provide only essential capabilities; and</td>
+<td>Information systems can provide a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions). Additionally, it is sometimes convenient to provide multiple services from single information system components, but doing so increases risk over limiting the services provided by any one component. Where feasible, organizations limit component functionality to a single function per device (e.g., email servers or web servers, but not both). Organizations review functions and services provided by information systems or individual components of information systems, to determine which functions and services are candidates for elimination (e.g., Voice Over Internet Protocol, Instant Messaging, auto-execute, and file sharing). Organizations consider disabling unused or unnecessary physical and logical ports/protocols (e.g., Universal Serial Bus, File Transfer Protocol, and Hyper Text Transfer Protocol) on information systems to prevent unauthorized connection of devices, unauthorized transfer of information, or unauthorized tunneling. Organizations can utilize network scanning tools, intrusion detection and prevention systems, and end-point protections such as firewalls and host-based intrusion detection systems to identify and prevent the use of prohibited functions, ports, protocols, and services. Related controls: AC-6, CM-2, RA-5, SA-5, SC-7.</td>
+</tr>
+<tr class="row-even"><td>CM-7</td>
+<td>Configuration Management</td>
+<td>CM-7_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OpenShift infrastructure components communicate with each other using ports, which are communication endpoints that are identifiable for specific processes or services. Ensure the following ports required by OpenShift are open between hosts, for example if you have a firewall in your environment. Some ports are optional depending on your configuration and usage.
+Node to Node
+- 4789 - Required for SDN communication between pods on separate hosts.
+Nodes to Master
+- 53 - Required for SDN communication between pods on separate hosts.
+- 4789 - Required for SDN communication between pods on separate hosts.
+- 443 or 8443 - Required for node hosts to communicate to the master API, for the node hosts to post back status, to receive tasks, and so on.
+Master to Node
+- 4789 - Required for SDN communication between pods on separate hosts.
+- 10250 - The master proxies to node hosts via the Kubelet for oc commands.
+Master to Master
+- 53 - Provides DNS services.
+- 2379 - Used for standalone etcd (clustered) to accept changes in state.
+- 2380 - etcd requires this port be open between masters for leader election and peering connections when using standalone etcd (clustered).
+- 4001 - Used for embedded etcd (non-clustered) to accept changes in state.
+- 4789 - Required for SDN communication between pods on separate hosts.
+External to Master
+- 443 or 8443 - Required for node hosts to communicate to the master API, for node hosts to post back status, to receive tasks, and so on.
+IaaS Deployments
+- 22 - Required for SSH by the installer or system administrator.
+- 53 - For SkyDNS use. Only required to be internally open on master hosts.
+- 80 or 443 - For HTTP/HTTPS use for the router. Required to be externally open on node hosts, especially on nodes running the router.
+- 1936 - For router statistics use. Required to be open when running the template router to access statistics, and can be open externally or internally to connections depending on if you want the statistics to be expressed publicly.
+- 4001 - For embedded etcd (non-clustered) use. Only required to be internally open on the master host. 4001 is for server-client connections.
+- 2379 and 2380 - For standalone etcd use. Only required to be internally open on the master host. 2379 is for server-client connections. 2380 is for server-server connections, and is only required if you have clustered etcd.
+- 4789 - For VxLAN use (OpenShift SDN). Required only internally on node hosts.
+- 8443 - For use by the OpenShift web console, shared with the API server.
+- 10250 - For use by the Kubelet. Required to be externally open on nodes.
+- 24224 - For use by Fluentd. Required to be open on master hosts for internal connections to node hosts.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Prohibits or restricts the use of the following functions, ports, protocols, and/or services: [Assignment: organization-defined prohibited or restricted functions, ports, protocols, and/or services].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-7(1)</td>
+<td>Configuration Management</td>
+<td>CM-7(1)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>LEAST FUNCTIONALITY | PERIODIC REVIEW
+The organization:
+(a) Reviews the information system [Assignment: organization-defined frequency] to identify unnecessary and/or nonsecure functions, ports, protocols, and services; and</td>
+<td>The organization can either make a determination of the relative security of the function, port, protocol, and/or service or base the security decision on the assessment of other entities. Bluetooth, FTP, and peer-to-peer networking are examples of less than secure protocols. Related controls: AC-18, CM-7, IA-2.</td>
+</tr>
+<tr class="row-even"><td>CM-7(1)</td>
+<td>Configuration Management</td>
+<td>CM-7(1)_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on the individual deployment / project / scope of the project.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Disables [Assignment: organization-defined functions, ports, protocols, and services within the information system deemed to be unnecessary and/or nonsecure].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-7(2)</td>
+<td>Configuration Management</td>
+<td>CM-7(2)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>LEAST FUNCTIONALITY | PREVENT PROGRAM EXECUTION
+The information system prevents program execution in accordance with [Selection (one or more): [Assignment: organization-defined policies regarding software program usage and restrictions]; rules authorizing the terms and conditions of software program usage].</td>
+<td>Related controls: CM-8, PM-5.</td>
+</tr>
+<tr class="row-even"><td>CM-7(3)</td>
+<td>Configuration Management</td>
+<td>CM-7(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on the individual deployment / project / scope of the project.</td>
+<td>LEAST FUNCTIONALITY | REGISTRATION COMPLIANCE
+The organization ensures compliance with [Assignment: organization-defined registration requirements for functions, ports, protocols, and services].</td>
+<td>Organizations use the registration process to manage, track, and provide oversight for information systems and implemented functions, ports, protocols, and services.</td>
+</tr>
+<tr class="row-odd"><td>CM-7(4)</td>
+<td>Configuration Management</td>
+<td>CM-7(4)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>LEAST FUNCTIONALITY | UNAUTHORIZED SOFTWARE / BLACKLISTING
+The organization:
+(a) Identifies [Assignment: organization-defined software programs not authorized to execute on the information system];</td>
+<td>The process used to identify software programs that are not authorized to execute on organizational information systems is commonly referred to as blacklisting. Organizations can implement CM-7 (5) instead of this control enhancement if whitelisting (the stronger of the two policies) is the preferred approach for restricting software program execution. Related controls: CM-6, CM-8, PM-5.</td>
+</tr>
+<tr class="row-even"><td>CM-7(4)</td>
+<td>Configuration Management</td>
+<td>CM-7(4)_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Employs an allow-all, deny-by-exception policy to prohibit the execution of unauthorized software programs on the information system; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-7(4)</td>
+<td>Configuration Management</td>
+<td>CM-7(4)_N_02</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Reviews and updates the list of unauthorized software programs [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-7(5)</td>
+<td>Configuration Management</td>
+<td>CM-7(5)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>LEAST FUNCTIONALITY | AUTHORIZED SOFTWARE / WHITELISTING
+The organization:
+(a) Identifies [Assignment: organization-defined software programs authorized to execute on the information system];</td>
+<td>The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting. In addition to whitelisting, organizations consider verifying the integrity of white-listed software programs using, for example, cryptographic checksums, digital signatures, or hash functions. Verification of white-listed software can occur either prior to execution or at system startup. Related controls: CM-2, CM-6, CM-8, PM-5, SA-10, SC-34, SI-7.</td>
+</tr>
+<tr class="row-odd"><td>CM-7(5)</td>
+<td>Configuration Management</td>
+<td>CM-7(5)_N_01</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Employs a deny-all, permit-by-exception policy to allow the execution of authorized software programs on the information system; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-7(5)</td>
+<td>Configuration Management</td>
+<td>CM-7(5)_N_02</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Reviews and updates the list of authorized software programs [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-8</td>
+<td>Configuration Management</td>
+<td>CM-8_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-128;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY
+Control: The organization:
+a. Develops and documents an inventory of information system components that:
+1. Accurately reflects the current information system;</td>
+<td>Organizations may choose to implement centralized information system component inventories that include components from all organizational information systems. In such situations, organizations ensure that the resulting inventories include system-specific information required for proper component accountability (e.g., information system association, information system owner). Information deemed necessary for effective accountability of information system components includes, for example, hardware inventory specifications, software license information, software version numbers, component owners, and for networked components or devices, machine names and network addresses. Inventory specifications include, for example, manufacturer, device type, model, serial number, and physical location. Related controls: CM-2, CM-6, PM-5.</td>
+</tr>
+<tr class="row-even"><td>CM-8</td>
+<td>Configuration Management</td>
+<td>CM-8_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Includes all components within the authorization boundary of the information system;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-8</td>
+<td>Configuration Management</td>
+<td>CM-8_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last arabic simple" start="3">
+<li>Is at the level of granularity deemed necessary for tracking and reporting; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-8</td>
+<td>Configuration Management</td>
+<td>CM-8_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last arabic simple" start="4">
+<li>Includes [Assignment: organization-defined information deemed necessary to achieve effective information system component accountability]; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-8</td>
+<td>Configuration Management</td>
+<td>CM-8_N_04</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Reviews and updates the information system component inventory [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-8(1)</td>
+<td>Configuration Management</td>
+<td>CM-8(1)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | UPDATES DURING INSTALLATIONS / REMOVALS
+The organization updates the inventory of information system components as an integral part of component installations, removals, and information system updates.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-8(2)</td>
+<td>Configuration Management</td>
+<td>CM-8(2)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | AUTOMATED MAINTENANCE
+The organization employs automated mechanisms to help maintain an up-to-date, complete, accurate, and readily available inventory of information system components.</td>
+<td>Organizations maintain information system inventories to the extent feasible. Virtual machines, for example, can be difficult to monitor because such machines are not visible to the network when not in use. In such cases, organizations maintain as up-to-date, complete, and accurate an inventory as is deemed reasonable. This control enhancement can be satisfied by the implementation of CM-2 (2) for organizations that choose to combine information system component inventory and baseline configuration activities. Related control: SI-7.</td>
+</tr>
+<tr class="row-even"><td>CM-8(3)</td>
+<td>Configuration Management</td>
+<td>CM-8(3)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | AUTOMATED UNAUTHORIZED COMPONENT DETECTION
+The organization:
+(a) Employs automated mechanisms [Assignment: organization-defined frequency] to detect the presence of unauthorized hardware, software, and firmware components within the information system; and</td>
+<td>This control enhancement is applied in addition to the monitoring for unauthorized remote connections and mobile devices. Monitoring for unauthorized system components may be accomplished on an ongoing basis or by the periodic scanning of systems for that purpose. Automated mechanisms can be implemented within information systems or in other separate devices. Isolation can be achieved, for example, by placing unauthorized information system components in separate domains or subnets or otherwise quarantining such components. This type of component isolation is commonly referred to as sandboxing. Related controls: AC-17, AC-18, AC-19, CA-7, SI-3, SI-4, SI-7, RA-5.</td>
+</tr>
+<tr class="row-odd"><td>CM-8(3)</td>
+<td>Configuration Management</td>
+<td>CM-8(3)_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Takes the following actions when unauthorized components are detected: [Selection (one or more): disables network access by such components; isolates the components; notifies [Assignment: organization-defined personnel or roles]].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-8(4)</td>
+<td>Configuration Management</td>
+<td>CM-8(4)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Specified in the individual project / program&#8217;s System Security Plan.</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | ACCOUNTABILITY INFORMATION
+The organization includes in the information system component inventory information, a means for identifying by [Selection (one or more): name; position; role], individuals responsible/accountable for administering those components.</td>
+<td>Identifying individuals who are both responsible and accountable for administering information system components helps to ensure that the assigned components are properly administered and organizations can contact those individuals if some action is required (e.g., component is determined to be the source of a breach/compromise, component needs to be recalled/replaced, or component needs to be relocated).</td>
+</tr>
+<tr class="row-odd"><td>CM-8(5)</td>
+<td>Configuration Management</td>
+<td>CM-8(5)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | NO DUPLICATE ACCOUNTING OF COMPONENTS
+The organization verifies that all components within the authorization boundary of the information system are not duplicated in other information system inventories.</td>
+<td>This control enhancement addresses the potential problem of duplicate accounting of information system components in large or complex interconnected systems.</td>
+</tr>
+<tr class="row-even"><td>CM-8(6)</td>
+<td>Configuration Management</td>
+<td>CM-8(6)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | ASSESSED CONFIGURATIONS / APPROVED DEVIATIONS
+The organization includes assessed component configurations and any approved deviations to current deployed configurations in the information system component inventory.</td>
+<td>This control enhancement focuses on configuration settings established by organizations for information system components, the specific components that have been assessed to determine compliance with the required configuration settings, and any approved deviations from established configuration settings. Related controls: CM-2, CM-6.</td>
+</tr>
+<tr class="row-odd"><td>CM-8(7)</td>
+<td>Configuration Management</td>
+<td>CM-8(7)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | CENTRALIZED REPOSITORY
+The organization provides a centralized repository for the inventory of information system components.</td>
+<td>Organizations may choose to implement centralized information system component inventories that include components from all organizational information systems. Centralized repositories of information system component inventories provide opportunities for efficiencies in accounting for organizational hardware, software, and firmware assets. Such repositories may also help organizations rapidly identify the location and responsible individuals of system components that have been compromised, breached, or are otherwise in need of mitigation actions. Organizations ensure that the resulting centralized inventories include system-specific information required for proper component accountability (e.g., information system association, information system owner).</td>
+</tr>
+<tr class="row-even"><td>CM-8(8)</td>
+<td>Configuration Management</td>
+<td>CM-8(8)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | AUTOMATED LOCATION TRACKING
+The organization employs automated mechanisms to support tracking of information system components by geographic location.</td>
+<td>The use of automated mechanisms to track the location of information system components can increase the accuracy of component inventories. Such capability may also help organizations rapidly identify the location and responsible individuals of system components that have been compromised, breached, or are otherwise in need of mitigation actions.</td>
+</tr>
+<tr class="row-odd"><td>CM-8(9)</td>
+<td>Configuration Management</td>
+<td>CM-8(9)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM COMPONENT INVENTORY | ASSIGNMENT OF COMPONENTS TO SYSTEMS
+The organization:
+(a) Assigns [Assignment: organization-defined acquired information system components] to an information system; and</td>
+<td>Organizations determine the criteria for or types of information system components (e.g., microprocessors, motherboards, software, programmable logic controllers, and network devices) that are subject to this control enhancement. Related control: SA-4.</td>
+</tr>
+<tr class="row-even"><td>CM-8(9)</td>
+<td>Configuration Management</td>
+<td>CM-8(9)_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Receives an acknowledgement from the information system owner of this assignment.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-9</td>
+<td>Configuration Management</td>
+<td>CM-9_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-128;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION MANAGEMENT PLAN
+Control: The organization develops, documents, and implements a configuration management plan for the information system that:
+a. Addresses roles, responsibilities, and configuration management processes and procedures;</td>
+<td>Configuration management plans satisfy the requirements in configuration management policies while being tailored to individual information systems. Such plans define detailed processes and procedures for how configuration management is used to support system development life cycle activities at the information system level. Configuration management plans are typically developed during the development/acquisition phase of the system development life cycle. The plans describe how to move changes through change management processes, how to update configuration settings and baselines, how to maintain information system component inventories, how to control development, test, and operational environments, and how to develop, release, and update key documents. Organizations can employ templates to help ensure consistent and timely development and implementation of configuration management plans. Such templates can represent a master configuration management plan for the organization at large with subsets of the plan implemented on a system by system basis. Configuration management approval processes include designation of key management stakeholders responsible for reviewing and approving proposed changes to information systems, and personnel that conduct security impact analyses prior to the implementation of changes to the systems. Configuration items are the information system items (hardware, software, firmware, and documentation) to be configuration-managed. As information systems continue through the system development life cycle, new configuration items may be identified and some existing configuration items may no longer need to be under configuration control. Related controls: CM-2, CM-3, CM-4, CM-5, CM-8, SA-10.</td>
+</tr>
+<tr class="row-even"><td>CM-9</td>
+<td>Configuration Management</td>
+<td>CM-9_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Establishes a process for identifying configuration items throughout the system development life cycle and for managing the configuration of the configuration items;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-9</td>
+<td>Configuration Management</td>
+<td>CM-9_N_02</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Defines the configuration items for the information system and places the configuration items under configuration management; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-9</td>
+<td>Configuration Management</td>
+<td>CM-9_N_03</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="4">
+<li>Protects the configuration management plan from unauthorized disclosure and modification.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-9(1)</td>
+<td>Configuration Management</td>
+<td>CM-9(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONFIGURATION MANAGEMENT PLAN | ASSIGNMENT OF RESPONSIBILITY
+The organization assigns responsibility for developing the configuration management process to organizational personnel that are not directly involved in information system development.</td>
+<td>In the absence of dedicated configuration management teams assigned within organizations, system developers may be tasked to develop configuration management processes using personnel who are not directly involved in system development or integration. This separation of duties ensures that organizations establish and maintain a sufficient degree of independence between the information system development and integration processes and configuration management processes to facilitate quality control and more effective oversight.</td>
+</tr>
+<tr class="row-even"><td>CM-10</td>
+<td>Configuration Management</td>
+<td>CM-10_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SOFTWARE USAGE RESTRICTIONS
+Control: The organization:
+a. Uses software and associated documentation in accordance with contract agreements and copyright laws;</td>
+<td>Software license tracking can be accomplished by manual methods (e.g., simple spreadsheets) or automated methods (e.g., specialized tracking applications) depending on organizational needs. Related controls: AC-17, CM-8, SC-7.</td>
+</tr>
+<tr class="row-odd"><td>CM-10</td>
+<td>Configuration Management</td>
+<td>CM-10_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Tracks the use of software and associated documentation protected by quantity licenses to control copying and distribution; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-10</td>
+<td>Configuration Management</td>
+<td>CM-10_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Controls and documents the use of peer-to-peer file sharing technology to ensure that this capability is not used for the unauthorized distribution, display, performance, or reproduction of copyrighted work.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-10(1)</td>
+<td>Configuration Management</td>
+<td>CM-10(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SOFTWARE USAGE RESTRICTIONS | OPEN SOURCE SOFTWARE
+The organization establishes the following restrictions on the use of open source software: [Assignment: organization-defined restrictions].</td>
+<td>Open source software refers to software that is available in source code form. Certain software rights normally reserved for copyright holders are routinely provided under software license agreements that permit individuals to study, change, and improve the software. From a security perspective, the major advantage of open source software is that it provides organizations with the ability to examine the source code. However, there are also various licensing issues associated with open source software including, for example, the constraints on derivative use of such software.</td>
+</tr>
+<tr class="row-even"><td>CM-11</td>
+<td>Configuration Management</td>
+<td>CM-11_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>USER-INSTALLED SOFTWARE
+Control: The organization:
+a. Establishes [Assignment: organization-defined policies] governing the installation of software by users;</td>
+<td>If provided the necessary privileges, users have the ability to install software in organizational information systems. To maintain control over the types of software installed, organizations identify permitted and prohibited actions regarding software installation. Permitted software installations may include, for example, updates and security patches to existing software and downloading applications from organization-approved “app stores.” Prohibited software installations may include, for example, software with unknown or suspect pedigrees or software that organizations consider potentially malicious. The policies organizations select governing user-installed software may be organization-developed or provided by some external entity. Policy enforcement methods include procedural methods (e.g., periodic examination of user accounts), automated methods (e.g., configuration settings implemented on organizational information systems), or both. Related controls: AC-3, CM-2, CM-3, CM-5, CM-6, CM-7, PL-4.</td>
+</tr>
+<tr class="row-odd"><td>CM-11</td>
+<td>Configuration Management</td>
+<td>CM-11_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Enforces software installation policies through [Assignment: organization-defined methods]; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>CM-11</td>
+<td>Configuration Management</td>
+<td>CM-11_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Monitors policy compliance at [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CM-11(1)</td>
+<td>Configuration Management</td>
+<td>CM-11(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>USER-INSTALLED SOFTWARE | ALERTS FOR UNAUTHORIZED INSTALLATIONS
+The information system alerts [Assignment: organization-defined personnel or roles] when the unauthorized installation of software is detected.</td>
+<td>Related controls: CA-7, SI-4.</td>
+</tr>
+<tr class="row-even"><td>CM-11(2)</td>
+<td>Configuration Management</td>
+<td>CM-11(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>USER-INSTALLED SOFTWARE | PROHIBIT INSTALLATION WITHOUT PRIVILEGED STATUS
+The information system prohibits user installation of software without explicit privileged status.</td>
+<td>Privileged status can be obtained, for example, by serving in the role of system administrator. Related control: AC-6.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Red Hat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

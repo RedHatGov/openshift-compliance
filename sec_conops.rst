@@ -1,11 +1,12 @@
-.. _reference_architecture:
+.. _sec_conops:
 
-*********************
-Reference Architeture
-*********************
+***************
+Security CONOPS
+***************
+
 Introduction
 ============
-The reference architecture details, at various levels of abstraction, a
+The Security Concept of Operations (CONOPS) details, at various levels of abstraction, a
 deployment of Red Hat's OpenShift Container Platform (OCP) deployed on Amazon Web Services (AWS).  The NIST *Definition of Cloud Computing* `NIST 800-145`_ succinctly describes different cloud service models and the attributes of a cloud platform.  The architecture described herein follows the definitions found in the NIST 800-145.  For example, Red Hat's OCP is a Platform as a Service (PaaS) under NIST 800-145.  Similarly, AWS is an Infrastrucutre as a Service (IaaS) per the NIST definition.
 
 Security Standards
@@ -190,13 +191,14 @@ Roles
 Diagram
 ~~~~~~~
 The following diagram details the minimum highly-available configuration of OCP to meet FISMA high at the platform level.
+
 |Platform View|
 
 Components
 ~~~~~~~~~~
 +---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Component           | Description                                                                                                                                                                                                                                                                                                       |
-+---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++=====================+===================================================================================================================================================================================================================================================================================================================+
 | Master              | The OCP Master provides the API and WebUI entry points for Application Developers and OCP administrators. The OCP Master is also responsible for scheduling containers on each node.                                                                                                                              |
 +---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ETCD                | The ETCD servers are key-value stores used for maintaining information about the state of the OCP cluster.                                                                                                                                                                                                        |
@@ -218,7 +220,7 @@ The following table describes the port information of the internal platform comp
 
 +-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | From                        | To                           | Port            | Notes                                                                                                                                                                                                                                      |
-+-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++=============================+==============================+=================+============================================================================================================================================================================================================================================+
 | Application Traffic ELB     | OCP Infrastructure Node      | 443/TCP         |                                                                                                                                                                                                                                            |
 +-----------------------------+------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | API Traffic ELB             | HA and Authentication Proxy  | 8443/TCP        |                                                                                                                                                                                                                                            |
@@ -269,6 +271,7 @@ Platform Security - Platform Users
 Regardless of the user role, all users are subject to `authorization policies`_ managed in the OCP cluster.  Authorization polcies dictate what a user can and cannot do.  Policies are enforce at the project (local) level, and separately at the cluster level.
 
 The following table describes the elements comprising an authorization role.
+
 +----------+--------------------------------------------------------------------------------------------------------------+
 | Rules    | Sets of permitted verbs on a set of objects. For example, whether something can create pods.                 |
 +==========+==============================================================================================================+
@@ -318,7 +321,6 @@ Actors
 ~~~~~~
 
 **Application Developers**
-**
 
 **OCP Administrators** are responsible for the creation of tenant projects and assignment of proper roles of project administrators.
 
@@ -331,13 +333,14 @@ Actors
 Diagram
 ~~~~~~~
 The following diagram details the conceptual use of project resources to build and deploy applications within a project.
+
 |Application View|
 
 Components
 ~~~~~~~~~~
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Component              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++========================+===========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================+
 | Dev                    | Application Developers interact with the platform by creating project resource definitions, and by pushing application code revisions to the enterprise hosted git service.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | App Code               | The source code artifacts implementing the business logic of an application service or component.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -396,9 +399,9 @@ The container view describes the constructs used in **OCIF** and **runc** proces
 
 Actors
 ~~~~~~
-**Platform Administrators** are responsible for two specific container processes in the OCP cluster.  The first is an itegrated container registry.  The second is an application traffic HAProxy router, running in a container.  While these nominally operate without intervention, their continued operation falls under the responsibility of the **Platform Administrators**.
+**Platform Administrators** are responsible for two specific container processes in the OCP cluster.  The first is an integrated container registry.  The second is an application traffic HAProxy router, running in a container.  While these nominally operate without intervention, their continued operation falls under the responsibility of the **Platform Administrators**.
 
-**Application Developers** do not necissarily need to be aware of the container construct in OCP.  An **Application Developer** can deploy a containerized application inside OCP simply by providing OCP a source code repository.  At this point OCP automatically builds the source into and deploys a containerized application.
+**Application Developers** do not necessarily need to be aware of the container construct in OCP.  An **Application Developer** can deploy a containerized application inside OCP simply by providing OCP a source code repository.  At this point OCP automatically builds the source into and deploys a containerized application.
 
 Container Filesystem
 ~~~~~~~~~~~~~~~~~~~~
@@ -408,12 +411,14 @@ A single container as it exists on the host's filesystem is actually a multi-lay
   2. Without an externally mounted persistent storage share, any data written to the container's file system is lost when that container is destroyed.
 
 The following graphic presents a simplified view of a layered container image.
+
 |Container Image|
 
 External storage can be provided to the container and mounted as a file system in the container for data persistence.  The platform layer abstracts the *Persistent Volume* from the container.  The container has no knowledge of the nature of the underlying storage share; only that it has a file system to which it can write.
 
 Kernel Components
 ~~~~~~~~~~~~~~~~~
+
 A container is constructed using Linux kernel mechanisms, some of which have existed for over 10 years.  The following table describes these kernel mechanisms and their role in isolating processes.
 
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -448,3 +453,4 @@ A container is constructed using Linux kernel mechanisms, some of which have exi
 .. |Platform View| image:: /images/architecture/PlatformView.png
 .. |Application View| image:: /images/architecture/ApplicationView.png
 .. |Container Image| image:: /images/architecture/ContainerLayers.png
+.. |Platform Network| image:: /images/architecture/PlatformNetwork.png

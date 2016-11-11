@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCTM for Awareness and Training &mdash; OpenShift Compliance Guide 1.0beta documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="OpenShift Compliance Guide 1.0beta documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../toc.html" class="icon icon-home"> OpenShift Compliance Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">  Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fisma.html">  FISMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sec_conops.html">  Security CONOPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controls.html">  Security Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ansible.html">  Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous_compliance.html">  Continuous Compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">  Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../toc.html">OpenShift Compliance Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../toc.html">Docs</a> &raquo;</li>
+      
+    <li>SCTM for Awareness and Training</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/deprecated/sctm/sctm-at.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sctm-for-awareness-and-training">
+<span id="sctm-at"></span><h1>SCTM for Awareness and Training<a class="headerlink" href="#sctm-for-awareness-and-training" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="10%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>NIST Ref #</strong></td>
+<td><strong>Control Family</strong></td>
+<td><strong>Org Ref #</strong></td>
+<td><strong>Baseline Low</strong></td>
+<td><strong>Baseline Moderate</strong></td>
+<td><strong>Baseline High</strong></td>
+<td><strong>Confidentiality Low</strong></td>
+<td><strong>Confidentiality Moderate</strong></td>
+<td><strong>Confidentiality High</strong></td>
+<td><strong>Integrity Low</strong></td>
+<td><strong>Integrity Moderate</strong></td>
+<td><strong>Integrity High</strong></td>
+<td><strong>Availability Low</strong></td>
+<td><strong>Availability Moderate</strong></td>
+<td><strong>Availability High</strong></td>
+<td><strong>References</strong></td>
+<td><strong>Red Hat Response</strong></td>
+<td><strong>Requirements</strong></td>
+<td><strong>Supplemental Guidance</strong></td>
+</tr>
+<tr class="row-even"><td>AT-1</td>
+<td>Awareness and Training</td>
+<td>AT-1_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>SP 800-12;
+SP 800-16;
+SP 800-50;
+SP 800-100;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SECURITY AWARENESS AND TRAINING POLICY AND PROCEDURES
+Control: The organization:
+a. Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:
+1. A security awareness and training policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</td>
+<td>This control addresses the establishment of policy and procedures for the effective implementation of selected security controls and control enhancements in the AT family. Policy and procedures reflect applicable federal laws, Executive Orders, directives, regulations, policies, standards, and guidance. Security program policies and procedures at the organization level may make the need for system-specific policies and procedures unnecessary. The policy can be included as part of the general information security policy for organizations or conversely, can be represented by multiple policies reflecting the complex nature of certain organizations. The procedures can be established for the security program in general and for particular information systems, if needed. The organizational risk management strategy is a key factor in establishing policy and procedures. Related control: PM-9.</td>
+</tr>
+<tr class="row-odd"><td>AT-1</td>
+<td>Awareness and Training</td>
+<td>AT-1_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Procedures to facilitate the implementation of the security awareness and training policy and associated security awareness and training controls; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AT-1</td>
+<td>Awareness and Training</td>
+<td>AT-1_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>b. Reviews and updates the current:
+1. Security awareness and training policy [Assignment: organization-defined frequency]; and</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AT-1</td>
+<td>Awareness and Training</td>
+<td>AT-1_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Security awareness and training procedures [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AT-2</td>
+<td>Awareness and Training</td>
+<td>AT-2_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>C.F.R. Part 5 Subpart C (5 C.F.R. 930.301);
+EO 13587;
+SP 800-50;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SECURITY AWARENESS TRAINING
+Control: The organization provides basic security awareness training to information system users (including managers, senior executives, and contractors):
+a. As part of initial training for new users;</td>
+<td>Organizations determine the appropriate content of security awareness training and security awareness techniques based on the specific organizational requirements and the information systems to which personnel have authorized access. The content includes a basic understanding of the need for information security and user actions to maintain security and to respond to suspected security incidents. The content also addresses awareness of the need for operations security. Security awareness techniques can include, for example, displaying posters, offering supplies inscribed with security reminders, generating email advisories/notices from senior organizational officials, displaying logon screen messages, and conducting information security awareness events. Related controls: AT-3, AT-4, PL-4.</td>
+</tr>
+<tr class="row-odd"><td>AT-2</td>
+<td>Awareness and Training</td>
+<td>AT-2_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>When required by information system changes; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AT-2</td>
+<td>Awareness and Training</td>
+<td>AT-2_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>[Assignment: organization-defined frequency] thereafter.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AT-2(1)</td>
+<td>Awareness and Training</td>
+<td>AT-2(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY AWARENESS | PRACTICAL EXERCISES
+The organization includes practical exercises in security awareness training that simulate actual cyber attacks.</td>
+<td>Practical exercises may include, for example, no-notice social engineering attempts to collect information, gain unauthorized access, or simulate the adverse impact of opening malicious email attachments or invoking, via spear phishing attacks, malicious web links. Related controls: CA-2, CA-7, CP-4, IR-3.</td>
+</tr>
+<tr class="row-even"><td>AT-2(2)</td>
+<td>Awareness and Training</td>
+<td>AT-2(2)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SECURITY AWARENESS | INSIDER THREAT
+The organization includes security awareness training on recognizing and reporting potential indicators of insider threat.</td>
+<td>Potential indicators and possible precursors of insider threat can include behaviors such as inordinate, long-term job dissatisfaction, attempts to gain access to information not required for job performance, unexplained access to financial resources, bullying or sexual harassment of fellow employees, workplace violence, and other serious violations of organizational policies, procedures, directives, rules, or practices. Security awareness training includes how to communicate employee and management concerns regarding potential indicators of insider threat through appropriate organizational channels in accordance with established organizational policies and procedures. Related controls: PL-4, PM-12, PS-3, PS-6.</td>
+</tr>
+<tr class="row-odd"><td>AT-3</td>
+<td>Awareness and Training</td>
+<td>AT-3_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>C.F.R. Part Subpart C (C.F.R. 930.301);
+SP 800-16;
+SP 800-50;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>ROLE-BASED SECURITY TRAINING
+Control: The organization provides role-based security training to personnel with assigned security roles and responsibilities:
+a. Before authorizing access to the information system or performing assigned duties;</td>
+<td>Organizations determine the appropriate content of security training based on the assigned roles and responsibilities of individuals and the specific security requirements of organizations and the information systems to which personnel have authorized access. In addition, organizations provide enterprise architects, information system developers, software developers, acquisition/procurement officials, information system managers, system/network administrators, personnel conducting configuration management and auditing activities, personnel performing independent verification and validation activities, security control assessors, and other personnel having access to system-level software, adequate security-related technical training specifically tailored for their assigned duties. Comprehensive role-based training addresses management, operational, and technical roles and responsibilities covering physical, personnel, and technical safeguards and countermeasures. Such training can include for example, policies, procedures, tools, and artifacts for the organizational security roles defined. Organizations also provide the training necessary for individuals to carry out their responsibilities related to operations and supply chain security within the context of organizational information security programs. Role-based security training also applies to contractors providing services to federal agencies. Related controls: AT-2, AT-4, PL-4, PS-7, SA-3, SA-12, SA-16.</td>
+</tr>
+<tr class="row-even"><td>AT-3</td>
+<td>Awareness and Training</td>
+<td>AT-3_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>When required by information system changes; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AT-3</td>
+<td>Awareness and Training</td>
+<td>AT-3_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>[Assignment: organization-defined frequency] thereafter.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AT-3(1)</td>
+<td>Awareness and Training</td>
+<td>AT-3(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY TRAINING | ENVIRONMENTAL CONTROLS
+The organization provides [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of environmental controls.</td>
+<td>Environmental controls include, for example, fire suppression and detection devices/systems, sprinkler systems, handheld fire extinguishers, fixed fire hoses, smoke detectors, temperature/humidity, HVAC, and power within the facility. Organizations identify personnel with specific roles and responsibilities associated with environmental controls requiring specialized training. Related controls: PE-1, PE-13, PE-14, PE-15.</td>
+</tr>
+<tr class="row-odd"><td>AT-3(2)</td>
+<td>Awareness and Training</td>
+<td>AT-3(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SECURITY TRAINING | PHYSICAL SECURITY CONTROLS
+The organization provides [Assignment: organization-defined personnel or roles] with initial and [Assignment: organization-defined frequency] training in the employment and operation of physical security controls.</td>
+<td>Physical security controls include, for example, physical access control devices, physical intrusion alarms, monitoring/surveillance equipment, and security guards (deployment and operating procedures). Organizations identify personnel with specific roles and responsibilities associated with physical security controls requiring specialized training. Related controls: PE-2, PE-3, PE-4, PE-5.</td>
+</tr>
+<tr class="row-even"><td>AT-3(3)</td>
+<td>Awareness and Training</td>
+<td>AT-3(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY TRAINING | PRACTICAL EXERCISES
+The organization includes practical exercises in security training that reinforce training objectives.</td>
+<td>Practical exercises may include, for example, security training for software developers that includes simulated cyber attacks exploiting common software vulnerabilities (e.g., buffer overflows), or spear/whale phishing attacks targeted at senior leaders/executives. These types of practical exercises help developers better understand the effects of such vulnerabilities and appreciate the need for security coding standards and processes.</td>
+</tr>
+<tr class="row-odd"><td>AT-3(4)</td>
+<td>Awareness and Training</td>
+<td>AT-3(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SECURITY TRAINING | SUSPICIOUS COMMUNICATIONS AND ANOMALOUS SYSTEM BEHAVIOR
+The organization provides training to its personnel on [Assignment: organization-defined indicators of malicious code] to recognize suspicious communications and anomalous behavior in organizational information systems.</td>
+<td>A well-trained workforce provides another organizational safeguard that can be employed as part of a defense-in-depth strategy to protect organizations against malicious code coming in to organizations via email or the web applications. Personnel are trained to look for indications of potentially suspicious email (e.g., receiving an unexpected email, receiving an email containing strange or poor grammar, or receiving an email from an unfamiliar sender but who appears to be from a known sponsor or contractor). Personnel are also trained on how to respond to such suspicious email or web communications (e.g., not opening attachments, not clicking on embedded web links, and checking the source of email addresses). For this process to work effectively, all organizational personnel are trained and made aware of what constitutes suspicious communications. Training personnel on how to recognize anomalous behaviors in organizational information systems can potentially provide early warning for the presence of malicious code. Recognition of such anomalous behavior by organizational personnel can supplement automated malicious code detection and protection tools and systems employed by organizations.</td>
+</tr>
+<tr class="row-even"><td>AT-4</td>
+<td>Awareness and Training</td>
+<td>AT-4_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SECURITY TRAINING RECORDS
+Control: The organization:
+a. Documents and monitors individual information system security training activities including basic security awareness training and specific information system security training; and</td>
+<td>Documentation for specialized training may be maintained by individual supervisors at the option of the organization. Related controls: AT-2, AT-3, PM-14.</td>
+</tr>
+<tr class="row-odd"><td>AT-4</td>
+<td>Awareness and Training</td>
+<td>AT-4_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Retains individual training records for [Assignment: organization-defined time period].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>AT-5</td>
+<td>Awareness and Training</td>
+<td>AT-5_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONTACTS WITH SECURITY GROUPS AND ASSOCIATIONS
+[Withdrawn: Incorporated into PM-15].</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Red Hat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

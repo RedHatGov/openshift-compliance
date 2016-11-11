@@ -23,19 +23,16 @@ moderate confidentiality, integrity, and availability requirements.
 
 While the configurations and Security Control Traceability Matrix (SCTM)
 documented in this guide could be implemented in any environment, the
-:ref:`reference_architecture` is `Amazon Web Services`_.
+reference architecture is `Amazon Web Services`_.
 
 *****************
 Table of Contents
 *****************
 #. :ref:`fisma`
-#. :ref:`reference_architecture`
-#. :ref:`controls`
-#. :ref:`security_controls`
+#. :ref:`sec_conops`
+#. :ref:`control`
 #. :ref:`ansible`
 #. :ref:`continuous_compliance`
-#. :ref:`ssp_template`
-#. :ref:`template_poam`
 
 **************************
 Frequently Asked Questions

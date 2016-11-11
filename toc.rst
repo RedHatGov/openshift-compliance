@@ -14,13 +14,10 @@ Contents:
 
      Overview <index.rst>
      FISMA <fisma.rst>
-     Reference Architecture <reference_architecture.rst>
-     Controls <controls.rst>
-     Security Controls <security_controls.rst>
+     Security CONOPS <sec_conops.rst>
+     Security Controls <controls.rst>
      Ansible <ansible.rst>
      Continuous Compliance <continuous_compliance.rst>
-     SSP Template <ssp_template.rst>
-     POA&M Template <template_poam.rst>
      Frequently Asked Questions <faq.rst>
 
 
