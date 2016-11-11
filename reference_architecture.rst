@@ -152,7 +152,7 @@ Communications internal to the nodes occur in the network address space defined 
 
 Platform View
 -------------
-The platform view describes the OCP architecture at the platform level.  This view abastracts out the AWS components and focuses primarily on the functional components of OCP.
+The platform view describes the OCP architecture at the platform level.  This view abstracts out the AWS components and focuses primarily on the functional components of OCP.
 
 PaaS Definition - NIST 800-145
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,6 +169,23 @@ Stakeholders
 **Application Developers** have access to the OCP WebUI and CLI to deploy applications.
 
 **Application Users** do not have a role at the platform level.
+
+Roles
+~~~~~
++----------------------+----------------------------------------------------------+
+|Name                  | Description                                              |
++======================+==========================================================+
+|Cluster Administrator | Full administrative control over the OpenShift cluster   |
++----------------------+----------------------------------------------------------+
+|Cluster Auditor       | Read-only access to all objects on the cluster           |
++----------------------+----------------------------------------------------------+
+|Project Administrator | Full administrative access to a project                  |
++----------------------+----------------------------------------------------------+
+|Project Auditor       | Read-only access to a project                            |
++----------------------+----------------------------------------------------------+
+|Application Developer | Full access to build, deploy and terminate applications. |
+|                      | Cannot modify access to the project.                     |
++----------------------+----------------------------------------------------------+
 
 Diagram
 ~~~~~~~
