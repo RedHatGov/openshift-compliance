@@ -44,8 +44,10 @@ Ansible Automation
 {% endif %}
 {% else %}
 {% for part in sctm[key] %}
-Part {{ part['Org Ref #'] }}
+Part {{ part['Part'] }}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Requirement**: {{ part['Requirement'] }}
 
 **Responsible Role**: {{ part['Role'] }}
 
