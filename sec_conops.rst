@@ -440,6 +440,10 @@ A container is constructed using Linux kernel mechanisms, some of which have exi
 | Secomp              | Secure computing assists with creating sandboxes by defining which system calls should be blocked.                                                                                                                               |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+SELinux
+~~~~~~~
+The criticality of protecting the platform in a multi-tenant environment cannot be understated.  As a result, the protection offered by SELinux Multi-Category Security (MCS) as an integral component of the layered security model within the `Red Hat Enterprise Linux Docker Security Policy`_ is indispensable.  RHEL's Container MCS policy is derived and extended from `sVirt`_, the SELinux policy for isolating virtual machine hypervisor processes.  sVirt policy has been developed, refined, and continuously tested since 2009, and offers a mature and validated model for infrastructure protection.  It is the gold standard of preventing a compromised process from gaining additional privileges or access to components of the system that have not been specifically allowed by policy.
+
 
 
 .. _NIST 800-145: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
@@ -453,6 +457,8 @@ A container is constructed using Linux kernel mechanisms, some of which have exi
 .. _Open Container Initiative: https://www.opencontainers.org/
 .. _Image Specification: http://www.github.com/opencontainers/image-spec
 .. _Runtime Specification: http://www.github.com/opencontainers/runtime-spec
+.. _Red Hat Enterprise Linux Docker Security Policy: https://access.redhat.com/documentation/en/red-hat-enterprise-linux-atomic-host/7/paged/container-security-guide/chapter-6-docker-selinux-security-policy
+.. _sVirt: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Security_Guide/chap-Virtualization_Security_Guide-sVirt.html
 
 .. |Infrastructure View| image:: /images/architecture/InfrastructureView.png
 .. |Storage View| image:: /images/architecture/StorageView.png
