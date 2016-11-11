@@ -13,7 +13,6 @@ Contents:
    :glob:
 
      Overview <index.rst>
-     FISMA <fisma.rst>
      Security CONOPS <sec_conops.rst>
      Security Controls <controls.rst>
      Ansible <ansible.rst>

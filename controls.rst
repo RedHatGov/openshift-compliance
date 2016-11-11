@@ -7,7 +7,9 @@ Security Controls
 Overview
 ========
 
-These security controls comply with FISMA High requirements.
+These security controls comply with FISMA High requirements as defined by `NIST SP800-53r4`_. Omitted controls are not required.
+
+This chapter is automatically generated from the `master_sctm.xlsx`_ spreadsheet on this project's `GitHub`_.
 
 
 AC-1 - Access Control Policy And Procedures
@@ -8069,3 +8071,8 @@ Part a
 
 
 
+
+
+.. _`NIST SP800-53r4`: http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf
+.. _`master_sctm.xlsx`: https://github.com/jason-callaway/openshift-compliance/raw/master/master_sctm.xlsx
+.. _`GitHub`: https://github.com/jason-callaway/openshift-compliance
