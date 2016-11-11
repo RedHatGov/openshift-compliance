@@ -50,6 +50,7 @@ clean:
 
 .PHONY: html
 html:
+	python master_sctm_parser.py master_sctm.xlsx
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
