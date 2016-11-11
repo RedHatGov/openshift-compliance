@@ -15,47 +15,49 @@ environment = jinja2.Environment(loader=loader)
 template = environment.get_template('security_control.j2')
 
 # Open the SCTM Excel workbook
-wb = openpyxl.load_workbook(sys.argv[1], read_only=True)
+# wb = openpyxl.load_workbook(sys.argv[1], read_only=True)
+wb = openpyxl.load_workbook(sys.argv[1], read_only=False)
 ws = wb['Matrix']
 
 # Build the column index
 column_index = {}
-index_number = 0
-for cell in ws.rows[0]:
-    column_index[int(index_number)] = cell.value
-    index_number += 1
+for row in ws.iter_rows(min_row=1, max_row=1):
+    for i, cell in enumerate(row):
+        column_index[i] = cell.value
 
 # Init the sctm dict, keyed to control title
 sctm = {}
 
 # Iterate over every row in the sheet, starting at the 2nd row
-for row in ws.rows[1:]:
+for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
+    # Skip hidden rows
+    if ws.row_dimensions[i].hidden is True:
+        continue
+
     # Temporary dict for this iteration
     r = {}
 
-    # Cell index
-    i = 0
-
     # Iterate over the cells and insert the values into the temporary dict r
     # keyed with the column name.
-    for cell in row:
+    for j, cell in enumerate(row):
         # If the cell is non-blank, insert the cell's contents into the temp
         # dict r keyed by column name.
         if cell.value and cell.value != '':
-            r[column_index[i]] = cell.value
+            r[column_index[j]] = cell.value
         else:
-            r[column_index[i]] = 'undefined'
-        i += 1
+            r[column_index[j]] = 'undefined'
 
     # Build the control title with nice capitalization
-    r["Title"] = " ".join(w.capitalize() for w in nt_map[r["NIST Ref #"]].split())
+    r["Title"] = " ".join(w.capitalize() for w in str(nt_map[r["NIST Ref #"]]).split())
 
     # First we check to see if this control has been processed before
     req = ''
     if sctm.get(r['NIST Ref #']):
         # If it has, we concat the control language
-        swap = sctm['NIST Ref #']['Requirements']
-        req = swap + '\n' + r['Requirements']
+        swap = ''
+        swap_list = sctm[r['NIST Ref #']]
+        for part in swap_list:
+            req = swap + '\n' + part['Requirements']
     else:
         # Otherwise we start fresh
         req = r['Requirements']
@@ -69,10 +71,9 @@ for row in ws.rows[1:]:
         parts.append(r)
         sctm[r['NIST Ref #']] = parts
     else:
-        sctm['NIST Ref #'] = [r]
+        sctm[r['NIST Ref #']] = [r]
 
 sctm_keys = sorted(sctm.keys())
 for key in sctm_keys:
-    control = sctm[key]
-    print template.render(key)
+    print template.render(sctm[key])
 
