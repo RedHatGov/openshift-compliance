@@ -3,7 +3,6 @@ import openpyxl
 import os
 import sys
 
-from collections import OrderedDict
 from ntmap import *
 
 # Get the path of this file
@@ -14,7 +13,7 @@ loader = jinja2.FileSystemLoader(dir_path)
 environment = jinja2.Environment(loader=loader)
 template = environment.get_template('security_control.j2')
 
-# Open the SCTM Excel workbook r/w so we can look at row dimensions.
+# Open the SCTM Excel workbook rw so we can look at row dimensions.
 wb = openpyxl.load_workbook(sys.argv[1], read_only=False)
 ws = wb['Matrix']
 
@@ -56,7 +55,6 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
     if sctm.get(ref_num):
         # If it has, we concat the control language
         sctm[ref_num][0]['Original Requirements'] += (u"\n" + r['Requirements'])
-        # u"\n".join(p['Requirements'] for p in sctm[ref_num])
     else:
         # Otherwise we start fresh
         r['Original Requirements'] = r['Requirements']
@@ -67,7 +65,6 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
     else:
         sctm[ref_num] = [r]
 
-sctm_keys = sorted(sctm.keys())
-for key in sctm_keys:
-    print template.render(sctm[key])
+
+print template.render(sctm=sctm)
 

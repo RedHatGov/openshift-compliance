@@ -1,34 +1,34 @@
-
-{{ key[0]['NIST Ref #'] }} - {{ key[0]['Title'] }}
+{% for key in sctm.keys()|sort %}
+{{ sctm[key][0]['NIST Ref #'] }} - {{ sctm[key][0]['Title'] }}
 ================================================================================
 
-{{ key[0]['Original Requirements'] }}
+{{ sctm[key][0]['Original Requirements'] }}
 
 Control Summary Information
 ---------------------------
 
-**Responsible Role**: {{ key[0]['Role'] }}
-**Parameter**: {{ key[0]['Parameter'] }}
-**Implementation Status**: {{ key[0]['Implementation Status'] }}
-**Control Origin**: {{ key[0]['Control Origin'] }}
+**Responsible Role**: {{ sctm[key][0]['Role'] }}
+**Parameter**: {{ sctm[key][0]['Parameter'] }}
+**Implementation Status**: {{ sctm[key][0]['Implementation Status'] }}
+**Control Origin**: {{ sctm[key][0]['Control Origin'] }}
 
-{{ key[0]['NIST Ref #'] }} What is the solution and how is it implemented?
+{{ sctm[key][0]['NIST Ref #'] }} What is the solution and how is it implemented?
 --------------------------------------------------------------------------------
 
-{% if len(key) == 1 %}
-**Responsible Role**: {{ key[0]['Role'] }}
-**Implementation Status**: {{ key[0]['Implementation Status'] }}
+{% if sctm[key] < 2 %}
+**Responsible Role**: {{ sctm[key][0]['Role'] }}
+**Implementation Status**: {{ sctm[key][0]['Implementation Status'] }}
 
-{{ key[0]['Red Hat Response'] }}
-{% if key[0].get('Ansible') %}
+{{ sctm[key][0]['Red Hat Response'] }}
+{% if sctm[key][0].get('Ansible') %}
 
 Ansible Automation
 ------------------
 
-{{ key[0]['Ansible'] }}
+{{ sctm[key][0]['Ansible'] }}
 {% endif %}
 {% else %}
-{% for part in key %}
+{% for part in sctm[key] %}
 Part {{ part['Org Ref #'] }}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -45,3 +45,6 @@ Ansible Automation
 {% endif %}
 {% endfor %}
 {% endif %}
+
+
+{% endfor %}
