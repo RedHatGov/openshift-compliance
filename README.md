@@ -17,7 +17,7 @@ $ sudo pip install sphinx_rtd_theme
 $ sudo pip install openpyxl
 ```
 
-The master security control tracibility matrix (SCTM) is [master_sctm.xlsx]. It needs to be parsed by [master_sctm_parser.py], which generates [controls.rst] via the [security_control.j2] (Jinja2)[http://jinja.pocoo.org/docs/dev/] template.
+The master security control tracibility matrix (SCTM) is [master_sctm.xlsx](master_sctm.xlsx). It needs to be parsed by [master_sctm_parser.py](master_sctm_parser.py), which generates [controls.rst](controls.rst) via the [security_control.j2](security_control.j2) [Jinja2](http://jinja.pocoo.org/docs/dev/) template.
 
 Once you have made changes to your docs, commit your changes. You can build
 the docs to view locally.
