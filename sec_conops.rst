@@ -448,7 +448,9 @@ SELinux
 ~~~~~~~
 The criticality of protecting the platform in a multi-tenant environment cannot be understated.  As a result, the protection offered by SELinux Multi-Category Security (MCS) as an integral component of the layered security model within the `Red Hat Enterprise Linux Docker Security Policy`_ is indispensable.  RHEL's Container MCS policy is derived and extended from `sVirt`_, the SELinux policy for isolating virtual machine hypervisor processes.  sVirt policy has been developed, refined, and continuously tested since 2009, and offers a mature and validated model for infrastructure protection.  It is the gold standard of preventing a compromised process from gaining additional privileges or access to components of the system that have not been specifically allowed by policy.
 
+|SELinux MCS Annotation|
 
+In a SELinux-labeled file or process, there multiple fields that affect how the policy is evaluated.  Most critical for interpretation of the container MCS policy are the `type` and `category` fields.  In the case of a container process, the `type` will be `svirt_lxc_net_t`.  This indicates that the process will only be allowed to invoke system actions that have been explicitly whitelisted in the policy.  On the other hand, the `category` fields will be uniquely assigned for each process.  This ensures that container processes on the same physical system are not permitted to interact at the system level, and that tenants in the multi-tenant system are unable to access or affect other tenants.
 
 .. _NIST 800-145: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
 .. _FISMA: http://csrc.nist.gov/drivers/documents/FISMA-final.pdf
@@ -482,3 +484,4 @@ The criticality of protecting the platform in a multi-tenant environment cannot 
 .. |Application View| image:: /images/architecture/ApplicationView.png
 .. |Container Image| image:: /images/architecture/ContainerLayers.png
 .. |Platform Network| image:: /images/architecture/PlatformNetwork.png
+.. |SELinux MCS Annotation| image:: /images/architecture/SELinuxMCS.png
