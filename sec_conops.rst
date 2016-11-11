@@ -335,6 +335,10 @@ Actors
 
 **Application Users** do not have a role at the application level.
 
+Application Security - Sensitive Configuration Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There is often a need to provide sensitive data for the proper configuration of the application or service component.  For instance, it may be necessary to provide encryption keys, passwords, configuration files, private source repository credentials, and other data considered sensitive.  This data often varies between environments, such as database passwords or SSL server certificates.  Secrets provide a mechanism to decouple sensitive content from the pods that use it, removing the necessity of storing this data on the filesystem or within the container image itself.  This mechanism promotes best practices for abstracting environment-specific configuration data away from the build process, as well as provides an encrypted storage mechanism.  For more information on this topic, refer to the `Secrets documentation`_.
+
 Diagram
 ~~~~~~~
 The following diagram details the conceptual use of project resources to build and deploy applications within a project.
@@ -454,6 +458,7 @@ The criticality of protecting the platform in a multi-tenant environment cannot 
 .. _security context constraints: https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#security-context-constraints
 .. _Configuring Network Encryption in Red Hat Gluster Storage: https://access.redhat.com/documentation/en-US/Red_Hat_Storage/3.1/html/Administration_Guide/chap-Network_Encryption.html
 .. _Encryption chapter of the RHEL 7 Security Guide: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html
+.. _Secrets documentation: https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html
 .. _Open Container Initiative: https://www.opencontainers.org/
 .. _Image Specification: http://www.github.com/opencontainers/image-spec
 .. _Runtime Specification: http://www.github.com/opencontainers/runtime-spec
