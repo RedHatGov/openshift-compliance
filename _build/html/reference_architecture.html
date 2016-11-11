@@ -1,0 +1,867 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reference Architeture &mdash; OpenShift Compliance Guide 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="OpenShift Compliance Guide 1 documentation" href="index.html"/>
+        <link rel="next" title="Security Controls" href="security_controls.html"/>
+        <link rel="prev" title="FISMA Compliance" href="fisma.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="toc.html" class="icon icon-home"> OpenShift Compliance Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">  Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fisma.html">  FISMA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">  Reference Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#security-standards">Security Standards</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#infrastructure-view">Infrastructure View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#iaas-definition-nist-800-145">IaaS Definition - NIST 800-145</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stakeholders">Stakeholders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diagram">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#components">Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-architecture">Network Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#platform-view">Platform View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#paas-definition-nist-800-145">PaaS Definition - NIST 800-145</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Stakeholders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#roles">Roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Network Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-security-platform-users">Platform Security - Platform Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-security-container-security">Platform Security - Container Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#application-view">Application View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definition">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#actors">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#container-view">Container View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Actors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#container-filesystem">Container Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-components">Kernel Components</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security_controls.html">  Security Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansible.html">  Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous_compliance.html">  Continuous Compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssp_template.html">  SSP Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template_poam.html">  POA&amp;M Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">  Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="toc.html">OpenShift Compliance Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="toc.html">Docs</a> &raquo;</li>
+      
+    <li>Reference Architeture</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/reference_architecture.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reference-architeture">
+<span id="reference-architecture"></span><h1>Reference Architeture<a class="headerlink" href="#reference-architeture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The reference architecture details, at various levels of abstraction, a
+deployment of Red Hat&#8217;s OpenShift Container Platform (OCP) deployed on Amazon Web Services (AWS).  The NIST <em>Definition of Cloud Computing</em> <a class="reference external" href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">NIST 800-145</a> succinctly describes different cloud service models and the attributes of a cloud platform.  The architecture described herein follows the definitions found in the NIST 800-145.  For example, Red Hat&#8217;s OCP is a Platform as a Service (PaaS) under NIST 800-145.  Similarly, AWS is an Infrastrucutre as a Service (IaaS) per the NIST definition.</p>
+<div class="section" id="security-standards">
+<h3>Security Standards<a class="headerlink" href="#security-standards" title="Permalink to this headline">¶</a></h3>
+<p>The Fedral Information Security Modernization Act (<a class="reference external" href="http://csrc.nist.gov/drivers/documents/FISMA-final.pdf">FISMA</a>), originally enacted in 2002, directs United States Federal Agencies to develop and implement programs to implement information and information systems security.  This reference architecture aims to describe an OCP deployment on AWS as FISMA high: high confidentiality, high integrity, high availability.</p>
+<p>In order to demonstrate FISMA high, this architecture is traced to <a class="reference external" href="https://web.nvd.nist.gov/view/800-53/home">NIST 800-53</a> <em>Security and Privacy Controls for Federal Information Systems and Organizations</em>.  The NIST 800-53 provides a catalog of controls accross multiple categories.  Many controls relate to organizational processes.  These controls will be mapped as appropriate.  The controls that are technical in nature are addressed by this architecture.</p>
+</div>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>This architecture is divided into architectural views loosely mapped to the NIST 800-145 <em>Definition of Cloud Computing</em>.  The nature of cloud computing affords the adoption of a Landlord/Tenant model.  This model allows the Landlord to take responsibility for a set of controls under NIST 800-53, relieving the tenant of the need to address those controls.  The following table lists lists the relationship of Landlord to Tenant in this reference architecture.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Landlord</th>
+<th class="head">Tenant</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AWS</td>
+<td>OCP</td>
+</tr>
+<tr class="row-odd"><td>OCP</td>
+<td>Applications</td>
+</tr>
+</tbody>
+</table>
+<p>As stated prviously, the IaaS in this architecture is AWS.  Red Hat&#8217;s OCP is the PaaS.  Tenant applications are deployed in containers, managed by OCP.</p>
+<div class="section" id="infrastructure-view">
+<h3>Infrastructure View<a class="headerlink" href="#infrastructure-view" title="Permalink to this headline">¶</a></h3>
+<p>The infrastructure view describes the OCP components at the infrastructure level.  These components are necessary to serve OCP in AWS and achieving FISMA high.</p>
+<div class="section" id="iaas-definition-nist-800-145">
+<h4>IaaS Definition - NIST 800-145<a class="headerlink" href="#iaas-definition-nist-800-145" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>The capability provided to the consumer is to provision processing, storage, networks, and other fundamental computing resources where the consumer is able to deploy and run arbitrary software, which can include operating systems and applications. The consumer does not manage or control the underlying cloud infrastructure but has control over operating systems, storage, and deployed applications; and possibly limited control of select networking components (e.g., host firewalls).</div></blockquote>
+</div>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>AWS provides this capability.  Amazon provides the underlying hardware infastructure that supports the self-service provisioning into the cloud of what has traditionaly been based in hardware.  This includes, but is not limited to compute, storage, and networking services.</p>
+</div>
+<div class="section" id="stakeholders">
+<h4>Stakeholders<a class="headerlink" href="#stakeholders" title="Permalink to this headline">¶</a></h4>
+<p><strong>Cluster Administrators</strong> require AWS console access and the ability to deploy and/or configure the following AWS components.</p>
+<blockquote>
+<div><ul class="simple">
+<li>VPC</li>
+<li>Elastic IP</li>
+<li>Elastic Cloud Compute (EC2)</li>
+<li>VPC Peering</li>
+<li>Route Tables</li>
+</ul>
+</div></blockquote>
+<p><strong>Application Developers</strong> do not have a role at the infrastructure level.</p>
+<p><strong>Application Consumers</strong> do not have a role at the infrastructure level.</p>
+</div>
+<div class="section" id="diagram">
+<h4>Diagram<a class="headerlink" href="#diagram" title="Permalink to this headline">¶</a></h4>
+<p>The following diagram illustrates the high level deployment of OCP in AWS and the necessary AWS components to support OCP.
+<img alt="Infrastructure View" src="_images/InfrastructureView.png" /></p>
+</div>
+<div class="section" id="components">
+<h4>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes each AWS component and relates it to the implementation in the OCP reference architecture.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="59%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">AWS Component</th>
+<th class="head">Description</th>
+<th class="head">OCP Component</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="2">VPC</td>
+<td rowspan="2">A logically isolated section of AWS in which resources
+are connected via a virtual networking environment.</td>
+<td>Red Hat VPC</td>
+</tr>
+<tr class="row-odd"><td>1..n Dedicated VPC&#8217;s</td>
+</tr>
+<tr class="row-even"><td rowspan="4">Subnet</td>
+<td rowspan="4">Virtually isolated network used on which traffic
+is isolatedbecause isolation makes for great neighbors.</td>
+<td>Management Subnet</td>
+</tr>
+<tr class="row-odd"><td>Staging Subnet</td>
+</tr>
+<tr class="row-even"><td>Operations Subnet</td>
+</tr>
+<tr class="row-odd"><td>Dedicated Subnet</td>
+</tr>
+<tr class="row-even"><td>EC2 Compute
+Instance</td>
+<td>A scalable compute capacity in AWS.  Compute instances
+are instantiated from cloud images with pre-installed
+operating systems, for example Red Hat Enterprise Linux.</td>
+<td>All OCP Platform
+components.</td>
+</tr>
+<tr class="row-odd"><td>Route Table</td>
+<td>A route table defines rules as to how network traffic
+in a VPC is routed internally.</td>
+<td>Red Hat VPC</td>
+</tr>
+<tr class="row-even"><td rowspan="5">Elastic IP</td>
+<td rowspan="5">An Elastic IP is associated with an EC2 Instance and is
+publically reacheable.</td>
+<td>Staging HA Proxy</td>
+</tr>
+<tr class="row-odd"><td>Staging Authentication</td>
+</tr>
+<tr class="row-even"><td>Staging App. Traffic</td>
+</tr>
+<tr class="row-odd"><td>Bastion</td>
+</tr>
+<tr class="row-even"><td>Ansible Tower</td>
+</tr>
+<tr class="row-odd"><td>VPC Peering</td>
+<td>A VPC peering connection is a networking connection
+between two VPCs that enables traffic to be routed
+between them using private IP addresses.</td>
+<td>Between the Red Hat
+VPC and any Dedicated
+VPC</td>
+</tr>
+<tr class="row-even"><td rowspan="4">Elastic Load
+Balancer</td>
+<td rowspan="4">An ELB automatically distributes traffic among EC2
+instances.</td>
+<td>Operations API</td>
+</tr>
+<tr class="row-odd"><td>Operations Application</td>
+</tr>
+<tr class="row-even"><td>Dedicated API</td>
+</tr>
+<tr class="row-odd"><td>Dedicated Application</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="network-architecture">
+<h4>Network Architecture<a class="headerlink" href="#network-architecture" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>Staging Subnet</strong> provides an isolated area for platform administrators to apply regular patches and test configuration changes before applying these to the operations cluster.  One cluster of OCP is deployed in this VPC.</p>
+<p>The <strong>Operations Subnet</strong> contains a single deployment of OpenShift where tenants will deploy applications.  OCP Nodes will be labled and functionally grouped to support development, test, and production deployments of an application.  This is described in detail in the <em>Platform View</em>.</p>
+<p>The <strong>Management Subnet</strong> contains the Trusted Container Repository as well as the Package Repository.  A route table allows the <strong>Managent Subnet</strong> to communicate to the <strong>Staging Subnet</strong>, <strong>Operations Subnet</strong>.  The <strong>Staging Subnet</strong> and <strong>Operations Subnet</strong> are not permitted to communicate with each other. A VPC peering connection allows the <strong>Management Subnet</strong> in the <strong>Red Hat VPC</strong> to communicate with any <strong>Dedicated VPC&#8217;s</strong>.</p>
+<p><strong>Dedicated VPC&#8217;s</strong> are VPC&#8217;s that are deployed to support specific isolation needs of a particular tenant.  These may be created and destroyed per organizational needs.</p>
+<p>The <strong>bastion host</strong> allows OCP Administrators and only OCP Administrators the ability to access the underlying hosts in each VPC.</p>
+<p><strong>Application Developers</strong> interact with OCP via a command line interface (CLI) and web user interface (WebUI).  An application router, internal to OCP, handles application traffic.  Therefore certain ports in a security group must be exposed on the <strong>Red Hat VPC</strong> to allow ths traffic.  The same is true of any <strong>Dedicated VPC&#8217;s</strong>.  The following table details this information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="28%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">VPC Port</th>
+<th class="head">VPC/Subnet</th>
+<th class="head">Exposed Component</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="7">443/TCP</td>
+<td rowspan="2">Red Hat/Operations</td>
+<td>ELB - API Traffic</td>
+</tr>
+<tr class="row-odd"><td>ELB - Application Traffic</td>
+</tr>
+<tr class="row-even"><td rowspan="2">Red Hat/Staging</td>
+<td>Elastic IP - API HA Proxy</td>
+</tr>
+<tr class="row-odd"><td>Elastic IP - Application Traffic</td>
+</tr>
+<tr class="row-even"><td>Red Hat/Management</td>
+<td>Elastic IP - Ansible Tower</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Dedicated/Dedicated</td>
+<td>ELB - API Traffic</td>
+</tr>
+<tr class="row-even"><td>ELB - Application Traffic</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">4444/TCP</td>
+<td>Red Hat/Operations</td>
+<td>ELB - API Traffic - Authentication</td>
+</tr>
+<tr class="row-even"><td>Red Hat/Staging</td>
+<td>Elastic IP - API Traffic - Authentication</td>
+</tr>
+<tr class="row-odd"><td>Dedicated/Dedicated</td>
+<td>ELB - API Traffic - Authentication</td>
+</tr>
+<tr class="row-even"><td>22/TCP</td>
+<td>Red Hat/Management</td>
+<td>Elastic IP - SSH Bastion</td>
+</tr>
+</tbody>
+</table>
+<p>Communications internal to the nodes occur in the network address space defined by VPC subnets.</p>
+</div>
+</div>
+<div class="section" id="platform-view">
+<h3>Platform View<a class="headerlink" href="#platform-view" title="Permalink to this headline">¶</a></h3>
+<p>The platform view describes the OCP architecture at the platform level.  This view abstracts out the AWS components and focuses primarily on the functional components of OCP.</p>
+<div class="section" id="paas-definition-nist-800-145">
+<h4>PaaS Definition - NIST 800-145<a class="headerlink" href="#paas-definition-nist-800-145" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>The capability provided to the consumer is to deploy onto the cloud infrastructure consumer-created or acquired applications created using programming languages, libraries, services, and tools supported by the provider.  The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, or storage, but has control over the deployed applications and possibly configuration settings for the application-hosting environment.</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h4>Description<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The OpenShift Container Platform provides application developer&#8217;s the ability to rappidly deploy applications in a variety of application frameworks.</p>
+</div>
+<div class="section" id="id2">
+<h4>Stakeholders<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><strong>Cluster Administrators</strong> are responsible for the operations and proper function of the platform.  They have the ability to affect OCP security policies surrounding developer interaction and container function.</p>
+<p><strong>Application Developers</strong> have access to the OCP WebUI and CLI to deploy applications.</p>
+<p><strong>Application Users</strong> do not have a role at the platform level.</p>
+</div>
+<div class="section" id="roles">
+<h4>Roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Cluster Administrator</td>
+<td>Full administrative control over the OpenShift cluster</td>
+</tr>
+<tr class="row-odd"><td>Cluster Auditor</td>
+<td>Read-only access to all objects on the cluster</td>
+</tr>
+<tr class="row-even"><td>Project Administrator</td>
+<td>Full administrative access to a project</td>
+</tr>
+<tr class="row-odd"><td>Project Auditor</td>
+<td>Read-only access to a project</td>
+</tr>
+<tr class="row-even"><td>Application Developer</td>
+<td>Full access to build, deploy and terminate applications.
+Cannot modify access to the project.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h4>Diagram<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The following diagram details the minimum highly-available configuration of OCP to meet FISMA high at the platform level.
+<img alt="Platform View" src="_images/PlatformView.png" /></p>
+</div>
+<div class="section" id="id4">
+<h4>Components<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Component</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td>Master</td>
+<td>The OCP Master provides the API and WebUI entry points for Application Developers and OCP administrators. The OCP Master is also responsible for scheduling containers on each node.</td>
+</tr>
+<tr class="row-odd"><td>ETCD</td>
+<td>The ETCD servers are key-value stores used for maintaining information about the state of the OCP cluster.</td>
+</tr>
+<tr class="row-even"><td>Application Node</td>
+<td>The Application Nodes handle executing application containers.</td>
+</tr>
+<tr class="row-odd"><td>Infrastructure Node</td>
+<td>In an OCP cluster, a containerized HA proxy routes application traffic.  A containerized integrated container registry in OCP is a mechanism in the automated build and deployment flow.  Both the application router and integrated container registry and only these components run on the Infrastructure Node.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h4>Network Architecture<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The network architecture in the platform view is broken into two parts.  The first is the internal networking from between the EC2 instances supporting the platorm.  The second is the software defined networking layer enabling multi-tenant deployment of container based applications.</p>
+<p>The following diagram illustrates the internetworking of the platform components of OCP.</p>
+<p><a href="#id13"><span class="problematic" id="id14">|Platform Network|</span></a></p>
+<p>The following table describes the port information of the internal platform components.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="10%" />
+<col width="5%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>From</td>
+<td>To</td>
+<td>Port</td>
+<td>Notes</td>
+</tr>
+<tr class="row-even"><td>Application Traffic ELB</td>
+<td>OCP Infrastructure Node</td>
+<td>443/TCP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>API Traffic ELB</td>
+<td>HA and Authentication Proxy</td>
+<td>8443/TCP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>HA and Authentication Proxy</td>
+<td>OCP Master</td>
+<td>8443/TCP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>OCP Master</td>
+<td>OCP Master and Loop</td>
+<td>8053/TCP</td>
+<td>Required for DNS resolution of clustered services.</td>
+</tr>
+<tr class="row-even"><td>OCP Master</td>
+<td>OCP Master and Loop</td>
+<td>8053/UDP</td>
+<td>Required for DNS resolution of clustered services.</td>
+</tr>
+<tr class="row-odd"><td>OCP Master</td>
+<td>OCP Master</td>
+<td>2379/TCP</td>
+<td>Used for standalone etcd (clustered) to accept changes in state.</td>
+</tr>
+<tr class="row-even"><td>OCP Master</td>
+<td>OCP Master</td>
+<td>2380/TCP</td>
+<td>etcd requires this port be open between masters for leader election and peering connections when using standalone etcd (clustered).</td>
+</tr>
+<tr class="row-odd"><td>OCP Master</td>
+<td>OCP Node</td>
+<td>4789/UDP</td>
+<td>Required for SDN communication between pods on separate hosts.</td>
+</tr>
+<tr class="row-even"><td>OCP Master</td>
+<td>OCP Node</td>
+<td>10250/TCP</td>
+<td>The master proxies to node hosts via the Kubelet for oc commands.</td>
+</tr>
+<tr class="row-odd"><td>OCP Node</td>
+<td>OCP Master</td>
+<td>4789/UDP</td>
+<td>Required for SDN communication between pods on separate hosts.</td>
+</tr>
+<tr class="row-even"><td>OCP Node</td>
+<td>OCP Master</td>
+<td>8053/TCP</td>
+<td>Required for DNS resolution of clustered services.</td>
+</tr>
+<tr class="row-odd"><td>OCP Node</td>
+<td>OCP Master</td>
+<td>8053/UDP</td>
+<td>Required for DNS resolution of clustered services.</td>
+</tr>
+<tr class="row-even"><td>OCP Node</td>
+<td>OCP Master</td>
+<td>8443/TCP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>All</td>
+<td>Package Repository</td>
+<td>443/TCP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>OCP Node</td>
+<td>Trusted Container Repository</td>
+<td>443/TCP</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Bastion</td>
+<td>All</td>
+<td>22/TCP</td>
+<td>SSH</td>
+</tr>
+<tr class="row-even"><td>Ansible Tower</td>
+<td>All</td>
+<td>22/TCP</td>
+<td>SSH used during Ansible Plays</td>
+</tr>
+<tr class="row-odd"><td>OCP Node</td>
+<td>Gluster Node</td>
+<td>49152-49251/TCP</td>
+<td>For client communication with Red Hat Gluster Storage 2.1 and for brick processes depending on the availability of the ports. The total number of ports required to be open depends on the total number of bricks exported on the machine.</td>
+</tr>
+<tr class="row-even"><td>Gluster Node</td>
+<td>Gluster Node</td>
+<td>24007/TCP</td>
+<td>For glusterd (for management).</td>
+</tr>
+</tbody>
+</table>
+<p>In order to achieve network traffic isolation between containers owned by different tenants running on the same node, the traffic must be encapsulated.  This capability is provided by OpenVSwitch which encapsulates the OSI L2 traffic from the containers in the L3 traffic between the nodes.  The packets are then tagged by an 24 bit value known as a VXLan Network Identifier (VNID).  A VNID corresponds to a project space in OCP and is transparent to both the <strong>Application Developer</strong> and <strong>Application User</strong>.  In order to utilize this option the <em>redhat/openshift-ovs-multitenant</em> must be selected during the installation.</p>
+<p>The L3 traffic between nodes is sent as UDP packets to port 4789.</p>
+<p>More information on the <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/sdn.html">software defined network</a> in OCP can be found in the online documentation.</p>
+</div>
+<div class="section" id="platform-security-platform-users">
+<h4>Platform Security - Platform Users<a class="headerlink" href="#platform-security-platform-users" title="Permalink to this headline">¶</a></h4>
+<p>Regardless of the user role, all users are subject to <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#architecture-additional-concepts-authorization">authorization policies</a> managed in the OCP cluster.  Authorization polcies dictate what a user can and cannot do.  Policies are enforce at the project (local) level, and separately at the cluster level.</p>
+<p>The following table describes the elements comprising an authorization role.
++&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
+| Rules    | Sets of permitted verbs on a set of objects. For example, whether something can create pods.                 |
++==========+==============================================================================================================+
+| Roles    | Collections of rules. Users and groups can be associated with, or bound to, multiple roles at the same time. |
++&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+
+| Bindings | Associations between users and/or groups with a role.                                                        |
++&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+</p>
+</div>
+<div class="section" id="platform-security-container-security">
+<h4>Platform Security - Container Security<a class="headerlink" href="#platform-security-container-security" title="Permalink to this headline">¶</a></h4>
+<p>Container security occurs at multiple levels.  At the platform level, OCP applies <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/authorization.html#security-context-constraints">security context constraints</a> (SCC&#8217;s) to manage what a container can and cannot do.  OCP provides a number of SCC&#8217;s out of the box.  The default SCC is highly restrictive to unprivileged containers.</p>
+<p>Unprivileged containers are containers deployed in a tenant application.  Specific action is required on the part of the <strong>Cluster Administrator</strong> to allow an <strong>Application Developer</strong> the ability to deploy a container with escallated privileges.</p>
+<p>A notable attribute of SCC&#8217;s is the user ID enforcement.  When a container executes, the entry process runs in the container as a specified user ID.  The <em>restricted</em> SCC forces the container to be run as a very high UID.  This prevents a container from being deployed where the internal user ID is set to 0 (root).</p>
+</div>
+<div class="section" id="storage-architecture">
+<h4>Storage Architecture<a class="headerlink" href="#storage-architecture" title="Permalink to this headline">¶</a></h4>
+<p><strong>Gluster</strong>
+Managing storage is a distinct problem from managing compute resources. OpenShift Container Platform leverages the Kubernetes persistent volume (PV) framework to allow administrators to provision persistent storage for a cluster. Using persistent volume claims (PVCs), developers can request PV resources without having specific knowledge of the underlying storage infrastructure.</p>
+<p>In this reference architecture, storage services are provided through a managed storage tier, implemented by Red Hat Gluster Storage (Gluster).  Gluster provides a fault-tolerant and highly available network storage resource, efficiently rationed to tenant applications as PVs.  Since the storage interface to developers is managed by the Kubernetes PVC resource, the details of the underlying storage implementation are abstracted.</p>
+<p>PVCs are specific to a project and are created and used by developers as a means to use a PV. PV resources on their own are not scoped to any single project; they can be shared across the entire OpenShift Container Platform cluster and claimed from any project. After a PV has been bound to a PVC, however, that PV cannot then be bound to additional PVCs. This has the effect of scoping a bound PV to a single namespace (that of the binding project).</p>
+<p>The Gluster storage services are provided through a dedicated cluster of AWS instances within the scope of the platform VPC.  Administrators allocate storage resources, creating a pool of available PVs in standard sizes, and monitor the capacity of the underlying storage resources.  As PVs are released, administrators ensure the deletion and reclaimation of storage resources, returning capacity to the pool of available PVs.</p>
+<p>Gluster complies with data protecture requirements through secure configuration of the storage resources and transport protols.  At rest, data is protected by LUKS encryption of the of the AWS EBS devices.  This ensures that access to EBS volumes or snapshots by unauthorized mechanisms are unable to extract any usable information from the storage tier.  During transit, information is protected through configuration of SSL connections, and enforcement of mutually authenticated TLS connections.</p>
+</div>
+<div class="section" id="id6">
+<h4>Diagram<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>The following diagrams depict the mapping of storage devices to application resources within OCP, as well as the synchonous replication across IaaS availability zones.</p>
+<p><img alt="Storage View" src="_images/StorageView.png" /></p>
+<p><img alt="Storage Replication View" src="_images/StorageReplicationView.png" /></p>
+</div>
+</div>
+<div class="section" id="application-view">
+<h3>Application View<a class="headerlink" href="#application-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="definition">
+<h4>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
+<p>The application view describes the OCP architecture at the application level.  This view focuses on the services and interfaces available to project tenants within the platform.</p>
+</div>
+<div class="section" id="id7">
+<h4>Description<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="actors">
+<h4>Actors<a class="headerlink" href="#actors" title="Permalink to this headline">¶</a></h4>
+<p><strong>Application Developers</strong>
+**</p>
+<p><strong>OCP Administrators</strong> are responsible for the creation of tenant projects and assignment of proper roles of project administrators.</p>
+<p><strong>Project Administrators</strong> are responsible for assignment of proper roles within the scope of a single tenant project.  They have the ability to affect security policies surrounding developer interaction and container function, including the ability to grant privileges to administer, edit, or view project level resources.</p>
+<p><strong>Application Developers</strong> have access to the OCP WebUI and CLI to create, build, deploy, and delete applications within the scope of a project, subject to the roles and privileges assigned by the Project Administrators.</p>
+<p><strong>Application Users</strong> do not have a role at the application level.</p>
+</div>
+<div class="section" id="id8">
+<h4>Diagram<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>The following diagram details the conceptual use of project resources to build and deploy applications within a project.
+<img alt="Application View" src="_images/ApplicationView.png" /></p>
+</div>
+<div class="section" id="id9">
+<h4>Components<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Component</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Dev</td>
+<td>Application Developers interact with the platform by creating project resource definitions, and by pushing application code revisions to the enterprise hosted git service.</td>
+</tr>
+<tr class="row-odd"><td>App Code</td>
+<td>The source code artifacts implementing the business logic of an application service or component.</td>
+</tr>
+<tr class="row-even"><td>git</td>
+<td>The source code configuration management system.  For this architecture, the git service is assumed to be provided externally, as a corporate or project team resource.</td>
+</tr>
+<tr class="row-odd"><td>Build Config</td>
+<td>A build configuration describes a single build definition and a set of triggers for when a new build should be created.  For in depth description of builds and OCP build configurations, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/builds.html">https://docs.openshift.com/container-platform/3.3/dev_guide/builds.html</a></td>
+</tr>
+<tr class="row-even"><td>Integrated Registry</td>
+<td>The OCP integrated registry is a controlled container image registry for storing OCP container images and completed application builds.  For more information regarding the integrated registry, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/infrastructure_components/image_registry.html">https://docs.openshift.com/container-platform/3.3/architecture/infrastructure_components/image_registry.html</a></td>
+</tr>
+<tr class="row-odd"><td>Builder Image</td>
+<td>A builder image is a pre-defined container image that stores the build process for compilation and assembly of application source code.  It houses the compiler binaries required for interpretation of source code, and the tools necessary for building application images.</td>
+</tr>
+<tr class="row-even"><td>builder</td>
+<td>The builder is a container derived from the builder image.  It produces an application image using the defined build process using the compiler binaries.</td>
+</tr>
+<tr class="row-odd"><td>App Image</td>
+<td>An Application Image is produced as a result of the application build process.  It is composed of a certified base image, application server components, required configurations, and finally, the compiled application source code.</td>
+</tr>
+<tr class="row-even"><td>Deployment Config</td>
+<td>The deployment config defines the requirements and configuration of resources necessary for operations of the application component.  For more information regarding the deployment config, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/deployments.html">https://docs.openshift.com/container-platform/3.3/dev_guide/deployments.html</a></td>
+</tr>
+<tr class="row-odd"><td>Deployer</td>
+<td>The deployer is container responsible for setting up the operational environment of the application container.</td>
+</tr>
+<tr class="row-even"><td>Pod</td>
+<td>OpenShift Container Platform leverages the Kubernetes concept of a pod, which is one or more containers deployed together on one host, and the smallest compute unit that can be defined, deployed, and managed.  For more information regarding Pods, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#pods">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#pods</a></td>
+</tr>
+<tr class="row-odd"><td>App Container</td>
+<td>The application container is the running instance of an application image, as defined by the deployment configuration.</td>
+</tr>
+<tr class="row-even"><td>etcd</td>
+<td>EtcD is the key-value database for OCP state and configuration information.</td>
+</tr>
+<tr class="row-odd"><td>Secrets</td>
+<td>Secrets provide a mechanism to hold information such as encryption keys, passwords, config files, private source repository credentials, and other data considered sensitive. Secrets decouple sensitive content from the pods that use it and can be mounted into containers using a volume plug-in or used by the system to perform actions on behalf of a pod.  For more information regarding Secrets, refer to the following documentation:  <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html">https://docs.openshift.com/container-platform/3.3/dev_guide/secrets.html</a></td>
+</tr>
+<tr class="row-even"><td>Persistent Volume</td>
+<td>A Persistent Volume is a storage resource in OCP. Storage is provisioned by the cluster administrators by creating PersistentVolume objects from the storage infrastructure system.  Application Developers utilize Persistent Volumes by creating a Persistent Volume Claim within the scope of the project.  For more information regarding persistent storage, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/storage.html">https://docs.openshift.com/container-platform/3.3/architecture/additional_concepts/storage.html</a></td>
+</tr>
+<tr class="row-odd"><td>Log Aggregation</td>
+<td>In OCP, Log Aggregation is implemented as the integrated deployment of Elastic Search, FluentD, and Kibana (EFK).  This stack aggregates logs for a range of OCP services, including project resources deployed on the platform. Application developers can view the logs of the projects for which they have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods.  For more information regarding log aggregation in OCP, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/install_config/aggregate_logging.html">https://docs.openshift.com/container-platform/3.3/install_config/aggregate_logging.html</a></td>
+</tr>
+<tr class="row-even"><td>Replication Controller</td>
+<td>A replication controller ensures that a specified number of replicas of a pod are running at all times. If pods exit or are deleted, the replication controller acts to instantiate more up to the defined number. Likewise, if there are more running than desired, it deletes as many as necessary to match the defined amount.  For more information regarding replication controllers, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/deployments.html#replication-controllers">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/deployments.html#replication-controllers</a></td>
+</tr>
+<tr class="row-odd"><td>Services</td>
+<td>A service serves as an internal load balancer. It identifies a set of replicated pods in order to proxy the connections it receives to them. Backing pods can be added to or removed from a service arbitrarily while the service remains consistently available, enabling anything that depends on the service to refer to it at a consistent internal address.  For more information regarding services, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#services">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/pods_and_services.html#services</a></td>
+</tr>
+<tr class="row-even"><td>Routes</td>
+<td>An OpenShift Container Platform route exposes a service at a host name, like www.example.com, so that external clients can reach it by name.  For more information regarding routes, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html</a></td>
+</tr>
+<tr class="row-odd"><td>Router</td>
+<td>Routers enable routes created by developers to be used by external clients. A router uses the service selector to find the service and the endpoints backing the service. When both router and service provide load balancing, OCP uses the router load balancing. A routers detects relevant changes in the IP addresses of its services, and adapts its configuration accordingly.  For more information regarding routers, refer to the following documentation: <a class="reference external" href="https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html#routers">https://docs.openshift.com/container-platform/3.3/architecture/core_concepts/routes.html#routers</a></td>
+</tr>
+<tr class="row-even"><td>User</td>
+<td>In this context, a user is the entity attempting to access the application deployed within the platform.  They are assigned no special roles or permissions within the platform, and only have access to the resources exposed via routes by the application developers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="container-view">
+<h3>Container View<a class="headerlink" href="#container-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h4>Definition<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>A container in the context of an information system is an operating system level virtualization method, provided by kernel constructs, for isolating prcesses using a single kernel.</p>
+<p>Due to the value of containers to the information technology field, the definition for both the container image specification and runtime are managed by a community of interested parties: <a class="reference external" href="https://www.opencontainers.org/">Open Container Initiative</a> (OCI).  The technical definition is divided into an Image Specification (image-spec) and Runtime Specification (runtime-spec).</p>
+</div>
+<div class="section" id="id11">
+<h4>Description<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>The container view describes the constructs used in <strong>OCIF</strong> and <strong>runc</strong> process isolation.  This view addresses a single container regardless of being run in the OCP cluster.</p>
+</div>
+<div class="section" id="id12">
+<h4>Actors<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p><strong>Platform Administrators</strong> are responsible for two specific container processes in the OCP cluster.  The first is an itegrated container registry.  The second is an application traffic HAProxy router, running in a container.  While these nominally operate without intervention, their continued operation falls under the responsibility of the <strong>Platform Administrators</strong>.</p>
+<p><strong>Application Developers</strong> do not necissarily need to be aware of the container construct in OCP.  An <strong>Application Developer</strong> can deploy a containerized application inside OCP simply by providing OCP a source code repository.  At this point OCP automatically builds the source into and deploys a containerized application.</p>
+</div>
+<div class="section" id="container-filesystem">
+<h4>Container Filesystem<a class="headerlink" href="#container-filesystem" title="Permalink to this headline">¶</a></h4>
+<p>A single container as it exists on the host&#8217;s filesystem is actually a multi-layer filesystem: UnionFS.  Each container image consists of a <em>Kernel</em> library layer, <em>bootfs</em>, and <em>Base Image</em>.  Additional layers may contain application libraries and binaries.  Once this container image is built, it is immutable.  This has implications:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Any patches to a lower layer of the container (e.g. the base image) require the container to be rebuild from that level up.</li>
+<li>Without an externally mounted persistent storage share, any data written to the container&#8217;s file system is lost when that container is destroyed.</li>
+</ol>
+</div></blockquote>
+<p>The following graphic presents a simplified view of a layered container image.
+<img alt="Container Image" src="_images/ContainerLayers.png" /></p>
+<p>External storage can be provided to the container and mounted as a file system in the container for data persistence.  The platform layer abstracts the <em>Persistent Volume</em> from the container.  The container has no knowledge of the nature of the underlying storage share; only that it has a file system to which it can write.</p>
+</div>
+<div class="section" id="kernel-components">
+<h4>Kernel Components<a class="headerlink" href="#kernel-components" title="Permalink to this headline">¶</a></h4>
+<p>A container is constructed using Linux kernel mechanisms, some of which have existed for over 10 years.  The following table describes these kernel mechanisms and their role in isolating processes.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Component</th>
+<th class="head">Purpose</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>SELinux</td>
+<td>SELinux, a core component of Red Hat Enterprise Linux, labels processes and filesystems, enforcing mandatory access control.  Each containerized process receives a unique SELinux category.</td>
+</tr>
+<tr class="row-odd"><td>CGroups</td>
+<td>CGroups provide resource constraints preventing run-away processes.</td>
+</tr>
+<tr class="row-even"><td>Kernel Namespaces</td>
+<td>Namespaces allow resources to have identical names in the context of that resource, but unique names from perspective of the host.  For example, the PID namespace allows for PID 0 in each container, but be PID N on the host.</td>
+</tr>
+<tr class="row-odd"><td>Kernel Capabilities</td>
+<td>Capabilities are process permission controls that group system calls in different categories.  By default, all capabilities are removed for unprivileged containers.</td>
+</tr>
+<tr class="row-even"><td>Secomp</td>
+<td>Secure computing assists with creating sandboxes by defining which system calls should be blocked.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security_controls.html" class="btn btn-neutral float-right" title="Security Controls" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fisma.html" class="btn btn-neutral" title="FISMA Compliance" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Red Hat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

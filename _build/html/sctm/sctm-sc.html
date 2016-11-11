@@ -1,0 +1,3980 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCTM for System and Communications Protection &mdash; OpenShift Compliance Guide 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="OpenShift Compliance Guide 1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../toc.html" class="icon icon-home"> OpenShift Compliance Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">  Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fisma.html">  FISMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference_architecture.html">  Reference Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security_controls.html">  Security Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansible.html">  Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous_compliance.html">  Continuous Compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ssp_template.html">  SSP Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../template_poam.html">  POA&amp;M Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">  Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../toc.html">OpenShift Compliance Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../toc.html">Docs</a> &raquo;</li>
+      
+    <li>SCTM for System and Communications Protection</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/sctm/sctm-sc.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sctm-for-system-and-communications-protection">
+<span id="sctm-sc"></span><h1>SCTM for System and Communications Protection<a class="headerlink" href="#sctm-for-system-and-communications-protection" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="2%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="5%" />
+<col width="14%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>NIST Ref #</strong></td>
+<td><strong>Control Family</strong></td>
+<td><strong>Org Ref #</strong></td>
+<td><strong>Baseline Low</strong></td>
+<td><strong>Baseline Moderate</strong></td>
+<td><strong>Baseline High</strong></td>
+<td><strong>Confidentiality Low</strong></td>
+<td><strong>Confidentiality Moderate</strong></td>
+<td><strong>Confidentiality High</strong></td>
+<td><strong>Integrity Low</strong></td>
+<td><strong>Integrity Moderate</strong></td>
+<td><strong>Integrity High</strong></td>
+<td><strong>Availability Low</strong></td>
+<td><strong>Availability Moderate</strong></td>
+<td><strong>Availability High</strong></td>
+<td><strong>References</strong></td>
+<td><strong>Red Hat Response</strong></td>
+<td><strong>Requirements</strong></td>
+<td><strong>Supplemental Guidance</strong></td>
+</tr>
+<tr class="row-even"><td>SC-1</td>
+<td>System and Communications Protection</td>
+<td>SC-1_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>SP 800-12;
+SP 800-100;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>SYSTEM AND COMMUNICATIONS PROTECTION POLICY AND PROCEDURES
+Control: The organization:
+a. Develops, documents, and disseminates to [Assignment: organization-defined personnel or roles]:
+1. A system and communications protection policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</td>
+<td>This control addresses the establishment of policy and procedures for the effective implementation of selected security controls and control enhancements in the SC family. Policy and procedures reflect applicable federal laws, Executive Orders, directives, regulations, policies, standards, and guidance. Security program policies and procedures at the organization level may make the need for system-specific policies and procedures unnecessary. The policy can be included as part of the general information security policy for organizations or conversely, can be represented by multiple policies reflecting the complex nature of certain organizations. The procedures can be established for the security program in general and for particular information systems, if needed. The organizational risk management strategy is a key factor in establishing policy and procedures. Related control: PM-9.</td>
+</tr>
+<tr class="row-odd"><td>SC-1</td>
+<td>System and Communications Protection</td>
+<td>SC-1_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Procedures to facilitate the implementation of the system and communications protection policy and associated system and communications protection controls; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-1</td>
+<td>System and Communications Protection</td>
+<td>SC-1_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>b. Reviews and updates the current:
+1. System and communications protection policy [Assignment: organization-defined frequency]; and</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-1</td>
+<td>System and Communications Protection</td>
+<td>SC-1_N_03</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last arabic simple" start="2">
+<li>System and communications protection procedures [Assignment: organization-defined frequency].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-2</td>
+<td>System and Communications Protection</td>
+<td>SC-2_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>APPLICATION PARTITIONING
+Control: The information system separates user functionality (including user interface services) from information system management functionality.</td>
+<td>Information system management functionality includes, for example, functions necessary to administer databases, network components, workstations, or servers, and typically requires privileged user access. The separation of user functionality from information system management functionality is either physical or logical. Organizations implement separation of system management-related functionality from user functionality by using different computers, different central processing units, different instances of operating systems, different network addresses, virtualization techniques, or combinations of these or other methods, as appropriate. This type of separation includes, for example, web administrative interfaces that use separate authentication methods for users of any other information system resources. Separation of system and user functionality may include isolating administrative interfaces on different domains and with additional access controls. Related controls: SA-4, SA-8, SC-3.</td>
+</tr>
+<tr class="row-odd"><td>SC-2(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-2(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>APPLICATION PARTITIONING | INTERFACES FOR NON-PRIVILEGED USERS
+The information system prevents the presentation of information system management-related functionality at an interface for non-privileged users.</td>
+<td>This control enhancement ensures that administration options (e.g., administrator privileges) are not available to general users (including prohibiting the use of the grey-out option commonly used to eliminate accessibility to such information). Such restrictions include, for example, not presenting administration options until users establish sessions with administrator privileges. Related control: AC-3.</td>
+</tr>
+<tr class="row-even"><td>SC-3</td>
+<td>System and Communications Protection</td>
+<td>SC-3_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>SECURITY FUNCTION ISOLATION
+Control: The information system isolates security functions from nonsecurity functions.</td>
+<td>The information system isolates security functions from nonsecurity functions by means of an isolation boundary (implemented via partitions and domains). Such isolation controls access to and protects the integrity of the hardware, software, and firmware that perform those security functions. Information systems implement code separation (i.e., separation of security functions from nonsecurity functions) in a number of ways, including, for example, through the provision of security kernels via processor rings or processor modes. For non-kernel code, security function isolation is often achieved through file system protections that serve to protect the code on disk, and address space protections that protect executing code. Information systems restrict access to security functions through the use of access control mechanisms and by implementing least privilege capabilities. While the ideal is for all of the code within the security function isolation boundary to only contain security-relevant code, it is sometimes necessary to include nonsecurity functions within the isolation boundary as an exception. Related controls: AC-3, AC-6, SA-4, SA-5, SA-8, SA-13, SC-2, SC-7, SC-39.</td>
+</tr>
+<tr class="row-odd"><td>SC-3(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-3(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY FUNCTION ISOLATION | HARDWARE SEPARATION
+The information system utilizes underlying hardware separation mechanisms to implement security function isolation.</td>
+<td>Underlying hardware separation mechanisms include, for example, hardware ring architectures, commonly implemented within microprocessors, and hardware-enforced address segmentation used to support logically distinct storage objects with separate attributes (i.e., readable, writeable).</td>
+</tr>
+<tr class="row-even"><td>SC-3(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-3(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY FUNCTION ISOLATION | ACCESS / FLOW CONTROL FUNCTIONS
+The information system isolates security functions enforcing access and information flow control from nonsecurity functions and from other security functions.</td>
+<td>Security function isolation occurs as a result of implementation; the functions can still be scanned and monitored. Security functions that are potentially isolated from access and flow control enforcement functions include, for example, auditing, intrusion detection, and anti-virus functions.</td>
+</tr>
+<tr class="row-odd"><td>SC-3(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-3(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY FUNCTION ISOLATION | MINIMIZE NONSECURITY FUNCTIONALITY
+The organization minimizes the number of nonsecurity functions included within the isolation boundary containing security functions.</td>
+<td>In those instances where it is not feasible to achieve strict isolation of nonsecurity functions from security functions, it is necessary to take actions to minimize the nonsecurity-relevant functions within the security function boundary. Nonsecurity functions contained within the isolation boundary are considered security-relevant because errors or maliciousness in such software, by virtue of being within the boundary, can impact the security functions of organizational information systems. The design objective is that the specific portions of information systems providing information security are of minimal size/complexity. Minimizing the number of nonsecurity functions in the security-relevant components of information systems allows designers and implementers to focus only on those functions which are necessary to provide the desired security capability (typically access enforcement). By minimizing nonsecurity functions within the isolation boundaries, the amount of code that must be trusted to enforce security policies is reduced, thus contributing to understandability.</td>
+</tr>
+<tr class="row-even"><td>SC-3(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-3(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY FUNCTION ISOLATION | MODULE COUPLING AND COHESIVENESS
+The organization implements security functions as largely independent modules that maximize internal cohesiveness within modules and minimize coupling between modules.</td>
+<td>The reduction in inter-module interactions helps to constrain security functions and to manage complexity. The concepts of coupling and cohesion are important with respect to modularity in software design. Coupling refers to the dependencies that one module has on other modules. Cohesion refers to the relationship between the different functions within a particular module. Good software engineering practices rely on modular decomposition, layering, and minimization to reduce and manage complexity, thus producing software modules that are highly cohesive and loosely coupled.</td>
+</tr>
+<tr class="row-odd"><td>SC-3(5)</td>
+<td>System and Communications Protection</td>
+<td>SC-3(5)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURITY FUNCTION ISOLATION | LAYERED STRUCTURES
+The organization implements security functions as a layered structure minimizing interactions between layers of the design and avoiding any dependence by lower layers on the functionality or correctness of higher layers.</td>
+<td>The implementation of layered structures with minimized interactions among security functions and non-looping layers (i.e., lower-layer functions do not depend on higher-layer functions) further enables the isolation of security functions and management of complexity.</td>
+</tr>
+<tr class="row-even"><td>SC-4</td>
+<td>System and Communications Protection</td>
+<td>SC-4_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>INFORMATION IN SHARED RESOURCES
+Control: The information system prevents unauthorized and unintended information transfer via shared system resources.</td>
+<td>This control prevents information, including encrypted representations of information, produced by the actions of prior users/roles (or the actions of processes acting on behalf of prior users/roles) from being available to any current users/roles (or current processes) that obtain access to shared system resources (e.g., registers, main memory, hard disks) after those resources have been released back to information systems. The control of information in shared resources is also commonly referred to as object reuse and residual information protection. This control does not address: (i) information remanence which refers to residual representation of data that has been nominally erased or removed; (ii) covert channels (including storage and/or timing channels) where shared resources are manipulated to violate information flow restrictions; or (iii) components within information systems for which there are only single users/roles. Related controls: AC-3, AC-4, MP-6.</td>
+</tr>
+<tr class="row-odd"><td>SC-4(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-4(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION IN SHARED RESOURCES | SECURITY LEVELS
+[Withdrawn: Incorporated into SC-4].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-4(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-4(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>INFORMATION IN SHARED RESOURCES | PERIODS PROCESSING
+The information system prevents unauthorized information transfer via shared resources in accordance with [Assignment: organization-defined procedures] when system processing explicitly switches between different information classification levels or security categories.</td>
+<td>This control enhancement applies when there are explicit changes in information processing levels during information system operations, for example, during multilevel processing and periods processing with information at different classification levels or security categories. Organization-defined procedures may include, for example, approved sanitization processes for electronically stored information.</td>
+</tr>
+<tr class="row-odd"><td>SC-5</td>
+<td>System and Communications Protection</td>
+<td>SC-5_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DENIAL OF SERVICE PROTECTION
+Control: The information system protects against or limits the effects of the following types of denial of service attacks: [Assignment: organization-defined types of denial of service attacks or reference to source for such information] by employing [Assignment: organization-defined security safeguards].</td>
+<td>A variety of technologies exist to limit, or in some cases, eliminate the effects of denial of service attacks. For example, boundary protection devices can filter certain types of packets to protect information system components on internal organizational networks from being directly affected by denial of service attacks. Employing increased capacity and bandwidth combined with service redundancy may also reduce the susceptibility to denial of service attacks. Related controls: SC-6, SC-7.</td>
+</tr>
+<tr class="row-even"><td>SC-5(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-5(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DENIAL OF SERVICE PROTECTION | RESTRICT INTERNAL USERS
+The information system restricts the ability of individuals to launch [Assignment: organization-defined denial of service attacks] against other information systems.</td>
+<td>Restricting the ability of individuals to launch denial of service attacks requires that the mechanisms used for such attacks are unavailable. Individuals of concern can include, for example, hostile insiders or external adversaries that have successfully breached the information system and are using the system as a platform to launch cyber attacks on third parties. Organizations can restrict the ability of individuals to connect and transmit arbitrary information on the transport medium (i.e., network, wireless spectrum). Organizations can also limit the ability of individuals to use excessive information system resources. Protection against individuals having the ability to launch denial of service attacks may be implemented on specific information systems or on boundary devices prohibiting egress to potential target systems.</td>
+</tr>
+<tr class="row-odd"><td>SC-5(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-5(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DENIAL OF SERVICE PROTECTION | EXCESS CAPACITY / BANDWIDTH / REDUNDANCY
+The information system manages excess capacity, bandwidth, or other redundancy to limit the effects of information flooding denial of service attacks.</td>
+<td>Managing excess capacity ensures that sufficient capacity is available to counter flooding attacks. Managing excess capacity may include, for example, establishing selected usage priorities, quotas, or partitioning.</td>
+</tr>
+<tr class="row-even"><td>SC-5(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-5(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DENIAL OF SERVICE PROTECTION | DETECTION / MONITORING
+The organization:
+(a) Employs [Assignment: organization-defined monitoring tools] to detect indicators of denial of service attacks against the information system; and</td>
+<td>Organizations consider utilization and capacity of information system resources when managing risk from denial of service due to malicious attacks. Denial of service attacks can originate from external or internal sources. Information system resources sensitive to denial of service include, for example, physical disk storage, memory, and CPU cycles. Common safeguards to prevent denial of service attacks related to storage utilization and capacity include, for example, instituting disk quotas, configuring information systems to automatically alert administrators when specific storage capacity thresholds are reached, using file compression technologies to maximize available storage space, and imposing separate partitions for system and user data. Related controls: CA-7, SI-4.</td>
+</tr>
+<tr class="row-odd"><td>SC-5(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-5(3)_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Monitors [Assignment: organization-defined information system resources] to determine if sufficient resources exist to prevent effective denial of service attacks.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-6</td>
+<td>System and Communications Protection</td>
+<td>SC-6_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>RESOURCE AVAILABILITY
+Control: The information system protects the availability of resources by allocating [Assignment: organization-defined resources] by [Selection (one or more); priority; quota; [Assignment: organization-defined security safeguards]].</td>
+<td>Priority protection helps prevent lower-priority processes from delaying or interfering with the information system servicing any higher-priority processes. Quotas prevent users or processes from obtaining more than predetermined amounts of resources. This control does not apply to information system components for which there are only single users/roles.</td>
+</tr>
+<tr class="row-odd"><td>SC-7</td>
+<td>System and Communications Protection</td>
+<td>SC-7_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>FIPS Pub 199;
+SP 800-41;
+SP 800-77;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION
+Control: The information system:
+a. Monitors and controls communications at the external boundary of the system and at key internal boundaries within the system;</td>
+<td>Managed interfaces include, for example, gateways, routers, firewalls, guards, network-based malicious code analysis and virtualization systems, or encrypted tunnels implemented within a security architecture (e.g., routers protecting firewalls or application gateways residing on protected subnetworks). Subnetworks that are physically or logically separated from internal networks are referred to as demilitarized zones or DMZs. Restricting or prohibiting interfaces within organizational information systems includes, for example, restricting external web traffic to designated web servers within managed interfaces and prohibiting external traffic that appears to be spoofing internal addresses. Organizations consider the shared nature of commercial telecommunications services in the implementation of security controls associated with the use of such services. Commercial telecommunications services are commonly based on network components and consolidated management systems shared by all attached commercial customers, and may also include third party-provided access lines and other service elements. Such transmission services may represent sources of increased risk despite contract security provisions. Related controls: AC-4, AC-17, CA-3, CM-7, CP-8, IR-4, RA-3, SC-5, SC-13.</td>
+</tr>
+<tr class="row-even"><td>SC-7</td>
+<td>System and Communications Protection</td>
+<td>SC-7_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-7</td>
+<td>System and Communications Protection</td>
+<td>SC-7_N_02</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-7(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | PHYSICALLY SEPARATED SUBNETWORKS
+[Withdrawn: Incorporated into SC-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-7(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(2)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | PUBLIC ACCESS
+[Withdrawn: Incorporated into SC-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-7(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(3)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | ACCESS POINTS
+The organization limits the number of external network connections to the information system.</td>
+<td>Limiting the number of external network connections facilitates more comprehensive monitoring of inbound and outbound communications traffic. The Trusted Internet Connection (TIC) initiative is an example of limiting the number of external network connections.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(4)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | EXTERNAL TELECOMMUNICATIONS SERVICES
+The organization:
+(a) Implements a managed interface for each external telecommunication service;</td>
+<td>Related control: SC-8.</td>
+</tr>
+<tr class="row-even"><td>SC-7(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(4)_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Establishes a traffic flow policy for each managed interface;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-7(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(4)_N_02</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Protects the confidentiality and integrity of the information being transmitted across each interface;</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-7(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(4)_N_03</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Documented in the individual project / program&#8217;s System Design Specification document and System Security Plan.</td>
+<td><ol class="first last loweralpha simple" start="4">
+<li>Documents each exception to the traffic flow policy with a supporting mission/business need and duration of that need; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-7(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(4)_N_04</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td><ol class="first last loweralpha simple" start="5">
+<li>Reviews exceptions to the traffic flow policy [Assignment: organization-defined frequency] and removes exceptions that are no longer supported by an explicit mission/business need.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-7(5)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(5)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | DENY BY DEFAULT / ALLOW BY EXCEPTION
+The information system at managed interfaces denies network communications traffic by default and allows network communications traffic by exception (i.e., deny all, permit by exception).</td>
+<td>This control enhancement applies to both inbound and outbound network communications traffic. A deny-all, permit-by-exception network communications traffic policy ensures that only those connections which are essential and approved are allowed.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(6)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(6)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | RESPONSE TO RECOGNIZED FAILURES
+[Withdrawn: Incorporated into SC-7 (18)].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-7(7)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(7)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | PREVENT SPLIT TUNNELING FOR REMOTE DEVICES
+The information system, in conjunction with a remote device, prevents the device from simultaneously establishing non-remote connections with the system and communicating via some other connection to resources in external networks.</td>
+<td>This control enhancement is implemented within remote devices (e.g., notebook computers) through configuration settings to disable split tunneling in those devices, and by preventing those configuration settings from being readily configurable by users. This control enhancement is implemented within the information system by the detection of split tunneling (or of configuration settings that allow split tunneling) in the remote device, and by prohibiting the connection if the remote device is using split tunneling. Split tunneling might be desirable by remote users to communicate with local information system resources such as printers/file servers. However, split tunneling would in effect allow unauthorized external connections, making the system more vulnerable to attack and to exfiltration of organizational information. The use of VPNs for remote connections, when adequately provisioned with appropriate security controls, may provide the organization with sufficient assurance that it can effectively treat such connections as non-remote connections from the confidentiality and integrity perspective. VPNs thus provide a means for allowing non-remote communications paths from remote devices. The use of an adequately provisioned VPN does not eliminate the need for preventing split tunneling.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(8)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(8)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | ROUTE TRAFFIC TO AUTHENTICATED PROXY SERVERS
+The information system routes [Assignment: organization-defined internal communications traffic] to [Assignment: organization-defined external networks] through authenticated proxy servers at managed interfaces.</td>
+<td>External networks are networks outside of organizational control. A proxy server is a server (i.e., information system or application) that acts as an intermediary for clients requesting information system resources (e.g., files, connections, web pages, or services) from other organizational servers. Client requests established through an initial connection to the proxy server are evaluated to manage complexity and to provide additional protection by limiting direct connectivity. Web content filtering devices are one of the most common proxy servers providing access to the Internet. Proxy servers support logging individual Transmission Control Protocol (TCP) sessions and blocking specific Uniform Resource Locators (URLs), domain names, and Internet Protocol (IP) addresses. Web proxies can be configured with organization-defined lists of authorized and unauthorized websites. Related controls: AC-3, AU-2.</td>
+</tr>
+<tr class="row-even"><td>SC-7(9)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(9)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | RESTRICT THREATENING OUTGOING COMMUNICATIONS TRAFFIC
+The information system:
+(a) Detects and denies outgoing communications traffic posing a threat to external information systems; and</td>
+<td>Detecting outgoing communications traffic from internal actions that may pose threats to external information systems is sometimes termed extrusion detection. Extrusion detection at information system boundaries as part of managed interfaces includes the analysis of incoming and outgoing communications traffic searching for indications of internal threats to the security of external systems. Such threats include, for example, traffic indicative of denial of service attacks and traffic containing malicious code. Related controls: AU-2, AU-6, SC-38, SC-44, SI-3, SI-4.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(9)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(9)_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Audits the identity of internal users associated with denied communications.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-7(10)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(10)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | PREVENT UNAUTHORIZED EXFILTRATION
+The organization prevents the unauthorized exfiltration of information across managed interfaces.</td>
+<td>Safeguards implemented by organizations to prevent unauthorized exfiltration of information from information systems include, for example: (i) strict adherence to protocol formats; (ii) monitoring for beaconing from information systems; (iii) monitoring for steganography; (iv) disconnecting external network interfaces except when explicitly needed; (v) disassembling and reassembling packet headers; and (vi) employing traffic profile analysis to detect deviations from the volume/types of traffic expected within organizations or call backs to command and control centers. Devices enforcing strict adherence to protocol formats include, for example, deep packet inspection firewalls and XML gateways. These devices verify adherence to protocol formats and specification at the application layer and serve to identify vulnerabilities that cannot be detected by devices operating at the network or transport layers. This control enhancement is closely associated with cross-domain solutions and system guards enforcing information flow requirements. Related control: SI-3.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(11)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(11)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | RESTRICT INCOMING COMMUNICATIONS TRAFFIC
+The information system only allows incoming communications from [Assignment: organization-defined authorized sources] routed to [Assignment: organization-defined authorized destinations].</td>
+<td>This control enhancement provides determinations that source and destination address pairs represent authorized/allowed communications. Such determinations can be based on several factors including, for example, the presence of source/destination address pairs in lists of authorized/allowed communications, the absence of address pairs in lists of unauthorized/disallowed pairs, or meeting more general rules for authorized/allowed source/destination pairs. Related control: AC-3.</td>
+</tr>
+<tr class="row-even"><td>SC-7(12)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(12)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>BOUNDARY PROTECTION | HOST-BASED PROTECTION
+The organization implements [Assignment: organization-defined host-based boundary protection mechanisms] at [Assignment: organization-defined information system components].</td>
+<td>Host-based boundary protection mechanisms include, for example, host-based firewalls. Information system components employing host-based boundary protection mechanisms include, for example, servers, workstations, and mobile devices.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(13)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(13)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>BOUNDARY PROTECTION | ISOLATION OF SECURITY TOOLS / MECHANISMS / SUPPORT COMPONENTS
+The organization isolates [Assignment: organization-defined information security tools, mechanisms, and support components] from other internal information system components by implementing physically separate subnetworks with managed interfaces to other components of the system.</td>
+<td>Physically separate subnetworks with managed interfaces are useful, for example, in isolating computer network defenses from critical operational processing networks to prevent adversaries from discovering the analysis and forensics techniques of organizations. Related controls: SA-8, SC-2, SC-3.</td>
+</tr>
+<tr class="row-even"><td>SC-7(14)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(14)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>BOUNDARY PROTECTION | PROTECTS AGAINST UNAUTHORIZED PHYSICAL CONNECTIONS
+The organization protects against unauthorized physical connections at [Assignment: organization-defined managed interfaces].</td>
+<td>Information systems operating at different security categories or classification levels may share common physical and environmental controls, since the systems may share space within organizational facilities. In practice, it is possible that these separate information systems may share common equipment rooms, wiring closets, and cable distribution paths. Protection against unauthorized physical connections can be achieved, for example, by employing clearly identified and physically separated cable trays, connection frames, and patch panels for each side of managed interfaces with physical access controls enforcing limited authorized access to these items. Related controls: PE-4, PE-19.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(15)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(15)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | ROUTE PRIVILEGED NETWORK ACCESSES
+The information system routes all networked, privileged accesses through a dedicated, managed interface for purposes of access control and auditing.</td>
+<td>Related controls: AC-2, AC-3, AU-2, SI-4.</td>
+</tr>
+<tr class="row-even"><td>SC-7(16)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(16)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | PREVENT DISCOVERY OF COMPONENTS / DEVICES
+The information system prevents discovery of specific system components composing a managed interface.</td>
+<td>This control enhancement protects network addresses of information system components that are part of managed interfaces from discovery through common tools and techniques used to identify devices on networks. Network addresses are not available for discovery (e.g., network address not published or entered in domain name systems), requiring prior knowledge for access. Another obfuscation technique is to periodically change network addresses.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(17)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(17)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | AUTOMATED ENFORCEMENT OF PROTOCOL FORMATS
+The information system enforces adherence to protocol formats.</td>
+<td>Information system components that enforce protocol formats include, for example, deep packet inspection firewalls and XML gateways. Such system components verify adherence to protocol formats/specifications (e.g., IEEE) at the application layer and identify significant vulnerabilities that cannot be detected by devices operating at the network or transport layers. Related control: SC-4.</td>
+</tr>
+<tr class="row-even"><td>SC-7(18)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(18)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>BOUNDARY PROTECTION | FAIL SECURE
+The information system fails securely in the event of an operational failure of a boundary protection device.</td>
+<td>Fail secure is a condition achieved by employing information system mechanisms to ensure that in the event of operational failures of boundary protection devices at managed interfaces (e.g., routers, firewalls, guards, and application gateways residing on protected subnetworks commonly referred to as demilitarized zones), information systems do not enter into unsecure states where intended security properties no longer hold. Failures of boundary protection devices cannot lead to, or cause information external to the devices to enter the devices, nor can failures permit unauthorized information releases. Related controls: CP-2, SC-24.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(19)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(19)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | BLOCKS COMMUNICATION FROM NON-ORGANIZATIONALLY CONFIGURED HOSTS
+The information system blocks both inbound and outbound communications traffic between [Assignment: organization-defined communication clients] that are independently configured by end users and external service providers.</td>
+<td>Communication clients independently configured by end users and external service providers include, for example, instant messaging clients. Traffic blocking does not apply to communication clients that are configured by organizations to perform authorized functions.</td>
+</tr>
+<tr class="row-even"><td>SC-7(20)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(20)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | DYNAMIC ISOLATION / SEGREGATION
+The information system provides the capability to dynamically isolate/segregate [Assignment: organization-defined information system components] from other components of the system.</td>
+<td>The capability to dynamically isolate or segregate certain internal components of organizational information systems is useful when it is necessary to partition or separate certain components of dubious origin from those components possessing greater trustworthiness. Component isolation reduces the attack surface of organizational information systems. Isolation of selected information system components is also a means of limiting the damage from successful cyber attacks when those attacks occur.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(21)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(21)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>BOUNDARY PROTECTION | ISOLATION OF INFORMATION SYSTEM COMPONENTS
+The organization employs boundary protection mechanisms to separate [Assignment: organization-defined information system components] supporting [Assignment: organization-defined missions and/or business functions].</td>
+<td>Organizations can isolate information system components performing different missions and/or business functions. Such isolation limits unauthorized information flows among system components and also provides the opportunity to deploy greater levels of protection for selected components. Separating system components with boundary protection mechanisms provides the capability for increased protection of individual components and to more effectively control information flows between those components. This type of enhanced protection limits the potential harm from cyber attacks and errors. The degree of separation provided varies depending upon the mechanisms chosen. Boundary protection mechanisms include, for example, routers, gateways, and firewalls separating system components into physically separate networks or subnetworks, cross-domain devices separating subnetworks, virtualization techniques, and encrypting information flows among system components using distinct encryption keys. Related controls: CA-9, SC-3.</td>
+</tr>
+<tr class="row-even"><td>SC-7(22)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(22)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | SEPARATE SUBNETS FOR CONNECTING TO DIFFERENT SECURITY DOMAINS
+The information system implements separate network addresses (i.e., different subnets) to connect to systems in different security domains.</td>
+<td>Decomposition of information systems into subnets helps to provide the appropriate level of protection for network connections to different security domains containing information with different security categories or classification levels.</td>
+</tr>
+<tr class="row-odd"><td>SC-7(23)</td>
+<td>System and Communications Protection</td>
+<td>SC-7(23)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>BOUNDARY PROTECTION | DISABLE SENDER FEEDBACK ON PROTOCOL VALIDATION FAILURE
+The information system disables feedback to senders on protocol format validation failure.</td>
+<td>Disabling feedback to senders when there is a failure in protocol validation format prevents adversaries from obtaining information which would otherwise be unavailable.</td>
+</tr>
+<tr class="row-even"><td>SC-8</td>
+<td>System and Communications Protection</td>
+<td>SC-8_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>FIPS Pub 140-2;
+FIPS Pub 197;
+SP 800-52;
+SP 800-77;
+SP 800-81;
+SP 800-113;
+CNSS Policy 15;
+NSTISSI No. 7003;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>TRANSMISSION CONFIDENTIALITY AND INTEGRITY
+Control: The information system protects the [Selection (one or more): confidentiality; integrity] of transmitted information.</td>
+<td>This control applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification. Protecting the confidentiality and/or integrity of organizational information can be accomplished by physical means (e.g., by employing physical distribution systems) or by logical means (e.g., employing encryption techniques). Organizations relying on commercial providers offering transmission services as commodity services rather than as fully dedicated services (i.e., services which can be highly specialized to individual customer needs), may find it difficult to obtain the necessary assurances regarding the implementation of needed security controls for transmission confidentiality/integrity. In such situations, organizations determine what types of confidentiality/integrity services are available in standard, commercial telecommunication service packages. If it is infeasible or impractical to obtain the necessary security controls and assurances of control effectiveness through appropriate contracting vehicles, organizations implement appropriate compensating security controls or explicitly accept the additional risk. Related controls: AC-17, PE-4.</td>
+</tr>
+<tr class="row-odd"><td>SC-8(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-8(1)_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>TRANSMISSION CONFIDENTIALITY AND INTEGRITY | CRYPTOGRAPHIC OR ALTERNATE PHYSICAL PROTECTION
+The information system implements cryptographic mechanisms to [Selection (one or more): prevent unauthorized disclosure of information; detect changes to information] during transmission unless otherwise protected by [Assignment: organization-defined alternative physical safeguards].</td>
+<td>Encrypting information for transmission protects information from unauthorized disclosure and modification. Cryptographic mechanisms implemented to protect information integrity include, for example, cryptographic hash functions which have common application in digital signatures, checksums, and message authentication codes. Alternative physical security safeguards include, for example, protected distribution systems. Related control: SC-13.</td>
+</tr>
+<tr class="row-even"><td>SC-8(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-8(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>TRANSMISSION CONFIDENTIALITY AND INTEGRITY | PRE / POST TRANSMISSION HANDLING
+The information system maintains the [Selection (one or more): confidentiality; integrity] of information during preparation for transmission and during reception.</td>
+<td>Information can be either unintentionally or maliciously disclosed or modified during preparation for transmission or during reception including, for example, during aggregation, at protocol transformation points, and during packing/unpacking. These unauthorized disclosures or modifications compromise the confidentiality or integrity of the information. Related control: AU-10.</td>
+</tr>
+<tr class="row-odd"><td>SC-8(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-8(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRANSMISSION CONFIDENTIALITY AND INTEGRITY | CRYPTOGRAPHIC PROTECTION FOR MESSAGE EXTERNALS
+The information system implements cryptographic mechanisms to protect message externals unless otherwise protected by [Assignment: organization-defined alternative physical safeguards].</td>
+<td>This control enhancement addresses protection against unauthorized disclosure of information. Message externals include, for example, message headers/routing information. This control enhancement prevents the exploitation of message externals and applies to both internal and external networks or links that may be visible to individuals who are not authorized users. Header/routing information is sometimes transmitted unencrypted because the information is not properly identified by organizations as having significant value or because encrypting the information can result in lower network performance and/or higher costs. Alternative physical safeguards include, for example, protected distribution systems. Related controls: SC-12, SC-13.</td>
+</tr>
+<tr class="row-even"><td>SC-8(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-8(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRANSMISSION CONFIDENTIALITY AND INTEGRITY | CONCEAL / RANDOMIZE COMMUNICATIONS
+The information system implements cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by [Assignment: organization-defined alternative physical safeguards].</td>
+<td>This control enhancement addresses protection against unauthorized disclosure of information. Communication patterns include, for example, frequency, periods, amount, and predictability. Changes to communications patterns can reveal information having intelligence value especially when combined with other available information related to missions/business functions supported by organizational information systems. This control enhancement prevents the derivation of intelligence based on communications patterns and applies to both internal and external networks or links that may be visible to individuals who are not authorized users. Encrypting the links and transmitting in continuous, fixed/random patterns prevents the derivation of intelligence from the system communications patterns. Alternative physical safeguards include, for example, protected distribution systems. Related controls: SC-12, SC-13.</td>
+</tr>
+<tr class="row-odd"><td>SC-9</td>
+<td>System and Communications Protection</td>
+<td>SC-9_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRANSMISSION CONFIDENTIALITY
+[Withdrawn: Incorporated into SC-8].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-10</td>
+<td>System and Communications Protection</td>
+<td>SC-10_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>NETWORK DISCONNECT
+Control: The information system terminates the network connection associated with a communications session at the end of the session or after [Assignment: organization-defined time period] of inactivity.</td>
+<td>This control applies to both internal and external networks. Terminating network connections associated with communications sessions include, for example, de-allocating associated TCP/IP address/port pairs at the operating system level, or de-allocating networking assignments at the application level if multiple application sessions are using a single, operating system-level network connection. Time periods of inactivity may be established by organizations and include, for example, time periods by type of network access or for specific network accesses.</td>
+</tr>
+<tr class="row-odd"><td>SC-11</td>
+<td>System and Communications Protection</td>
+<td>SC-11_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRUSTED PATH
+Control: The information system establishes a trusted communications path between the user and the following security functions of the system: [Assignment: organization-defined security functions to include at a minimum, information system authentication and re-authentication].</td>
+<td>Trusted paths are mechanisms by which users (through input devices) can communicate directly with security functions of information systems with the requisite assurance to support information security policies. The mechanisms can be activated only by users or the security functions of organizational information systems. User responses via trusted paths are protected from modifications by or disclosure to untrusted applications. Organizations employ trusted paths for high-assurance connections between security functions of information systems and users (e.g., during system logons). Enforcement of trusted communications paths is typically provided via an implementation that meets the reference monitor concept. Related controls: AC-16, AC-25.</td>
+</tr>
+<tr class="row-even"><td>SC-11(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-11(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRUSTED PATH | LOGICAL ISOLATION
+The information system provides a trusted communications path that is logically isolated and distinguishable from other paths.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-12</td>
+<td>System and Communications Protection</td>
+<td>SC-12_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-56;
+SP 800-57;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT
+Control: The organization establishes and manages cryptographic keys for required cryptography employed within the information system in accordance with [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction].</td>
+<td>Cryptographic key management and establishment can be performed using manual procedures or automated mechanisms with supporting manual procedures. Organizations define key management requirements in accordance with applicable federal laws, Executive Orders, directives, regulations, policies, standards, and guidance, specifying appropriate options, levels, and parameters. Organizations manage trust stores to ensure that only approved trust anchors are in such trust stores. This includes certificates with visibility external to organizational information systems and certificates related to the internal operations of systems. Related controls: SC-13, SC-17.</td>
+</tr>
+<tr class="row-even"><td>SC-12(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-12(1)_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | AVAILABILITY
+The organization maintains availability of information in the event of the loss of cryptographic keys by users.</td>
+<td>Escrowing of encryption keys is a common practice for ensuring availability in the event of loss of keys (e.g., due to forgotten passphrase).</td>
+</tr>
+<tr class="row-odd"><td>SC-12(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-12(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | SYMMETRIC KEYS
+The organization produces, controls, and distributes symmetric cryptographic keys using [Selection: NIST FIPS-compliant; NSA-approved] key management technology and processes.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-12(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-12(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | ASYMMETRIC KEYS
+The organization produces, controls, and distributes asymmetric cryptographic keys using [Selection: NSA-approved key management technology and processes; approved PKI Class 3 certificates or prepositioned keying material; approved PKI Class 3 or Class 4 certificates and hardware security tokens that protect the user’s private key].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-12(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-12(4)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | PKI CERTIFICATES
+[Withdrawn: Incorporated into SC-12].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-12(5)</td>
+<td>System and Communications Protection</td>
+<td>SC-12(5)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | PKI CERTIFICATES / HARDWARE TOKENS
+[Withdrawn: Incorporated into SC-12].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-13</td>
+<td>System and Communications Protection</td>
+<td>SC-13_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>FIPS Pub 140-2;
+Web: csrc.nist.gov/cryptval, www.cnss.gov;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>CRYPTOGRAPHIC PROTECTION
+Control: The information system implements [Assignment: organization-defined cryptographic uses and type of cryptography required for each use] in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.</td>
+<td>Cryptography can be employed to support a variety of security solutions including, for example, the protection of classified and Controlled Unclassified Information, the provision of digital signatures, and the enforcement of information separation when authorized individuals have the necessary clearances for such information but lack the necessary formal access approvals. Cryptography can also be used to support random number generation and hash generation. Generally applicable cryptographic standards include FIPS-validated cryptography and NSA-approved cryptography. This control does not impose any requirements on organizations to use cryptography. However, if cryptography is required based on the selection of other security controls, organizations define each type of cryptographic use and the type of cryptography required (e.g., protection of classified information: NSA-approved cryptography; provision of digital signatures: FIPS-validated cryptography). Related controls: AC-2, AC-3, AC-7, AC-17, AC-18, AU-9, AU-10, CM-11, CP-9, IA-3, IA-7, MA-4, MP-2, MP-4, MP-5, SA-4, SC-8, SC-12, SC-28, SI-7.</td>
+</tr>
+<tr class="row-even"><td>SC-13(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-13(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC PROTECTION | FIPS-VALIDATED CRYPTOGRAPHY
+[Withdrawn: Incorporated into SC-13].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-13(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-13(2)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC PROTECTION | NSA-APPROVED CRYPTOGRAPHY
+[Withdrawn: Incorporated into SC-13].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-13(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-13(3)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC PROTECTION | INDIVIDUALS WITHOUT FORMAL ACCESS APPROVALS
+[Withdrawn: Incorporated into SC-13].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-13(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-13(4)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRYPTOGRAPHIC PROTECTION | DIGITAL SIGNATURES
+[Withdrawn: Incorporated into SC-13].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-14</td>
+<td>System and Communications Protection</td>
+<td>SC-14_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PUBLIC ACCESS PROTECTIONS
+[Withdrawn: Capability provided by AC-2, AC-3, AC-5, AC-6, SI-3, SI-4, SI-5, SI-7, SI-10].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-15</td>
+<td>System and Communications Protection</td>
+<td>SC-15_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>COLLABORATIVE COMPUTING DEVICES
+Control: The information system:
+a. Prohibits remote activation of collaborative computing devices with the following exceptions: [Assignment: organization-defined exceptions where remote activation is to be allowed]; and</td>
+<td>Collaborative computing devices include, for example, networked white boards, cameras, and microphones. Explicit indication of use includes, for example, signals to users when collaborative computing devices are activated. Related control: AC-21.</td>
+</tr>
+<tr class="row-even"><td>SC-15</td>
+<td>System and Communications Protection</td>
+<td>SC-15_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Provides an explicit indication of use to users physically present at the devices.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-15(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-15(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COLLABORATIVE COMPUTING DEVICES | PHYSICAL DISCONNECT
+The information system provides physical disconnect of collaborative computing devices in a manner that supports ease of use.</td>
+<td>Failing to physically disconnect from collaborative computing devices can result in subsequent compromises of organizational information. Providing easy methods to physically disconnect from such devices after a collaborative computing session helps to ensure that participants actually carry out the disconnect activity without having to go through complex and tedious procedures.</td>
+</tr>
+<tr class="row-even"><td>SC-15(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-15(2)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COLLABORATIVE COMPUTING DEVICES | BLOCKING INBOUND / OUTBOUND COMMUNICATIONS TRAFFIC
+[Withdrawn: Incorporated into SC-7].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-15(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-15(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COLLABORATIVE COMPUTING DEVICES | DISABLING / REMOVAL IN SECURE WORK AREAS
+The organization disables or removes collaborative computing devices from [Assignment: organization-defined information systems or information system components] in [Assignment: organization-defined secure work areas].</td>
+<td>Failing to disable or remove collaborative computing devices from information systems or information system components can result in subsequent compromises of organizational information including, for example, eavesdropping on conversations.</td>
+</tr>
+<tr class="row-even"><td>SC-15(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-15(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COLLABORATIVE COMPUTING DEVICES | EXPLICITLY INDICATE CURRENT PARTICIPANTS
+The information system provides an explicit indication of current participants in [Assignment: organization-defined online meetings and teleconferences].</td>
+<td>This control enhancement helps to prevent unauthorized individuals from participating in collaborative computing sessions without the explicit knowledge of other participants.</td>
+</tr>
+<tr class="row-odd"><td>SC-16</td>
+<td>System and Communications Protection</td>
+<td>SC-16_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRANSMISSION OF SECURITY ATTRIBUTES
+Control: The information system associates [Assignment: organization-defined security attributes] with information exchanged between information systems and between system components.</td>
+<td>Security attributes can be explicitly or implicitly associated with the information contained in organizational information systems or system components. Related controls: AC-3, AC-4, AC-16.</td>
+</tr>
+<tr class="row-even"><td>SC-16(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-16(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRANSMISSION OF SECURITY ATTRIBUTES | INTEGRITY VALIDATION
+The information system validates the integrity of transmitted security attributes.</td>
+<td>This control enhancement ensures that the verification of the integrity of transmitted information includes security attributes. Related controls: AU-10, SC-8.</td>
+</tr>
+<tr class="row-odd"><td>SC-17</td>
+<td>System and Communications Protection</td>
+<td>SC-17_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OMB M-05-24;
+SP 800-32;
+SP 800-63;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>PUBLIC KEY INFRASTRUCTURE CERTIFICATES
+Control: The organization issues public key certificates under an [Assignment: organization-defined certificate policy] or obtains public key certificates from an approved service provider.</td>
+<td>For all certificates, organizations manage information system trust stores to ensure only approved trust anchors are in the trust stores. This control addresses both certificates with visibility external to organizational information systems and certificates related to the internal operations of systems, for example, application-specific time services. Related control: SC-12.</td>
+</tr>
+<tr class="row-even"><td>SC-18</td>
+<td>System and Communications Protection</td>
+<td>SC-18_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-28;
+DoD Instruction 8552.01;</td>
+<td>&nbsp;</td>
+<td>MOBILE CODE
+Control: The organization:
+a. Defines acceptable and unacceptable mobile code and mobile code technologies;</td>
+<td>Decisions regarding the employment of mobile code within organizational information systems are based on the potential for the code to cause damage to the systems if used maliciously. Mobile code technologies include, for example, Java, JavaScript, ActiveX, Postscript, PDF, Shockwave movies, Flash animations, and VBScript. Usage restrictions and implementation guidance apply to both the selection and use of mobile code installed on servers and mobile code downloaded and executed on individual workstations and devices (e.g., smart phones). Mobile code policy and procedures address preventing the development, acquisition, or introduction of unacceptable mobile code within organizational information systems. Related controls: AU-2, AU-12, CM-2, CM-6, SI-3.</td>
+</tr>
+<tr class="row-odd"><td>SC-18</td>
+<td>System and Communications Protection</td>
+<td>SC-18_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Establishes usage restrictions and implementation guidance for acceptable mobile code and mobile code technologies; and</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-18</td>
+<td>System and Communications Protection</td>
+<td>SC-18_N_02</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="3">
+<li>Authorizes, monitors, and controls the use of mobile code within the information system.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-18(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-18(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MOBILE CODE | IDENTIFY UNACCEPTABLE CODE / TAKE CORRECTIVE ACTIONS
+The information system identifies [Assignment: organization-defined unacceptable mobile code] and takes [Assignment: organization-defined corrective actions].</td>
+<td>Corrective actions when unacceptable mobile code is detected include, for example, blocking, quarantine, or alerting administrators. Blocking includes, for example, preventing transmission of word processing files with embedded macros when such macros have been defined to be unacceptable mobile code.</td>
+</tr>
+<tr class="row-even"><td>SC-18(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-18(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MOBILE CODE | ACQUISITION / DEVELOPMENT / USE
+The organization ensures that the acquisition, development, and use of mobile code to be deployed in the information system meets [Assignment: organization-defined mobile code requirements].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-18(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-18(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MOBILE CODE | PREVENT DOWNLOADING / EXECUTION
+The information system prevents the download and execution of [Assignment: organization-defined unacceptable mobile code].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-18(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-18(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MOBILE CODE | PREVENT AUTOMATIC EXECUTION
+The information system prevents the automatic execution of mobile code in [Assignment: organization-defined software applications] and enforces [Assignment: organization-defined actions] prior to executing the code.</td>
+<td>Actions enforced before executing mobile code, include, for example, prompting users prior to opening electronic mail attachments. Preventing automatic execution of mobile code includes, for example, disabling auto execute features on information system components employing portable storage devices such as Compact Disks (CDs), Digital Video Disks (DVDs), and Universal Serial Bus (USB) devices.</td>
+</tr>
+<tr class="row-odd"><td>SC-18(5)</td>
+<td>System and Communications Protection</td>
+<td>SC-18(5)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MOBILE CODE | ALLOW EXECUTION ONLY IN CONFINED ENVIRONMENTS
+The organization allows execution of permitted mobile code only in confined virtual machine environments.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-19</td>
+<td>System and Communications Protection</td>
+<td>SC-19_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>SP 800-58;</td>
+<td>Tailored out: OSE systems do not utilize VoIP.</td>
+<td>VOICE OVER INTERNET PROTOCOL
+Control: The organization:
+a. Establishes usage restrictions and implementation guidance for Voice over Internet Protocol (VoIP) technologies based on the potential to cause damage to the information system if used maliciously; and</td>
+<td>Related controls: CM-6, SC-7, SC-15.</td>
+</tr>
+<tr class="row-odd"><td>SC-19</td>
+<td>System and Communications Protection</td>
+<td>SC-19_N_01</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>Tailored out: OSE systems do not utilize VoIP.</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Authorizes, monitors, and controls the use of VoIP within the information system.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-20</td>
+<td>System and Communications Protection</td>
+<td>SC-20_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OMB M-08-23;
+SP 800-81;</td>
+<td>&nbsp;</td>
+<td>SECURE NAME / ADDRESS RESOLUTION SERVICE (AUTHORITATIVE SOURCE)
+Control: The information system:
+a. Provides additional data origin and integrity artifacts along with the authoritative name resolution data the system returns in response to external name/address resolution queries; and</td>
+<td>This control enables external clients including, for example, remote Internet clients, to obtain origin authentication and integrity verification assurances for the host/service name to network address resolution information obtained through the service. Information systems that provide name and address resolution services include, for example, domain name system (DNS) servers. Additional artifacts include, for example, DNS Security (DNSSEC) digital signatures and cryptographic keys. DNS resource records are examples of authoritative data. The means to indicate the security status of child zones includes, for example, the use of delegation signer resource records in the DNS. The DNS security controls reflect (and are referenced from) OMB Memorandum 08-23. Information systems that use technologies other than the DNS to map between host/service names and network addresses provide other means to assure the authenticity and integrity of response data. Related controls: AU-10, SC-8, SC-12, SC-13, SC-21, SC-22.</td>
+</tr>
+<tr class="row-odd"><td>SC-20</td>
+<td>System and Communications Protection</td>
+<td>SC-20_N_01</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Provides the means to indicate the security status of child zones and (if the child supports secure resolution services) to enable verification of a chain of trust among parent and child domains, when operating as part of a distributed, hierarchical namespace.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-20(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-20(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURE NAME / ADDRESS RESOLUTION SERVICE (AUTHORITATIVE SOURCE) | CHILD SUBSPACES
+[Withdrawn: Incorporated into SC-20].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-20(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-20(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURE NAME / ADDRESS RESOLUTION SERVICE (AUTHORITATIVE SOURCE) | DATA ORIGIN / INTEGRITY
+The information system provides data origin and integrity protection artifacts for internal name/address resolution queries.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-21</td>
+<td>System and Communications Protection</td>
+<td>SC-21_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-81;</td>
+<td>&nbsp;</td>
+<td>SECURE NAME / ADDRESS RESOLUTION SERVICE (RECURSIVE OR CACHING RESOLVER)
+Control: The information system requests and performs data origin authentication and data integrity verification on the name/address resolution responses the system receives from authoritative sources.</td>
+<td>Each client of name resolution services either performs this validation on its own, or has authenticated channels to trusted validation providers. Information systems that provide name and address resolution services for local clients include, for example, recursive resolving or caching domain name system (DNS) servers. DNS client resolvers either perform validation of DNSSEC signatures, or clients use authenticated channels to recursive resolvers that perform such validations. Information systems that use technologies other than the DNS to map between host/service names and network addresses provide other means to enable clients to verify the authenticity and integrity of response data. Related controls: SC-20, SC-22.</td>
+</tr>
+<tr class="row-odd"><td>SC-21(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-21(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SECURE NAME / ADDRESS RESOLUTION SERVICE (RECURSIVE OR CACHING RESOLVER) | DATA ORIGIN / INTEGRITY
+[Withdrawn: Incorporated into SC-21].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-22</td>
+<td>System and Communications Protection</td>
+<td>SC-22_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>SP 800-81;</td>
+<td>OSE systems are clients of DNS services and do not provide name resolution capabilities.</td>
+<td>ARCHITECTURE AND PROVISIONING FOR NAME / ADDRESS RESOLUTION SERVICE
+Control: The information systems that collectively provide name/address resolution service for an organization are fault-tolerant and implement internal/external role separation.</td>
+<td>Information systems that provide name and address resolution services include, for example, domain name system (DNS) servers. To eliminate single points of failure and to enhance redundancy, organizations employ at least two authoritative domain name system servers, one configured as the primary server and the other configured as the secondary server. Additionally, organizations typically deploy the servers in two geographically separated network subnetworks (i.e., not located in the same physical facility). For role separation, DNS servers with internal roles only process name and address resolution requests from within organizations (i.e., from internal clients). DNS servers with external roles only process name and address resolution information requests from clients external to organizations (i.e., on external networks including the Internet). Organizations specify clients that can access authoritative DNS servers in particular roles (e.g., by address ranges, explicit lists). Related controls: SC-2, SC-20, SC-21, SC-24.</td>
+</tr>
+<tr class="row-odd"><td>SC-23</td>
+<td>System and Communications Protection</td>
+<td>SC-23_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SESSION AUTHENTICITY
+Control: The information system protects the authenticity of communications sessions.</td>
+<td>This control addresses communications protection at the session, versus packet level (e.g., sessions in service-oriented architectures providing web-based services) and establishes grounds for confidence at both ends of communications sessions in ongoing identities of other parties and in the validity of information transmitted. Authenticity protection includes, for example, protecting against man-in-the-middle attacks/session hijacking and the insertion of false information into sessions. Related controls: SC-8, SC-10, SC-11.</td>
+</tr>
+<tr class="row-even"><td>SC-23(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-23(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SESSION AUTHENTICITY | INVALIDATE SESSION IDENTIFIERS AT LOGOUT
+The information system invalidates session identifiers upon user logout or other session termination.</td>
+<td>This control enhancement curtails the ability of adversaries from capturing and continuing to employ previously valid session IDs.</td>
+</tr>
+<tr class="row-odd"><td>SC-23(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-23(2)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SESSION AUTHENTICITY | USER-INITIATED LOGOUTS / MESSAGE DISPLAYS
+[Withdrawn: Incorporated into AC-12 (1)].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-23(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-23(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SESSION AUTHENTICITY | UNIQUE SESSION IDENTIFIERS WITH RANDOMIZATION
+The information system generates a unique session identifier for each session with [Assignment: organization-defined randomness requirements] and recognizes only session identifiers that are system-generated.</td>
+<td>This control enhancement curtails the ability of adversaries from reusing previously valid session IDs. Employing the concept of randomness in the generation of unique session identifiers helps to protect against brute-force attacks to determine future session identifiers. Related control: SC-13.</td>
+</tr>
+<tr class="row-odd"><td>SC-23(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-23(4)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SESSION AUTHENTICITY | UNIQUE SESSION IDENTIFIERS WITH RANDOMIZATION
+[Withdrawn: Incorporated into SC-23 (3)].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-23(5)</td>
+<td>System and Communications Protection</td>
+<td>SC-23(5)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-52;
+SP 800-77;
+SP 800-95;</td>
+<td>&nbsp;</td>
+<td>SESSION AUTHENTICITY | ALLOWED CERTIFICATE AUTHORITIES
+The information system only allows the use of [Assignment: organization-defined certificate authorities] for verification of the establishment of protected sessions.</td>
+<td>Reliance on certificate authorities (CAs) for the establishment of secure sessions includes, for example, the use of Secure Socket Layer (SSL) and/or Transport Layer Security (TLS) certificates. These certificates, after verification by the respective certificate authorities, facilitate the establishment of protected sessions between web clients and web servers. Related control: SC-13.</td>
+</tr>
+<tr class="row-odd"><td>SC-24</td>
+<td>System and Communications Protection</td>
+<td>SC-24_N_00</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>FAIL IN KNOWN STATE
+Control: The information system fails to a [Assignment: organization-defined known-state] for [Assignment: organization-defined types of failures] preserving [Assignment: organization-defined system state information] in failure.</td>
+<td>Failure in a known state addresses security concerns in accordance with the mission/business needs of organizations. Failure in a known secure state helps to prevent the loss of confidentiality, integrity, or availability of information in the event of failures of organizational information systems or system components. Failure in a known safe state helps to prevent systems from failing to a state that may cause injury to individuals or destruction to property. Preserving information system state information facilitates system restart and return to the operational mode of organizations with less disruption of mission/business processes. Related controls: CP-2, CP-10, CP-12, SC-7, SC-22.</td>
+</tr>
+<tr class="row-even"><td>SC-25</td>
+<td>System and Communications Protection</td>
+<td>SC-25_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>THIN NODES
+Control: The organization employs [Assignment: organization-defined information system components] with minimal functionality and information storage.</td>
+<td>The deployment of information system components with reduced/minimal functionality (e.g., diskless nodes and thin client technologies) reduces the need to secure every user endpoint, and may reduce the exposure of information, information systems, and services to cyber attacks. Related control: SC-30.</td>
+</tr>
+<tr class="row-odd"><td>SC-26</td>
+<td>System and Communications Protection</td>
+<td>SC-26_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>HONEYPOTS
+Control: The information system includes components specifically designed to be the target of malicious attacks for the purpose of detecting, deflecting, and analyzing such attacks.</td>
+<td>A honeypot is set up as a decoy to attract adversaries and to deflect their attacks away from the operational systems supporting organizational missions/business function.
+Depending upon the specific usage of the honeypot, consultation with the Office of the General Counsel before deployment may be needed. Related controls: SC-30, SC-44, SI-3, SI-4.</td>
+</tr>
+<tr class="row-even"><td>SC-26(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-26(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>HONEYPOTS | DETECTION OF MALICIOUS CODE
+[Withdrawn: Incorporated into SC-35].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-27</td>
+<td>System and Communications Protection</td>
+<td>SC-27_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PLATFORM-INDEPENDENT APPLICATIONS
+Control: The information system includes: [Assignment: organization-defined platform-independent applications].</td>
+<td>Platforms are combinations of hardware and software used to run software applications. Platforms include: (i) operating systems; (ii) the underlying computer architectures, or (iii) both. Platform-independent applications are applications that run on multiple platforms. Such applications promote portability and reconstitution on different platforms, increasing the availability of critical functions within organizations while information systems with specific operating systems are under attack. Related control: SC-29.</td>
+</tr>
+<tr class="row-even"><td>SC-28</td>
+<td>System and Communications Protection</td>
+<td>SC-28_N_00</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SP 800-56;
+SP 800-57;
+SP 800-111;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>PROTECTION OF INFORMATION AT REST
+Control: The information system protects the [Selection (one or more): confidentiality; integrity] of [Assignment: organization-defined information at rest].</td>
+<td>This control addresses the confidentiality and integrity of information at rest and covers user information and system information. Information at rest refers to the state of information when it is located on storage devices as specific components of information systems. System-related information requiring protection includes, for example, configurations or rule sets for firewalls, gateways, intrusion detection/prevention systems, filtering routers, and authenticator content. Organizations may employ different mechanisms to achieve confidentiality and integrity protections, including the use of cryptographic mechanisms and file share scanning. Integrity protection can be achieved, for example, by implementing Write-Once-Read-Many (WORM) technologies. Organizations may also employ other security controls including, for example, secure off-line storage in lieu of online storage when adequate protection of information at rest cannot otherwise be achieved and/or continuous monitoring to identify malicious code at rest. Related controls: AC-3, AC-6, CA-7, CM-3, CM-5, CM-6, PE-3, SC-8, SC-13, SI-3, SI-7.</td>
+</tr>
+<tr class="row-odd"><td>SC-28(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-28(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>PROTECTION OF INFORMATION AT REST | CRYPTOGRAPHIC PROTECTION
+The information system implements cryptographic mechanisms to prevent unauthorized disclosure and modification of [Assignment: organization-defined information] on [Assignment: organization-defined information system components].</td>
+<td>Selection of cryptographic mechanisms is based on the need to protect the confidentiality and integrity of organizational information. The strength of mechanism is commensurate with the security category and/or classification of the information. This control enhancement applies to significant concentrations of digital media in organizational areas designated for media storage and also to limited quantities of media generally associated with information system components in operational environments (e.g., portable storage devices, mobile devices). Organizations have the flexibility to either encrypt all information on storage devices (i.e., full disk encryption) or encrypt specific data structures (e.g., files, records, or fields). Organizations employing cryptographic mechanisms to protect information at rest also consider cryptographic key management solutions. Related controls: AC-19, SC-12.</td>
+</tr>
+<tr class="row-even"><td>SC-28(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-28(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PROTECTION OF INFORMATION AT REST | OFF-LINE STORAGE
+The organization removes from online storage and stores off-line in a secure location [Assignment: organization-defined information].</td>
+<td>Removing organizational information from online information system storage to off-line storage eliminates the possibility of individuals gaining unauthorized access to the information through a network. Therefore, organizations may choose to move information to off-line storage in lieu of protecting such information in online storage.</td>
+</tr>
+<tr class="row-odd"><td>SC-29</td>
+<td>System and Communications Protection</td>
+<td>SC-29_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>HETEROGENEITY
+Control: The organization employs a diverse set of information technologies for [Assignment: organization-defined information system components] in the implementation of the information system.</td>
+<td>Increasing the diversity of information technologies within organizational information systems reduces the impact of potential exploitations of specific technologies and also defends against common mode failures, including those failures induced by supply chain attacks. Diversity in information technologies also reduces the likelihood that the means adversaries use to compromise one information system component will be equally effective against other system components, thus further increasing the adversary work factor to successfully complete planned cyber attacks. An increase in diversity may add complexity and management overhead which could ultimately lead to mistakes and unauthorized configurations. Related controls: SA-12, SA-14, SC-27.</td>
+</tr>
+<tr class="row-even"><td>SC-29(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-29(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>HETEROGENEITY | VIRTUALIZATION TECHNIQUES
+The organization employs virtualization techniques to support the deployment of a diversity of operating systems and applications that are changed [Assignment: organization-defined frequency].</td>
+<td>While frequent changes to operating systems and applications pose configuration management challenges, the changes can result in an increased work factor for adversaries in order to carry out successful cyber attacks. Changing virtual operating systems or applications, as opposed to changing actual operating systems/applications, provide virtual changes that impede attacker success while reducing configuration management efforts. In addition, virtualization techniques can assist organizations in isolating untrustworthy software and/or software of dubious provenance into confined execution environments.</td>
+</tr>
+<tr class="row-odd"><td>SC-30</td>
+<td>System and Communications Protection</td>
+<td>SC-30_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONCEALMENT AND MISDIRECTION
+Control: The organization employs [Assignment: organization-defined concealment and misdirection techniques] for [Assignment: organization-defined information systems] at [Assignment: organization-defined time periods] to confuse and mislead adversaries.</td>
+<td>Concealment and misdirection techniques can significantly reduce the targeting capability of adversaries (i.e., window of opportunity and available attack surface) to initiate and complete cyber attacks. For example, virtualization techniques provide organizations with the ability to disguise information systems, potentially reducing the likelihood of successful attacks without the cost of having multiple platforms. Increased use of concealment/misdirection techniques including, for example, randomness, uncertainty, and virtualization, may sufficiently confuse and mislead adversaries and subsequently increase the risk of discovery and/or exposing tradecraft. Concealment/misdirection techniques may also provide organizations additional time to successfully perform core missions and business functions. Because of the time and effort required to support concealment/misdirection techniques, it is anticipated that such techniques would be used by organizations on a very limited basis. Related controls: SC-26, SC-29, SI-14.</td>
+</tr>
+<tr class="row-even"><td>SC-30(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-30(1)_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONCEALMENT AND MISDIRECTION | VIRTUALIZATION TECHNIQUES
+[Withdrawn: Incorporated into SC-29 (1)].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-30(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-30(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONCEALMENT AND MISDIRECTION | RANDOMNESS
+The organization employs [Assignment: organization-defined techniques] to introduce randomness into organizational operations and assets.</td>
+<td>Randomness introduces increased levels of uncertainty for adversaries regarding the actions organizations take in defending against cyber attacks. Such actions may impede the ability of adversaries to correctly target information resources of organizations supporting critical missions/business functions. Uncertainty may also cause adversaries to hesitate before initiating or continuing attacks. Misdirection techniques involving randomness include, for example, performing certain routine actions at different times of day, employing different information technologies (e.g., browsers, search engines), using different suppliers, and rotating roles and responsibilities of organizational personnel.</td>
+</tr>
+<tr class="row-even"><td>SC-30(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-30(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONCEALMENT AND MISDIRECTION | CHANGE PROCESSING / STORAGE LOCATIONS
+The organization changes the location of [Assignment: organization-defined processing and/or storage] [Selection: [Assignment: organization-defined time frequency]; at random time intervals]].</td>
+<td>Adversaries target critical organizational missions/business functions and the information resources supporting those missions and functions while at the same time, trying to minimize exposure of their existence and tradecraft. The static, homogeneous, and deterministic nature of organizational information systems targeted by adversaries, make such systems more susceptible to cyber attacks with less adversary cost and effort to be successful. Changing organizational processing and storage locations (sometimes referred to as moving target defense) addresses the advanced persistent threat (APT) using techniques such as virtualization, distributed processing, and replication. This enables organizations to relocate the information resources (i.e., processing and/or storage) supporting critical missions and business functions. Changing locations of processing activities and/or storage sites introduces uncertainty into the targeting activities by adversaries. This uncertainty increases the work factor of adversaries making compromises or breaches to organizational information systems much more difficult and time-consuming, and increases the chances that adversaries may inadvertently disclose aspects of tradecraft while attempting to locate critical organizational resources.</td>
+</tr>
+<tr class="row-odd"><td>SC-30(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-30(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONCEALMENT AND MISDIRECTION | MISLEADING INFORMATION
+The organization employs realistic, but misleading information in [Assignment: organization-defined information system components] with regard to its security state or posture.</td>
+<td>This control enhancement misleads potential adversaries regarding the nature and extent of security safeguards deployed by organizations. As a result, adversaries may employ incorrect (and as a result ineffective) attack techniques. One way of misleading adversaries is for organizations to place misleading information regarding the specific security controls deployed in external information systems that are known to be accessed or targeted by adversaries. Another technique is the use of deception nets (e.g., honeynets, virtualized environments) that mimic actual aspects of organizational information systems but use, for example, out-of-date software configurations.</td>
+</tr>
+<tr class="row-even"><td>SC-30(5)</td>
+<td>System and Communications Protection</td>
+<td>SC-30(5)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CONCEALMENT AND MISDIRECTION | CONCEALMENT OF SYSTEM COMPONENTS
+The organization employs [Assignment: organization-defined techniques] to hide or conceal [Assignment: organization-defined information system components].</td>
+<td>By hiding, disguising, or otherwise concealing critical information system components, organizations may be able to decrease the probability that adversaries target and successfully compromise those assets. Potential means for organizations to hide and/or conceal information system components include, for example, configuration of routers or the use of honeynets or virtualization techniques.</td>
+</tr>
+<tr class="row-odd"><td>SC-31</td>
+<td>System and Communications Protection</td>
+<td>SC-31_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COVERT CHANNEL ANALYSIS
+Control: The organization:
+a. Performs a covert channel analysis to identify those aspects of communications within the information system that are potential avenues for covert [Selection (one or more): storage; timing] channels; and</td>
+<td>Developers are in the best position to identify potential areas within systems that might lead to covert channels. Covert channel analysis is a meaningful activity when there is the potential for unauthorized information flows across security domains, for example, in the case of information systems containing export-controlled information and having connections to external networks (i.e., networks not controlled by organizations). Covert channel analysis is also meaningful for multilevel secure (MLS) information systems, multiple security level (MSL) systems, and cross-domain systems. Related controls: AC-3, AC-4, PL-2.</td>
+</tr>
+<tr class="row-even"><td>SC-31</td>
+<td>System and Communications Protection</td>
+<td>SC-31_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Estimates the maximum bandwidth of those channels.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-31(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-31(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COVERT CHANNEL ANALYSIS | TEST COVERT CHANNELS FOR EXPLOITABILITY
+The organization tests a subset of the identified covert channels to determine which channels are exploitable.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-31(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-31(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COVERT CHANNEL ANALYSIS | MAXIMUM BANDWIDTH
+The organization reduces the maximum bandwidth for identified covert [Selection (one or more); storage; timing] channels to [Assignment: organization-defined values].</td>
+<td>Information system developers are in the best position to reduce the maximum bandwidth for identified covert storage and timing channels.</td>
+</tr>
+<tr class="row-odd"><td>SC-31(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-31(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COVERT CHANNEL ANALYSIS | MEASURE BANDWIDTH IN OPERATIONAL ENVIRONMENTS
+The organization measures the bandwidth of [Assignment: organization-defined subset of identified covert channels] in the operational environment of the information system.</td>
+<td>This control enhancement addresses covert channel bandwidth in operational environments versus developmental environments. Measuring covert channel bandwidth in operational environments helps organizations to determine how much information can be covertly leaked before such leakage adversely affects organizational missions/business functions. Covert channel bandwidth may be significantly different when measured in those settings that are independent of the particular environments of operation (e.g., laboratories or development environments).</td>
+</tr>
+<tr class="row-even"><td>SC-32</td>
+<td>System and Communications Protection</td>
+<td>SC-32_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>FIPS Pub 199;</td>
+<td>&nbsp;</td>
+<td>INFORMATION SYSTEM PARTITIONING
+Control: The organization partitions the information system into [Assignment: organization-defined information system components] residing in separate physical domains or environments based on [Assignment: organization-defined circumstances for physical separation of components].</td>
+<td>Information system partitioning is a part of a defense-in-depth protection strategy. Organizations determine the degree of physical separation of system components from physically distinct components in separate racks in the same room, to components in separate rooms for the more critical components, to more significant geographical separation of the most critical components. Security categorization can guide the selection of appropriate candidates for domain partitioning. Managed interfaces restrict or prohibit network access and information flow among partitioned information system components. Related controls: AC-4, SA-8, SC-2, SC-3, SC-7.</td>
+</tr>
+<tr class="row-odd"><td>SC-33</td>
+<td>System and Communications Protection</td>
+<td>SC-33_N_00</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TRANSMISSION PREPARATION INTEGRITY
+[Withdrawn: Incorporated into SC-8].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-34</td>
+<td>System and Communications Protection</td>
+<td>SC-34_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>NON-MODIFIABLE EXECUTABLE PROGRAMS
+Control: The information system at [Assignment: organization-defined information system components]:
+a. Loads and executes the operating environment from hardware-enforced, read-only media; and</td>
+<td>The term operating environment is defined as the specific code that hosts applications, for example, operating systems, executives, or monitors including virtual machine monitors (i.e., hypervisors). It can also include certain applications running directly on hardware platforms. Hardware-enforced, read-only media include, for example, Compact Disk-Recordable (CD-R)/Digital Video Disk-Recordable (DVD-R) disk drives and one-time programmable read-only memory. The use of non-modifiable storage ensures the integrity of software from the point of creation of the read-only image. The use of reprogrammable read-only memory can be accepted as read-only media provided: (i) integrity can be adequately protected from the point of initial writing to the insertion of the memory into the information system; and (ii) there are reliable hardware protections against reprogramming the memory while installed in organizational information systems. Related controls: AC-3, SI-7.</td>
+</tr>
+<tr class="row-odd"><td>SC-34</td>
+<td>System and Communications Protection</td>
+<td>SC-34_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Loads and executes [Assignment: organization-defined applications] from hardware-enforced, read-only media.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-34(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-34(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>NON-MODIFIABLE EXECUTABLE PROGRAMS | NO WRITABLE STORAGE
+The organization employs [Assignment: organization-defined information system components] with no writeable storage that is persistent across component restart or power on/off.</td>
+<td>This control enhancement: (i) eliminates the possibility of malicious code insertion via persistent, writeable storage within the designated information system components; and (ii) applies to both fixed and removable storage, with the latter being addressed directly or as specific restrictions imposed through access controls for mobile devices. Related controls: AC-19, MP-7.</td>
+</tr>
+<tr class="row-odd"><td>SC-34(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-34(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>NON-MODIFIABLE EXECUTABLE PROGRAMS | INTEGRITY PROTECTION / READ-ONLY MEDIA
+The organization protects the integrity of information prior to storage on read-only media and controls the media after such information has been recorded onto the media.</td>
+<td>Security safeguards prevent the substitution of media into information systems or the reprogramming of programmable read-only media prior to installation into the systems. Security safeguards include, for example, a combination of prevention, detection, and response. Related controls: AC-5, CM-3, CM-5, CM-9, MP-2, MP-4, MP-5, SA-12, SC-28, SI-3.</td>
+</tr>
+<tr class="row-even"><td>SC-34(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-34(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>NON-MODIFIABLE EXECUTABLE PROGRAMS | HARDWARE-BASED PROTECTION
+The organization:
+(a) Employs hardware-based, write-protect for [Assignment: organization-defined information system firmware components]; and</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-34(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-34(3)_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Implements specific procedures for [Assignment: organization-defined authorized individuals] to manually disable hardware write-protect for firmware modifications and re-enable the write-protect prior to returning to operational mode.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-35</td>
+<td>System and Communications Protection</td>
+<td>SC-35_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>HONEYCLIENTS
+Control: The information system includes components that proactively seek to identify malicious websites and/or web-based malicious code.</td>
+<td>Honeyclients differ from honeypots in that the components actively probe the Internet in search of malicious code (e.g., worms) contained on external websites. As with honeypots, honeyclients require some supporting isolation measures (e.g., virtualization) to ensure that any malicious code discovered during the search and subsequently executed does not infect organizational information systems. Related controls: SC-26, SC-44, SI-3, SI-4.</td>
+</tr>
+<tr class="row-odd"><td>SC-36</td>
+<td>System and Communications Protection</td>
+<td>SC-36_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DISTRIBUTED PROCESSING AND STORAGE
+Control: The organization distributes [Assignment: organization-defined processing and storage] across multiple physical locations.</td>
+<td>Distributing processing and storage across multiple physical locations provides some degree of redundancy or overlap for organizations, and therefore increases the work factor of adversaries to adversely impact organizational operations, assets, and individuals. This control does not assume a single primary processing or storage location, and thus allows for parallel processing and storage. Related controls: CP-6, CP-7.</td>
+</tr>
+<tr class="row-even"><td>SC-36(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-36(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DISTRIBUTED PROCESSING AND STORAGE | POLLING TECHNIQUES
+The organization employs polling techniques to identify potential faults, errors, or compromises to [Assignment: organization-defined distributed processing and storage components].</td>
+<td>Distributed processing and/or storage may be employed to reduce opportunities for adversaries to successfully compromise the confidentiality, integrity, or availability of information and information systems. However, distribution of processing and/or storage components does not prevent adversaries from compromising one (or more) of the distributed components. Polling compares the processing results and/or storage content from the various distributed components and subsequently voting on the outcomes. Polling identifies potential faults, errors, or compromises in distributed processing and/or storage components. Related control: SI-4.</td>
+</tr>
+<tr class="row-odd"><td>SC-37</td>
+<td>System and Communications Protection</td>
+<td>SC-37_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OUT-OF-BAND CHANNELS
+Control: The organization employs [Assignment: organization-defined out-of-band channels] for the physical delivery or electronic transmission of [Assignment: organization-defined information, information system components, or devices] to [Assignment: organization-defined individuals or information systems].</td>
+<td>Out-of-band channels include, for example, local (nonnetwork) accesses to information systems, network paths physically separate from network paths used for operational traffic, or nonelectronic paths such as the US Postal Service. This is in contrast with using the same channels (i.e., in-band channels) that carry routine operational traffic. Out-of-band channels do not have the same vulnerability/exposure as in-band channels, and hence the confidentiality, integrity, or availability compromises of in-band channels will not compromise the out-of-band channels. Organizations may employ out-of-band channels in the delivery or transmission of many organizational items including, for example, identifiers/authenticators, configuration management changes for hardware, firmware, or software, cryptographic key management information, security updates, system/data backups, maintenance information, and malicious code protection updates. Related controls: AC-2, CM-3, CM-5, CM-7, IA-4, IA-5, MA-4, SC-12, SI-3, SI-4, SI-7.</td>
+</tr>
+<tr class="row-even"><td>SC-37(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-37(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OUT-OF-BAND CHANNELS | ENSURE DELIVERY / TRANSMISSION
+The organization employs [Assignment: organization-defined security safeguards] to ensure that only [Assignment: organization-defined individuals or information systems] receive the [Assignment: organization-defined information, information system components, or devices].</td>
+<td>Techniques and/or methods employed by organizations to ensure that only designated information systems or individuals receive particular information, system components, or devices include, for example, sending authenticators via courier service but requiring recipients to show some form of government-issued photographic identification as a condition of receipt.</td>
+</tr>
+<tr class="row-odd"><td>SC-38</td>
+<td>System and Communications Protection</td>
+<td>SC-38_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&nbsp;</td>
+<td>Dependent on implementing organization / agency.</td>
+<td>OPERATIONS SECURITY
+Control: The organization employs [Assignment: organization-defined operations security safeguards] to protect key organizational information throughout the system development life cycle.</td>
+<td>Operations security (OPSEC) is a systematic process by which potential adversaries can be denied information about the capabilities and intentions of organizations by identifying, controlling, and protecting generally unclassified information that specifically relates to the planning and execution of sensitive organizational activities. The OPSEC process involves five steps: (i) identification of critical information (e.g., the security categorization process); (ii) analysis of threats; (iii) analysis of vulnerabilities; (iv) assessment of risks; and (v) the application of appropriate countermeasures. OPSEC safeguards are applied to both organizational information systems and the environments in which those systems operate. OPSEC safeguards help to protect the confidentiality of key information including, for example, limiting the sharing of information with suppliers and potential suppliers of information system components, information technology products and services, and with other non-organizational elements and individuals. Information critical to mission/business success includes, for example, user identities, element uses, suppliers, supply chain processes, functional and security requirements, system design specifications, testing protocols, and security control implementation details. Related controls: RA-2, RA-5, SA-12.</td>
+</tr>
+<tr class="row-even"><td>SC-39</td>
+<td>System and Communications Protection</td>
+<td>SC-39_N_00</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>NEED TO ADDRESS</strong></td>
+<td>PROCESS ISOLATION
+Control: The information system maintains a separate execution domain for each executing process.</td>
+<td>Information systems can maintain separate execution domains for each executing process by assigning each process a separate address space. Each information system process has a distinct address space so that communication between processes is performed in a manner controlled through the security functions, and one process cannot modify the executing code of another process. Maintaining separate execution domains for executing processes can be achieved, for example, by implementing separate address spaces. This capability is available in most commercial operating systems that employ multi-state processor technologies. Related controls: AC-3, AC-4, AC-6, SA-4, SA-5, SA-8, SC-2, SC-3.</td>
+</tr>
+<tr class="row-odd"><td>SC-39(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-39(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PROCESS ISOLATION | HARDWARE SEPARATION
+The information system implements underlying hardware separation mechanisms to facilitate process separation.</td>
+<td>Hardware-based separation of information system processes is generally less susceptible to compromise than software-based separation, thus providing greater assurance that the separation will be enforced. Underlying hardware separation mechanisms include, for example, hardware memory management.</td>
+</tr>
+<tr class="row-even"><td>SC-39(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-39(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PROCESS ISOLATION | THREAD ISOLATION
+The information system maintains a separate execution domain for each thread in [Assignment: organization-defined multi-threaded processing].</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-40</td>
+<td>System and Communications Protection</td>
+<td>SC-40_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIRELESS LINK PROTECTION
+Control: The information system protects external and internal [Assignment: organization-defined wireless links] from [Assignment: organization-defined types of signal parameter attacks or references to sources for such attacks].</td>
+<td>This control applies to internal and external wireless communication links that may be visible to individuals who are not authorized information system users. Adversaries can exploit the signal parameters of wireless links if such links are not adequately protected. There are many ways to exploit the signal parameters of wireless links to gain intelligence, deny service, or to spoof users of organizational information systems. This control reduces the impact of attacks that are unique to wireless systems. If organizations rely on commercial service providers for transmission services as commodity items rather than as fully dedicated services, it may not be possible to implement this control. Related controls: AC-18, SC-5.</td>
+</tr>
+<tr class="row-even"><td>SC-40(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-40(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIRELESS LINK PROTECTION | ELECTROMAGNETIC INTERFERENCE
+The information system implements cryptographic mechanisms that achieve [Assignment: organization-defined level of protection] against the effects of intentional electromagnetic interference.</td>
+<td>This control enhancement protects against intentional jamming that might deny or impair communications by ensuring that wireless spread spectrum waveforms used to provide anti-jam protection are not predictable by unauthorized individuals. The control enhancement may also coincidentally help to mitigate the effects of unintentional jamming due to interference from legitimate transmitters sharing the same spectrum. Mission requirements, projected threats, concept of operations, and applicable legislation, directives, regulations, policies, standards, and guidelines determine levels of wireless link availability and performance/cryptography needed. Related controls: SC-12, SC-13.</td>
+</tr>
+<tr class="row-odd"><td>SC-40(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-40(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIRELESS LINK PROTECTION | REDUCE DETECTION POTENTIAL
+The information system implements cryptographic mechanisms to reduce the detection potential of wireless links to [Assignment: organization-defined level of reduction].</td>
+<td>This control enhancement is needed for covert communications and protecting wireless transmitters from being geo-located by their transmissions. The control enhancement ensures that spread spectrum waveforms used to achieve low probability of detection are not predictable by unauthorized individuals. Mission requirements, projected threats, concept of operations, and applicable legislation, directives, regulations, policies, standards, and guidelines determine the levels to which wireless links should be undetectable. Related controls: SC-12, SC-13.</td>
+</tr>
+<tr class="row-even"><td>SC-40(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-40(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIRELESS LINK PROTECTION | IMITATIVE OR MANIPULATIVE COMMUNICATIONS DECEPTION
+The information system implements cryptographic mechanisms to identify and reject wireless transmissions that are deliberate attempts to achieve imitative or manipulative communications deception based on signal parameters.</td>
+<td>This control enhancement ensures that the signal parameters of wireless transmissions are not predictable by unauthorized individuals. Such unpredictability reduces the probability of imitative or manipulative communications deception based upon signal parameters alone. Related controls: SC-12, SC-13.</td>
+</tr>
+<tr class="row-odd"><td>SC-40(4)</td>
+<td>System and Communications Protection</td>
+<td>SC-40(4)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIRELESS LINK PROTECTION | SIGNAL PARAMETER IDENTIFICATION
+The information system implements cryptographic mechanisms to prevent the identification of [Assignment: organization-defined wireless transmitters] by using the transmitter signal parameters.</td>
+<td>Radio fingerprinting techniques identify the unique signal parameters of transmitters to fingerprint such transmitters for purposes of tracking and mission/user identification. This control enhancement protects against the unique identification of wireless transmitters for purposes of intelligence exploitation by ensuring that anti-fingerprinting alterations to signal parameters are not predictable by unauthorized individuals. This control enhancement helps assure mission success when anonymity is required. Related controls: SC-12, SC-13.</td>
+</tr>
+<tr class="row-even"><td>SC-41</td>
+<td>System and Communications Protection</td>
+<td>SC-41_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PORT AND I/O DEVICE ACCESS
+Control: The organization physically disables or removes [Assignment: organization-defined connection ports or input/output devices] on [Assignment: organization-defined information systems or information system components].</td>
+<td>Connection ports include, for example, Universal Serial Bus (USB) and Firewire (IEEE 1394). Input/output (I/O) devices include, for example, Compact Disk (CD) and Digital Video Disk (DVD) drives. Physically disabling or removing such connection ports and I/O devices helps prevent exfiltration of information from information systems and the introduction of malicious code into systems from those ports/devices.</td>
+</tr>
+<tr class="row-odd"><td>SC-42</td>
+<td>System and Communications Protection</td>
+<td>SC-42_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SENSOR CAPABILITY AND DATA
+Control: The information system:
+a. Prohibits the remote activation of environmental sensing capabilities with the following exceptions: [Assignment: organization-defined exceptions where remote activation of sensors is allowed]; and</td>
+<td>This control often applies to types of information systems or system components characterized as mobile devices, for example, smart phones, tablets, and E-readers. These systems often include sensors that can collect and record data regarding the environment where the system is in use. Sensors that are embedded within mobile devices include, for example, cameras, microphones, Global Positioning System (GPS) mechanisms, and accelerometers. While the sensors on mobiles devices provide an important function, if activated covertly, such devices can potentially provide a means for adversaries to learn valuable information about individuals and organizations. For example, remotely activating the GPS function on a mobile device could provide an adversary with the ability to track the specific movements of an individual.</td>
+</tr>
+<tr class="row-even"><td>SC-42</td>
+<td>System and Communications Protection</td>
+<td>SC-42_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Provides an explicit indication of sensor use to [Assignment: organization-defined class of users].</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SC-42(1)</td>
+<td>System and Communications Protection</td>
+<td>SC-42(1)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SENSOR CAPABILITY AND DATA | REPORTING TO AUTHORIZED INDIVIDUALS OR ROLES
+The organization ensures that the information system is configured so that data or information collected by the [Assignment: organization-defined sensors] is only reported to authorized individuals or roles.</td>
+<td>In situations where sensors are activated by authorized individuals (e.g., end users), it is still possible that the data/information collected by the sensors will be sent to unauthorized entities.</td>
+</tr>
+<tr class="row-even"><td>SC-42(2)</td>
+<td>System and Communications Protection</td>
+<td>SC-42(2)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SENSOR CAPABILITY AND DATA | AUTHORIZED USE
+The organization employs the following measures: [Assignment: organization-defined measures], so that data or information collected by [Assignment: organization-defined sensors] is only used for authorized purposes.</td>
+<td>Information collected by sensors for a specific authorized purpose potentially could be misused for some unauthorized purpose. For example, GPS sensors that are used to support traffic navigation could be misused to track movements of individuals. Measures to mitigate such activities include, for example, additional training to ensure that authorized parties do not abuse their authority, or (in the case where sensor data/information is maintained by external parties) contractual restrictions on the use of the data/information.</td>
+</tr>
+<tr class="row-odd"><td>SC-42(3)</td>
+<td>System and Communications Protection</td>
+<td>SC-42(3)_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SENSOR CAPABILITY AND DATA | PROHIBIT USE OF DEVICES
+The organization prohibits the use of devices possessing [Assignment: organization-defined environmental sensing capabilities] in [Assignment: organization-defined facilities, areas, or systems].</td>
+<td>For example, organizations may prohibit individuals from bringing cell phones or digital cameras into certain facilities or specific controlled areas within facilities where classified information is stored or sensitive conversations are taking place.</td>
+</tr>
+<tr class="row-even"><td>SC-43</td>
+<td>System and Communications Protection</td>
+<td>SC-43_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>USAGE RESTRICTIONS
+Control: The organization:
+a. Establishes usage restrictions and implementation guidance for [Assignment: organization-defined information system components] based on the potential to cause damage to the information system if used maliciously; and</td>
+<td>Information system components include hardware, software, or firmware components (e.g., Voice Over Internet Protocol, mobile code, digital copiers, printers, scanners, optical devices, wireless technologies, mobile devices). Related controls: CM-6, SC-7.</td>
+</tr>
+<tr class="row-odd"><td>SC-43</td>
+<td>System and Communications Protection</td>
+<td>SC-43_N_01</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><ol class="first last loweralpha simple" start="2">
+<li>Authorizes, monitors, and controls the use of such components within the information system.</li>
+</ol>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>SC-44</td>
+<td>System and Communications Protection</td>
+<td>SC-44_N_00</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&#8212;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DETONATION CHAMBERS
+Control: The organization employs a detonation chamber capability within [Assignment: organization-defined information system, system component, or location].</td>
+<td>Detonation chambers, also known as dynamic execution environments, allow organizations to open email attachments, execute untrusted or suspicious applications, and execute Universal Resource Locator (URL) requests in the safety of an isolated environment or virtualized sandbox. These protected and isolated execution environments provide a means of determining whether the associated attachments/applications contain malicious code. While related to the concept of deception nets, the control is not intended to maintain a long-term environment in which adversaries can operate and their actions can be observed. Rather, it is intended to quickly identify malicious code and reduce the likelihood that the code is propagated to user environments of operation (or prevent such propagation completely). Related controls: SC-7, SC-25, SC-26, SC-30.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Red Hat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
