@@ -24,9 +24,9 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 
 # or to one or all of the masters defined in the inventory if no load
 # balancer is present.
 openshift_master_cluster_method=native
-openshift_master_cluster_hostname=openshift-cluster.to4-replay.rhtps.io
-openshift_master_cluster_public_hostname=openshift-cluster.to4-replay.rhtps.io
-openshift_master_default_subdomain=apps.to4-replay.rhtps.io
+openshift_master_cluster_hostname=openshift-cluster.refarch.rhtps.io
+openshift_master_cluster_public_hostname=openshift-cluster.refarch.rhtps.io
+openshift_master_default_subdomain=apps.refarch.rhtps.io
 openshift_docker_insecure_registries=10.0.0.254
 openshift_docker_blocked_registries=registry.access.redhat.com,docker.io
 

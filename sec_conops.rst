@@ -111,6 +111,8 @@ The following table describes each AWS component and relates it to the implement
 
 Network Architecture
 ~~~~~~~~~~~~~~~~~~~~
+The network views below assume that OCP is deployed on to an `air-gapped`_ network that is unable to route to the Internet.
+
 The **Staging Subnet** provides an isolated area for platform administrators to apply regular patches and test configuration changes before applying these to the operations cluster.  One cluster of OCP is deployed in this VPC.
 
 The **Operations Subnet** contains a single deployment of OpenShift where tenants will deploy applications.  OCP Nodes will be labled and functionally grouped to support development, test, and production deployments of an application.  This is described in detail in the *Platform View*.
@@ -474,6 +476,7 @@ The criticality of protecting the platform in a multi-tenant environment cannot 
 .. _Runtime Specification: http://www.github.com/opencontainers/runtime-spec
 .. _Red Hat Enterprise Linux Docker Security Policy: https://access.redhat.com/documentation/en/red-hat-enterprise-linux-atomic-host/7/paged/container-security-guide/chapter-6-docker-selinux-security-policy
 .. _sVirt: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Security_Guide/chap-Virtualization_Security_Guide-sVirt.html
+.. _`air-gapped`: https://en.wikipedia.org/wiki/Air_gap_(networking)
 
 .. |Infrastructure View| image:: /images/architecture/InfrastructureView.png
 .. |Storage View| image:: /images/architecture/StorageView.png
