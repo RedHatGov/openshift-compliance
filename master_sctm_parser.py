@@ -53,6 +53,8 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
     r["Title"] = " ".join(w.capitalize() for w in str(nt_map[ref_num]).split())
 
     # First we check to see if this control has been processed before
+    # Remove all those pesky new lines
+    r['Requirements'] = r['Requirements'].replace(u"\n", u" ")
     if sctm.get(ref_num):
         # If it has, we concat the control language
         sctm[ref_num][0]['Original Requirements'] += (u" " + r['Requirements'])
@@ -61,7 +63,7 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
         r['Original Requirements'] = r['Requirements']
 
     # Build an alphabetic part number to jive with the FedRAMP template
-    r['Part'] = string.lowercase(int(r['Org Ref #'].split("_")[-1]))
+    r['Part'] = string.lowercase[int(r['Org Ref #'].split("_")[-1])]
 
     # Now we build a list of control parts and store it under the same key
     if sctm.get(ref_num):

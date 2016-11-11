@@ -44,23 +44,28 @@ Have questions? Visit our :ref:`faq`.
 Contributing
 ************
 
-Authors
-=======
-
-* Nick Sabine
-* Ken Evensen
-* Mark Shoger
-* Durell Willoughby
-* Tiffany Gray
-* Jason Callaway
-
 Security is an ongoing effort, and we appreciate any feedback or recommendations
 that you may have. Please use this project's `GitHub <https://github.com/jason-callaway/openshift-compliance>`_
 page to submit issues or pull requests.
 
+Authors
+=======
+
+* `Nick Sabine`_
+* `Ken Evensen`_
+* `Mark Shoger`_
+* `Durell Willoughby`_
+* `Tiffany Gray`_
+* `Jason Callaway`_
 
 .. _Docker: https://www.openshift.com/container-platform/containers.html
 .. _Kubernetes: https://www.openshift.com/container-platform/kubernetes.html
 .. _RHEL: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
 .. _FISMA: https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002
 .. _`Amazon Web Services`: https://aws.amazon.com/
+.. _`Nick Sabine`: nsabine@redhat.com
+.. _`Ken Evensen`: kevensen@redhat.com
+.. _`Mark Shoger`: mshoger@redhat.com
+.. _`Durell Willoughby`: dwilloug@redhat.com
+.. _`Tiffany Gray`: tgray@redhat.com
+.. _`Jason Callaway`: jcallawa@redhat.com

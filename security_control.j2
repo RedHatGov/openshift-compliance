@@ -7,59 +7,70 @@ Security Controls
 Overview
 ========
 
-
+These security controls comply with FISMA High requirements.
 
 {% for key in sctm.keys()|sort %}
 {{ sctm[key][0]['NIST Ref #'] }} - {{ sctm[key][0]['Title'] }}
 ================================================================================
 
-{{ sctm[key][0]['Original Requirements'] }}
+:Requirement:
+    {{ sctm[key][0]['Original Requirements'] }}
+
 
 Control Summary Information
 ---------------------------
 
-**Responsible Role**: {{ sctm[key][0]['Role'] }}
-
-**Parameter**: {{ sctm[key][0]['Parameter'] }}
-
-**Implementation Status**: {{ sctm[key][0]['Implementation Status'] }}
-
-**Control Origin**: {{ sctm[key][0]['Control Origin'] }}
+:Role:
+    {{ sctm[key][0]['Role'] }}
+{% if sctm[key][0]['Parameter'] != 'undefined' %}
+:Parameter:
+    {{ sctm[key][0]['Parameter'] }}
+{% endif %}
+:Status:
+    {{ sctm[key][0]['Implementation Status'] }}
+:Origin:
+    {{ sctm[key][0]['Control Origin'] }}
 
 {{ sctm[key][0]['NIST Ref #'] }} What is the solution and how is it implemented?
 --------------------------------------------------------------------------------
 
 {% if sctm[key] < 2 %}
-**Responsible Role**: {{ sctm[key][0]['Role'] }}
+:Role:
+    {{ sctm[key][0]['Role'] }}
+:Status:
+    {{ sctm[key][0]['Implementation Status'] }}
+:Details:
+    {{ sctm[key][0]['Red Hat Response'] }}
 
-**Implementation Status**: {{ sctm[key][0]['Implementation Status'] }}
-
-{{ sctm[key][0]['Red Hat Response'] }}
-{% if sctm[key][0].get('Ansible') %}
+{% if part.get('Ansible') and part['Ansible'] != 'undefined' %}
 
 Ansible Automation
-------------------
+^^^^^^^^^^^^^^^^^^
+.. code-block:: yaml
+    {{ sctm[key][0]['Ansible'] }}
 
-{{ sctm[key][0]['Ansible'] }}
 {% endif %}
 {% else %}
 {% for part in sctm[key] %}
 Part {{ part['Part'] }}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Requirement**: {{ part['Requirement'] }}
+:Requirement:
+    {{ part['Requirements'] }}
+:Role:
+    {{ part['Role'] }}
+:Status:
+    {{ part['Implementation Status'] }}
+:Details:
+    {{ part['Red Hat Response'] }}
 
-**Responsible Role**: {{ part['Role'] }}
-
-**Implementation Status**: {{ part['Implementation Status'] }}
-
-{{ part['Red Hat Response'] }}
-{% if part.get('Ansible') %}
+{% if part.get('Ansible') and part['Ansible'] != 'undefined' %}
 
 Ansible Automation
-------------------
-
+^^^^^^^^^^^^^^^^^^
+.. code-block:: yaml
 {{ part['Ansible'] }}
+
 {% endif %}
 {% endfor %}
 {% endif %}

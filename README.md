@@ -25,10 +25,11 @@ When you make the html target, this parsing happens automatically. If you want t
 $ python master_sctm_parser.py master_sctm.xlsx
 ```
 
-Once you have made changes to your docs, commit your changes. You can build
-the docs to view locally.
+**Spreadsheet warnings**: 
+* Do not edit this spreadsheet with LibreOffice Calc. It will break the spreadhseet and make it unparseable by ```openpyxl```. 
+* The spreadsheet is filtered by FISMA High controls. If you change the filters the resultant .rst file will be different, too.
 
-**Warning**: Do not edit this spreadsheet with LibreOffice calc. It will break the spreadhseet and make it unparseable by ```openpyxl```. 
+Once you have made changes to your docs, commit your changes. You can build the docs to view locally.
 
 ```
 $ git add -A
