@@ -1,6 +1,7 @@
 import jinja2
 import openpyxl
 import os
+import string
 import sys
 
 from ntmap import *
@@ -54,10 +55,13 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
     # First we check to see if this control has been processed before
     if sctm.get(ref_num):
         # If it has, we concat the control language
-        sctm[ref_num][0]['Original Requirements'] += (u"\n\n" + r['Requirements'])
+        sctm[ref_num][0]['Original Requirements'] += (u" " + r['Requirements'])
     else:
         # Otherwise we start fresh
         r['Original Requirements'] = r['Requirements']
+
+    # Build an alphabetic part number to jive with the FedRAMP template
+    r['Part'] = string.lowercase(int(r['Org Ref #'].split("_")[-1]))
 
     # Now we build a list of control parts and store it under the same key
     if sctm.get(ref_num):

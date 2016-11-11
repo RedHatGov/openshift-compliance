@@ -44,6 +44,16 @@ Have questions? Visit our :ref:`faq`.
 Contributing
 ************
 
+Authors
+=======
+
+* Nick Sabine
+* Ken Evensen
+* Mark Shoger
+* Durell Willoughby
+* Tiffany Gray
+* Jason Callaway
+
 Security is an ongoing effort, and we appreciate any feedback or recommendations
 that you may have. Please use this project's `GitHub <https://github.com/jason-callaway/openshift-compliance>`_
 page to submit issues or pull requests.

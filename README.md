@@ -28,6 +28,8 @@ $ python master_sctm_parser.py master_sctm.xlsx
 Once you have made changes to your docs, commit your changes. You can build
 the docs to view locally.
 
+**Warning**: Do not edit this spreadsheet with LibreOffice calc. It will break the spreadhseet and make it unparseable by ```openpyxl```. 
+
 ```
 $ git add -A
 $ git commit -am 'my commit message'
