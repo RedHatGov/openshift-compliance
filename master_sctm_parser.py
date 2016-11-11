@@ -54,7 +54,7 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
     # First we check to see if this control has been processed before
     if sctm.get(ref_num):
         # If it has, we concat the control language
-        sctm[ref_num][0]['Original Requirements'] += (u"\n" + r['Requirements'])
+        sctm[ref_num][0]['Original Requirements'] += (u"\n\n" + r['Requirements'])
     else:
         # Otherwise we start fresh
         r['Original Requirements'] = r['Requirements']
@@ -66,5 +66,7 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
         sctm[ref_num] = [r]
 
 
-print template.render(sctm=sctm)
+output = template.render(sctm=sctm)
+with open('controls.rst', 'w') as controls_file:
+    controls_file.write(output.encode('utf-8'))
 

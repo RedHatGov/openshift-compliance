@@ -30,6 +30,7 @@ Table of Contents
 *****************
 #. :ref:`fisma`
 #. :ref:`reference_architecture`
+#. :ref:`controls`
 #. :ref:`security_controls`
 #. :ref:`ansible`
 #. :ref:`continuous_compliance`

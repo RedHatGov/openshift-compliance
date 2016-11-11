@@ -15,6 +15,7 @@ Contents:
      Overview <index.rst>
      FISMA <fisma.rst>
      Reference Architecture <reference_architecture.rst>
+     Controls <controls.rst>
      Security Controls <security_controls.rst>
      Ansible <ansible.rst>
      Continuous Compliance <continuous_compliance.rst>

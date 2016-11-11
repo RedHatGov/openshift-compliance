@@ -1,3 +1,9 @@
+.. _control:
+
+*****************
+Security Controls
+*****************
+
 {% for key in sctm.keys()|sort %}
 {{ sctm[key][0]['NIST Ref #'] }} - {{ sctm[key][0]['Title'] }}
 ================================================================================
@@ -8,8 +14,11 @@ Control Summary Information
 ---------------------------
 
 **Responsible Role**: {{ sctm[key][0]['Role'] }}
+
 **Parameter**: {{ sctm[key][0]['Parameter'] }}
+
 **Implementation Status**: {{ sctm[key][0]['Implementation Status'] }}
+
 **Control Origin**: {{ sctm[key][0]['Control Origin'] }}
 
 {{ sctm[key][0]['NIST Ref #'] }} What is the solution and how is it implemented?
@@ -17,6 +26,7 @@ Control Summary Information
 
 {% if sctm[key] < 2 %}
 **Responsible Role**: {{ sctm[key][0]['Role'] }}
+
 **Implementation Status**: {{ sctm[key][0]['Implementation Status'] }}
 
 {{ sctm[key][0]['Red Hat Response'] }}
@@ -33,6 +43,7 @@ Part {{ part['Org Ref #'] }}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Responsible Role**: {{ part['Role'] }}
+
 **Implementation Status**: {{ part['Implementation Status'] }}
 
 {{ part['Red Hat Response'] }}
