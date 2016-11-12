@@ -1,0 +1,120 @@
+.. _crm:
+
+******************************
+Customer Responsibility Matrix
+******************************
+
+Overview
+========
+
+The following controls have been down-selected from the complete list
+in :ref:`control`.
+
+Procedural Generation
+---------------------
+
+Like the last chapter, this chapter is automatically generated from the `master_sctm.xlsx`_
+spreadsheet on this project's `GitHub`_. Do not edit it directly. If you'd
+like to change how this chapter is rendered, refer to the following:
+
++--------------------------+--------------------------------------------------+
+| File                     | Description                                      |
++==========================+==================================================+
+| `master_sctm_parser.py`_ | Python program that parses the master_sctm.xlsx  |
+|                          | spreadsheet using the openpyxl module. Whe       |
+|                          | editing this sheet do not change the existing    |
+|                          | column headers. Column order does not matter.    |
+|                          | New columns can be added. Only visible rows are  |
+|                          | processed, so auto-filters can be used to modify |
+|                          | which controls are rendered.                     |
++--------------------------+--------------------------------------------------+
+| `security_control.j2`_   | `Jinja2`_ template that is used to render this   |
+|                          | chapter.                                         |
++--------------------------+--------------------------------------------------+
+| `crm.j2`_                | `Jinja2`_ template that is used to generate the  |
+|                          | :ref:`crm`.                                      |
++--------------------------+--------------------------------------------------+
+
+
+
+{% for key in sctm.keys()|sort %}
+{{ sctm[key][0]['NIST Ref #'] }} - {{ sctm[key][0]['Title'] }}
+==============================================================================================================================================================
+
+:Requirement:
+    {{ sctm[key][0]['Original Requirements'] }}
+
+
+Control Summary Information
+---------------------------
+
+:Role:
+    {{ sctm[key][0]['Role'] }}
+{% if sctm[key][0]['Parameter'] != 'undefined' %}:Parameter:
+    {{ sctm[key][0]['Parameter'] }}
+{% endif %}:Status:
+    {{ sctm[key][0]['Implementation Status'] }}
+:Origin:
+    {{ sctm[key][0]['Control Origin'] }}
+
+{{ sctm[key][0]['NIST Ref #'] }} What is the solution and how is it implemented?
+-------------------------------------------------------------------------------
+
+{% if sctm[key] < 2 %}
+:Role:
+    {{ sctm[key][0]['Role'] }}
+:Status:
+    {{ sctm[key][0]['Implementation Status'] }}
+:Details:
+    {{ sctm[key][0]['Red Hat Response'] }}
+{% if sctm[key][0].get('References') and sctm[key][0]['References'] != 'undefined' %}:References:
+    {{ sctm[key][0]['References'] }}
+{% endif %}
+
+{% if part.get('Ansible') and part['Ansible'] != 'undefined' %}
+
+Ansible Automation
+^^^^^^^^^^^^^^^^^^
+.. code-block:: yaml
+    {{ sctm[key][0]['Ansible'] }}
+
+{% endif %}
+{% else %}
+{% for part in sctm[key] %}
+Part {{ part['Part'] }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:Requirement:
+    {{ part['Requirements'] }}
+:Role:
+    {{ part['Role'] }}
+:Status:
+    {{ part['Implementation Status'] }}
+:Details:
+    {{ part['Red Hat Response'].replace("\n", "\n    ") }}
+{% if sctm[key][0].get('References') and sctm[key][0]['References'] != 'undefined' %}:References:
+    {{ sctm[key][0]['References'].replace("\n", " ") }}
+{% endif %}
+
+{% if part.get('Ansible') and part['Ansible'] != 'undefined' %}
+
+Ansible Automation
+^^^^^^^^^^^^^^^^^^
+.. code-block:: yaml
+{{ part['Ansible'] }}
+
+{% endif %}
+{% endfor %}
+{% endif %}
+
+
+{% endfor %}
+
+.. _`NIST SP800-53r4`: http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf
+.. _`master_sctm.xlsx`: https://github.com/jason-callaway/openshift-compliance/raw/master/master_sctm.xlsx
+.. _`GitHub`: https://github.com/jason-callaway/openshift-compliance
+.. _`FedRAMP SSP Template`: http://www.gsa.gov/graphics/staffoffices/System_Security_Plan_Template_072312_508.docx
+.. _`master_sctm_parser.py`: https://github.com/jason-callaway/openshift-compliance/blob/master/master_sctm_parser.py
+.. _`security_control.j2`: https://github.com/jason-callaway/openshift-compliance/blob/master/security_control.j2
+.. _`crm.j2`: https://github.com/jason-callaway/openshift-compliance/blob/master/crm.j2
+.. _`Jinja2`: http://jinja.pocoo.org/docs/dev/

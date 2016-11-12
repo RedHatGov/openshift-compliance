@@ -12,7 +12,8 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 # Load the Jinja2 template
 loader = jinja2.FileSystemLoader(dir_path)
 environment = jinja2.Environment(loader=loader)
-template = environment.get_template('security_control.j2')
+controls_template = environment.get_template('security_control.j2')
+crm_template = environment.get_template('crm.j2')
 
 # Open the SCTM Excel workbook rw so we can look at row dimensions.
 wb = openpyxl.load_workbook(sys.argv[1], read_only=False)
@@ -71,8 +72,19 @@ for i, row in enumerate(ws.iter_rows(min_row=2), start=2):
     else:
         sctm[ref_num] = [r]
 
+# Process the master sctm data structure and look for Tenant responsible
+# controls
+crm = {}
+for key in sctm.keys():
+    for part in sctm[key]:
+        if u"OpenShift Tenant" in part['Role']:
+            crm[key] = sctm[key]
 
-output = template.render(sctm=sctm)
+output = controls_template.render(sctm=sctm)
 with open('controls.rst', 'w') as controls_file:
+    controls_file.write(output.encode('utf-8'))
+
+output = crm_template.render(sctm=crm)
+with open('crm.rst', 'w') as controls_file:
     controls_file.write(output.encode('utf-8'))
 
