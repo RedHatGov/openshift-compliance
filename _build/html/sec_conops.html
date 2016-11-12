@@ -28,6 +28,8 @@
   
 
   
+    <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
@@ -139,6 +141,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="controls.html">  Security Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crm.html">  Customer Responsibility Matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ansible.html">  Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="continuous_compliance.html">  Continuous Compliance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">  Frequently Asked Questions</a></li>
@@ -338,6 +341,7 @@ instances.</td>
 </div>
 <div class="section" id="network-architecture">
 <h4>Network Architecture<a class="headerlink" href="#network-architecture" title="Permalink to this headline">¶</a></h4>
+<p>The network views below assume that OCP is deployed on to an <a class="reference external" href="https://en.wikipedia.org/wiki/Air_gap_(networking)">air-gapped</a> network that is unable to route to the Internet.</p>
 <p>The <strong>Staging Subnet</strong> provides an isolated area for platform administrators to apply regular patches and test configuration changes before applying these to the operations cluster.  One cluster of OCP is deployed in this VPC.</p>
 <p>The <strong>Operations Subnet</strong> contains a single deployment of OpenShift where tenants will deploy applications.  OCP Nodes will be labled and functionally grouped to support development, test, and production deployments of an application.  This is described in detail in the <em>Platform View</em>.</p>
 <p>The <strong>Management Subnet</strong> contains the Trusted Container Repository as well as the Package Repository.  A route table allows the <strong>Managent Subnet</strong> to communicate to the <strong>Staging Subnet</strong>, <strong>Operations Subnet</strong>.  The <strong>Staging Subnet</strong> and <strong>Operations Subnet</strong> are not permitted to communicate with each other. A VPC peering connection allows the <strong>Management Subnet</strong> in the <strong>Red Hat VPC</strong> to communicate with any <strong>Dedicated VPC&#8217;s</strong>.</p>
@@ -820,6 +824,8 @@ Cannot modify access to the project.</td>
 <div class="section" id="selinux">
 <h4>SELinux<a class="headerlink" href="#selinux" title="Permalink to this headline">¶</a></h4>
 <p>The criticality of protecting the platform in a multi-tenant environment cannot be understated.  As a result, the protection offered by SELinux Multi-Category Security (MCS) as an integral component of the layered security model within the <a class="reference external" href="https://access.redhat.com/documentation/en/red-hat-enterprise-linux-atomic-host/7/paged/container-security-guide/chapter-6-docker-selinux-security-policy">Red Hat Enterprise Linux Docker Security Policy</a> is indispensable.  RHEL&#8217;s Container MCS policy is derived and extended from <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Security_Guide/chap-Virtualization_Security_Guide-sVirt.html">sVirt</a>, the SELinux policy for isolating virtual machine hypervisor processes.  sVirt policy has been developed, refined, and continuously tested since 2009, and offers a mature and validated model for infrastructure protection.  It is the gold standard of preventing a compromised process from gaining additional privileges or access to components of the system that have not been specifically allowed by policy.</p>
+<p><img alt="SELinux MCS Annotation" src="_images/SELinuxMCS.png" /></p>
+<p>In a SELinux-labeled file or process, there multiple fields that affect how the policy is evaluated.  Most critical for interpretation of the container MCS policy are the <cite>type</cite> and <cite>category</cite> fields.  In the case of a container process, the <cite>type</cite> will be <cite>svirt_lxc_net_t</cite>.  This indicates that the process will only be allowed to invoke system actions that have been explicitly whitelisted in the policy.  On the other hand, the <cite>category</cite> fields will be uniquely assigned for each process.  This ensures that container processes on the same physical system are not permitted to interact at the system level, and that tenants in the multi-tenant system are unable to access or affect other tenants.</p>
 </div>
 </div>
 </div>

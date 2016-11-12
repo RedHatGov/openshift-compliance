@@ -30,6 +30,7 @@ Table of Contents
 *****************
 #. :ref:`sec_conops`
 #. :ref:`control`
+#. :ref:`crm`
 #. :ref:`ansible`
 #. :ref:`continuous_compliance`
 
