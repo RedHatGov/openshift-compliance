@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -183,120 +185,144 @@ to the Internet.</p>
 <div class="section" id="openshift-master-creating-certificates">
 <h4>OpenShift Master – Creating Certificates<a class="headerlink" href="#openshift-master-creating-certificates" title="Permalink to this headline">¶</a></h4>
 <p>OpenShift manages its own certificates to encrypt inter-nodal communication.  This is beneficial in another way.  We don’t want someone to spoof our proxy and authenticate by passing in a remote header from some random host.  Therefore, we will create a certificate for the Apache proxy using the CA on the OpenShift master.</p>
-<dl class="docutils">
-<dt>SSH to the OpenShift master and elevate your privileges to root.::</dt>
-<dd><p class="first"># oadm ca create-signer-cert &#8211;cert=&#8217;/etc/origin/master/proxyca.crt&#8217; &#8211;key=&#8217;/etc/origin/master/proxyca.key&#8217; <a class="reference external" href="mailto:--name='openshift-proxy-signer&#37;&#52;&#48;1432232228">--name='openshift-proxy-signer<span>&#64;</span>1432232228</a>&#8216; &#8211;serial=&#8217;/etc/origin/master/proxyca.serial.txt&#8217;</p>
-<p># oadm create-api-client-config &#8211;certificate-authority=&#8217;/etc/origin/master/proxyca.crt&#8217; &#8211;client-dir=&#8217;/etc/origin/master/proxy&#8217; &#8211;signer-cert=&#8217;/etc/origin/master/proxyca.crt&#8217; &#8211;signer-key=&#8217;/etc/origin/master/proxyca.key&#8217; &#8211;signer-serial=&#8217;/etc/origin/master/proxyca.serial.txt&#8217; &#8211;user=&#8217;system:proxy&#8217;</p>
-<p class="last"># pushd /etc/origin/master
+<p>SSH to the OpenShift master and elevate your privileges to root.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span># oadm ca create-signer-cert \
+--cert=&#39;/etc/origin/master/proxyca.crt&#39; \
+--key=&#39;/etc/origin/master/proxyca.key&#39; \
+--name=&#39;openshift-proxy-signer@1432232228&#39; \
+--serial=&#39;/etc/origin/master/proxyca.serial.txt&#39;
+
+# oadm create-api-client-config \
+--certificate-authority=&#39;/etc/origin/master/proxyca.crt&#39; \
+--client-dir=&#39;/etc/origin/master/proxy&#39; \
+--signer-cert=&#39;/etc/origin/master/proxyca.crt&#39; \
+--signer-key=&#39;/etc/origin/master/proxyca.key&#39; \
+--signer-serial=&#39;/etc/origin/master/proxyca.serial.txt&#39; \
+--user=&#39;system:proxy&#39;
+
+# pushd /etc/origin/master
 # cp ca.crt /root/authproxyca.crt
-# cat proxy/system:proxy.crt proxy/system:proxy.key &gt; /root/authproxy.crt
-# popd</p>
-</dd>
-</dl>
+# cat proxy/system\:proxy.crt \
+proxy/system\:proxy.key &gt; \
+/root/authproxy.crt
+# popd
+</pre></div>
+</div>
 <p>Using your favorite file transfer method, copy the authproxy.crt and authproxyca.crt from the OpenShift Master to the Apache proxy host.</p>
 </div>
 <div class="section" id="apache-proxy">
 <h4>Apache Proxy<a class="headerlink" href="#apache-proxy" title="Permalink to this headline">¶</a></h4>
-<dl class="docutils">
-<dt>SSH into the Apache Proxy and install some basic packages as root.::</dt>
-<dd># yum install -y httpd mod_ssl mod_session apr-util-openssl</dd>
-<dt>Also, as root, create a new Apache configuration file with the following content in /etc/httpd/conf.d/::</dt>
-<dd><p class="first"># vi /etc/httpd/conf.d/ose-proxy.conf</p>
-<p>LoadModule session_module modules/mod_session.so
-LoadModule request_module modules/mod_request.so</p>
-<p># Nothing needs to be served over HTTP. This virtual host simply redirects to
+<p>SSH into the Apache Proxy and install some basic packages as root.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span># yum install -y httpd mod_ssl mod_session apr-util-openssl
+</pre></div>
+</div>
+<p>Also, as root, create a new Apache configuration file with the following content in /etc/httpd/conf.d/</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span># vi /etc/httpd/conf.d/ose-proxy.conf
+
+LoadModule session_module modules/mod_session.so
+LoadModule request_module modules/mod_request.so
+
+# Nothing needs to be served over HTTP. This virtual host simply redirects to
 # HTTPS.
-&lt;VirtualHost <em>:80&gt;
+&lt;VirtualHost *:80&gt;
 DocumentRoot /var/www/html
 RewriteEngine On
-RewriteRule ^(.</em>)$ <a class="reference external" href="https:/">https:/</a>/%{HTTP_HOST}$1 [R,L]
-&lt;/VirtualHost&gt;</p>
-<p>&lt;VirtualHost <a href="#id2"><span class="problematic" id="id3">*</span></a>:443&gt;
+RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R,L]
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:443&gt;
 # This needs to match the certificates you generated. See the CN and X509v3
 # Subject Alternative Name in the output of:
 # openssl x509 -text -in /etc/pki/tls/certs/localhost.crt
-ServerName proxy.example.com</p>
-<p>DocumentRoot /var/www/html
+ServerName proxy.example.com
+
+DocumentRoot /var/www/html
 SSLEngine on
 SSLCertificateFile /etc/pki/tls/certs/localhost.crt
-SSLCertificateKeyFile /etc/tls/private/localhost.key</p>
-<p>#This is the CA against which your user’s certificates will be checked.
-SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt</p>
-<p>SSLProtocol ALL -SSLv2 -SSLv3
+SSLCertificateKeyFile /etc/tls/private/localhost.key
+
+#This is the CA against which your user’s certificates will be checked.
+SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt
+
+SSLProtocol ALL -SSLv2 -SSLv3
 SSLCipherSuite ECDHE-RSA-AES256-SHA384:AES256-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH:!EXP:!SSLV2:!eNULL
 SSLUserName SSL_CLIENT_S_DN_CN
 SSLOptions +StdEnvVars +ExportCertData
 #For PKI
-SSLVerifyClient require</p>
-<p>SSLProxyEngine on</p>
-<p>#These were created per the instructions in the OSE installation docs
+SSLVerifyClient require
+
+SSLProxyEngine on
+
+#These were created per the instructions in the OSE installation docs
 SSLProxyCACertificateFile /etc/pki/CA/certs/authproxyca.crt
-SSLProxyMachineCertificateFile /etc/pki/tls/certs/authproxy.crt</p>
-<p>ErrorLog logs/ssl_error_log
+SSLProxyMachineCertificateFile /etc/pki/tls/certs/authproxy.crt
+
+ErrorLog logs/ssl_error_log
 TransferLog logs/ssl_access_log
 LogLevel debug
-CustomLog logs/ssl_request_log “%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x ”%r” %b”
+CustomLog logs/ssl_request_log \
+“%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \”%r\” %b”
 # Send all requests to the console
 RewriteEngine On
-RewriteRule ^/console(.*)$ <a class="reference external" href="https:/">https:/</a>/%{HTTP_HOST}:8443/console$1 [R,L]</p>
-<p># In order to using the challenging-proxy an X-Csrf-Token must be present.
+RewriteRule ^/console(.*)$ https://%{HTTP_HOST}:8443/console$1 [R,L]
+
+# In order to using the challenging-proxy an X-Csrf-Token must be present.
 RewriteCond %{REQUEST_URI} ^/challenging-proxy
-RewriteCond %{<a class="reference external" href="HTTP:X-Csrf-Token">HTTP:X-Csrf-Token</a>} ^$ [NC]
-RewriteRule ^.* – [F,L]</p>
-<p>&lt;Location /challenging-proxy/oauth/authorize&gt;
+RewriteCond %{HTTP:X-Csrf-Token} ^$ [NC]
+RewriteRule ^.* – [F,L]
+
+&lt;Location /challenging-proxy/oauth/authorize&gt;
 # Insert your backend server name/ip here.
 AuthName openshift
-ProxyPass <a class="reference external" href="https://master.example.com:8443/oauth/authorize">https://master.example.com:8443/oauth/authorize</a>
-&lt;/Location&gt;</p>
-<p>&lt;Location /login-proxy/oauth/authorize&gt;
+ProxyPass https://master.example.com:8443/oauth/authorize
+&lt;/Location&gt;
+
+&lt;Location /login-proxy/oauth/authorize&gt;
 # Insert your backend server name/ip here.
 AuthName openshift
-ProxyPass <a class="reference external" href="https://master.example.com:8443/oauth/authorize">https://master.example.com:8443/oauth/authorize</a>
-&lt;/Location&gt;</p>
-<p>&lt;ProxyMatch /oauth/authorize&gt;
+ProxyPass https://master.example.com:8443/oauth/authorize
+&lt;/Location&gt;
+
+&lt;ProxyMatch /oauth/authorize&gt;
 #This require directive is very important
 require valid-user
 RequestHeader set X-Remote-User %{SSL_CLIENT_S_DN_CN}s
-&lt;/ProxyMatch&gt;</p>
-<p class="last">&lt;/VirtualHost&gt;
-RequestHeader unset X-Remote-User</p>
-</dd>
-</dl>
+&lt;/ProxyMatch&gt;
+
+&lt;/VirtualHost&gt;
+RequestHeader unset X-Remote-User
+</pre></div>
+</div>
 <p>Please note the SSLCACertificateFile directive.  This is the CA against which the clients (your users) will be validated.  Out of the box, the specified file won’t work.  Please replace this will the valid CA file or chain.</p>
 </div>
 <div class="section" id="openshift-master-auth-configuration">
 <h4>OpenShift Master - Auth Configuration<a class="headerlink" href="#openshift-master-auth-configuration" title="Permalink to this headline">¶</a></h4>
-<dl class="docutils">
-<dt>Now that we have Apache configured, we need to configure the authentication provider for the OpenShift Master.  SSH into the OpenShift Master and elevate your privileges to root.  Then edit the Master’s configuration file:::</dt>
-<dd># vi /etc/origin/master/master-config.yaml</dd>
-<dt>Now, in the oathConfig section, enter the following::</dt>
-<dd><dl class="first last docutils">
-<dt>oauthConfig:</dt>
-<dd><p class="first">...
-identityProviders:
-- name: requestheader</p>
-<blockquote class="last">
-<div><p>challenge: true
-login: true
-provider:</p>
-<blockquote>
-<div>apiVersion: v1
-kind: RequestHeaderIdentityProvider
-challengeURL: &#8220;<a class="reference external" href="https://proxy.example.com/challenging-proxy/oauth/authorize">https://proxy.example.com/challenging-proxy/oauth/authorize</a>?${query}&#8221;
-loginURL: &#8220;<a class="reference external" href="https://proxy.example.com/login-proxy/oauth/authorize">https://proxy.example.com/login-proxy/oauth/authorize</a>?${query}&#8221;
-clientCA: /etc/origin/master/proxyca.crt
-headers:
-- X-Remote-User</div></blockquote>
-</div></blockquote>
-</dd>
-</dl>
-</dd>
-</dl>
+<p>Now that we have Apache configured, we need to configure the authentication provider for the OpenShift Master.  SSH into the OpenShift Master and elevate your privileges to root.  Then edit the Master’s configuration file.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span># vi /etc/origin/master/master-config.yaml
+</pre></div>
+</div>
+<p>Now, in the oathConfig section, enter the following</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">oauthConfig</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="l l-Scalar l-Scalar-Plain">identityProviders</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">requestheader</span>
+    <span class="l l-Scalar l-Scalar-Plain">challenge</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">login</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+      <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RequestHeaderIdentityProvider</span>
+      <span class="l l-Scalar l-Scalar-Plain">challengeURL</span><span class="p p-Indicator">:</span> <span class="s">&quot;https://proxy.example.com/challenging-proxy/oauth/authorize?${query}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">loginURL</span><span class="p p-Indicator">:</span> <span class="s">&quot;https://proxy.example.com/login-proxy/oauth/authorize?${query}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">clientCA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/origin/master/proxyca.crt</span>
+      <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">X-Remote-User</span>
+</pre></div>
+</div>
 <p>YAML is delimited by spaces.  Please ensure you have the correct spacing.</p>
-<dl class="docutils">
-<dt>Once you have saved the file, go ahead and restart your master.::</dt>
-<dd># systemctl restart atomic-openshift-master.service</dd>
-</dl>
+<p>Once you have saved the file, go ahead and restart your master.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span># systemctl restart atomic-openshift-master.service
+</pre></div>
+</div>
 <p>Now navigate to your OpenShift master in a web browser.  If you have a valid client certificate, you should just be authenticated.</p>
 </div>
 </div>

@@ -160,6 +160,10 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# def setup(app):
+#    # app.add_javascript("custom.js")
+#    app.add_stylesheet("custom.css")
+
 # html_context = {
 #     'css_files': [
 #         '_static/theme_overrides.css',  # overrides for wide tables in RTD theme
@@ -347,3 +351,4 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
+
