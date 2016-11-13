@@ -32,7 +32,6 @@ Table of Contents
 #. :ref:`control`
 #. :ref:`crm`
 #. :ref:`ansible`
-#. :ref:`continuous_compliance`
 
 **************************
 Frequently Asked Questions

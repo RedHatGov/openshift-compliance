@@ -17,7 +17,6 @@ Contents:
      Security Controls <controls.rst>
      Customer Responsibility Matrix <crm.rst>
      Ansible <ansible.rst>
-     Continuous Compliance <continuous_compliance.rst>
      Frequently Asked Questions <faq.rst>
 
 

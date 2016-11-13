@@ -94,10 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="controls.html">  Security Controls</a></li>
 <li class="toctree-l1"><a class="reference internal" href="crm.html">  Customer Responsibility Matrix</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">  Ansible</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#automation">Automation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#concept-of-operation">Concept of Operation</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-architecture">Reference Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#manual-workarounds">Manual Workarounds</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#user-authentication">User Authentication</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#request-header-authentication">Request Header Authentication</a></li>
@@ -160,16 +157,64 @@
 <span id="id1"></span><h1>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h1>
 <p>This chapter describes how OCP 3.3 can be deployed according to the FISMA
 High security controls listed in this guide. Further, the deployed reference
-architecture is &#8220;air-gapped&#8221; in a private AWS VPC with not direct access
+architecture is <a class="reference external" href="https://en.wikipedia.org/wiki/Air_gap_(networking)">air-gapped</a> in a private AWS VPC with not direct access
 to the Internet.</p>
-<div class="section" id="automation">
-<h2>Automation<a class="headerlink" href="#automation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="concept-of-operation">
-<h3>Concept of Operation<a class="headerlink" href="#concept-of-operation" title="Permalink to this headline">¶</a></h3>
-</div>
+<div class="section" id="reference-architecture">
+<h2>Reference Architecture<a class="headerlink" href="#reference-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="sec_conops.html#sec-conops"><span class="std std-ref">Security CONOPS</span></a> chapter describes the OpenShift FISMA High reference
+architecture. That architecture can be implemented in AWS with the
+<a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected">openshift-disconnected</a> project.</p>
+<p><a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected">openshift-disconnected</a> is implemented with Ansible. It can be deployed
+automatically, kept compliant with its CM baseline, and audited with
+<a class="reference external" href="https://www.open-scap.org/">OpenSCAP</a>. The AWS VPC layout replicates an <a class="reference external" href="https://en.wikipedia.org/wiki/Air_gap_(networking)">air-gapped</a> deployment that is
+unable to access the Internet. This requires many services that are typically
+taken for granted like DNS to be deployed into the private VPC.</p>
+<p><a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected">openshift-disconnected</a> automatically deploys all of the required services
+to run OCP 3.3 in the private VPC. Many of the functions implemented by
+<a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected">openshift-disconnected</a> are pluggable and can be added to your Ansible
+project with <a class="reference external" href="https://galaxy.ansible.com/">Ansible Galaxy</a> from the <a class="reference external" href="https://galaxy.ansible.com/rhtps">RHTPS</a> organization.</p>
+<p>Some of the most reusable roles are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Role</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://galaxy.ansible.com/rhtps/800-53/">800-53</a></td>
+<td>Implements RHEL FISMA compliance and scans the resultant
+configuration with OpenSCAP.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://galaxy.ansible.com/rhtps/bind/">bind</a></td>
+<td>Deploys DNS services into the private VPC</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://galaxy.ansible.com/rhtps/private-aws/">private-aws</a></td>
+<td>Sets up the public and private VPCs and deploys the EC2
+instances.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://galaxy.ansible.com/rhtps/registry/">registry</a></td>
+<td>Sets up a private docker registry and populates it with
+all of the images required by OpenShift.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://galaxy.ansible.com/rhtps/yum/">yum</a></td>
+<td>Sets up a yum server with all of the RPM content required
+for the OpenShift deployment.</td>
+</tr>
+</tbody>
+</table>
+<p>For instructions on how to use the <a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected">openshift-disconnected</a> project, refer to
+the <a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected/blob/master/README.md">README</a>.</p>
 </div>
 <div class="section" id="manual-workarounds">
 <h2>Manual Workarounds<a class="headerlink" href="#manual-workarounds" title="Permalink to this headline">¶</a></h2>
+<p>Some aspects of the reference architecture expressed in the <a class="reference internal" href="sec_conops.html#sec-conops"><span class="std std-ref">Security CONOPS</span></a>
+has not yet been implemented in the <a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected">openshift-disconnected</a> project. Those
+missing components are being tracked in the <a class="reference external" href="https://github.com/jason-callaway/openshift-disconnected/issues">Issues</a> page for that repo.
+As a work around, manual implementation instructions are below.</p>
 <div class="section" id="user-authentication">
 <h3>User Authentication<a class="headerlink" href="#user-authentication" title="Permalink to this headline">¶</a></h3>
 <p>Cluster Admins and Application developers gain access to OCP through a WebUI or CLI.  In order to authenticate with the CLI, the user must first log in to the WebUI and obtain a CLI token.  The following details how to enable PKI authentication in the WebUI.</p>

@@ -6,17 +6,57 @@ Ansible
 
 This chapter describes how OCP 3.3 can be deployed according to the FISMA
 High security controls listed in this guide. Further, the deployed reference
-architecture is "air-gapped" in a private AWS VPC with not direct access
+architecture is `air-gapped`_ in a private AWS VPC with not direct access
 to the Internet.
 
-Automation
-==========
+Reference Architecture
+======================
 
-Concept of Operation
---------------------
+The :ref:`sec_conops` chapter describes the OpenShift FISMA High reference
+architecture. That architecture can be implemented in AWS with the
+`openshift-disconnected`_ project.
+
+`openshift-disconnected`_ is implemented with Ansible. It can be deployed
+automatically, kept compliant with its CM baseline, and audited with
+`OpenSCAP`_. The AWS VPC layout replicates an `air-gapped`_ deployment that is
+unable to access the Internet. This requires many services that are typically
+taken for granted like DNS to be deployed into the private VPC.
+
+`openshift-disconnected`_ automatically deploys all of the required services
+to run OCP 3.3 in the private VPC. Many of the functions implemented by
+`openshift-disconnected`_ are pluggable and can be added to your Ansible
+project with `Ansible Galaxy`_ from the `RHTPS`_ organization.
+
+Some of the most reusable roles are:
+
++------------------+-----------------------------------------------------------+
+| Role             | Description                                               |
++==================+===========================================================+
+| `800-53`_        | Implements RHEL FISMA compliance and scans the resultant  |
+|                  | configuration with OpenSCAP.                              |
++------------------+-----------------------------------------------------------+
+| `bind`_          | Deploys DNS services into the private VPC                 |
++------------------+-----------------------------------------------------------+
+| `private-aws`_   | Sets up the public and private VPCs and deploys the EC2   |
+|                  | instances.                                                |
++------------------+-----------------------------------------------------------+
+| `registry`_      | Sets up a private docker registry and populates it with   |
+|                  | all of the images required by OpenShift.                  |
++------------------+-----------------------------------------------------------+
+| `yum`_           | Sets up a yum server with all of the RPM content required |
+|                  | for the OpenShift deployment.                             |
++------------------+-----------------------------------------------------------+
+
+For instructions on how to use the `openshift-disconnected`_ project, refer to
+the `README`_.
 
 Manual Workarounds
 ==================
+
+Some aspects of the reference architecture expressed in the :ref:`sec_conops`
+has not yet been implemented in the `openshift-disconnected`_ project. Those
+missing components are being tracked in the `Issues`_ page for that repo.
+As a work around, manual implementation instructions are below.
 
 User Authentication
 -------------------
@@ -187,3 +227,16 @@ Once you have saved the file, go ahead and restart your master.
     # systemctl restart atomic-openshift-master.service
 
 Now navigate to your OpenShift master in a web browser.  If you have a valid client certificate, you should just be authenticated.
+
+.. _`openshift-disconnected`: https://github.com/jason-callaway/openshift-disconnected
+.. _`Issues`: https://github.com/jason-callaway/openshift-disconnected/issues
+.. _`OpenSCAP`: https://www.open-scap.org/
+.. _`Ansible Galaxy`: https://galaxy.ansible.com/
+.. _`RHTPS`: https://galaxy.ansible.com/rhtps
+.. _`800-53`: https://galaxy.ansible.com/rhtps/800-53/
+.. _`air-gapped`: https://en.wikipedia.org/wiki/Air_gap_(networking)
+.. _`bind`: https://galaxy.ansible.com/rhtps/bind/
+.. _`private-aws`: https://galaxy.ansible.com/rhtps/private-aws/
+.. _`yum`: https://galaxy.ansible.com/rhtps/yum/
+.. _`registry`: https://galaxy.ansible.com/rhtps/registry/
+.. _`README`: https://github.com/jason-callaway/openshift-disconnected/blob/master/README.md
