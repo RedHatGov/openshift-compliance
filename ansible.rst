@@ -54,7 +54,7 @@ Manual Workarounds
 ==================
 
 Some aspects of the reference architecture expressed in the :ref:`sec_conops`
-has not yet been implemented in the `openshift-disconnected`_ project. Those
+have not yet been implemented in the `openshift-disconnected`_ project. Those
 missing components are being tracked in the `Issues`_ page for that repo.
 As a work around, manual implementation instructions are below.
 
