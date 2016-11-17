@@ -1,5 +1,7 @@
-# openshift-compliance
+# DEPRECATED openshift-compliance
 OpenShift Compliance documentation
+
+**This repo has been deprecated.** The project has been moved to [https://github.com/RedHatGov/openshift-compliance](https://github.com/RedHatGov/openshift-compliance).
 
 ## ReStructuredText Primer
 
