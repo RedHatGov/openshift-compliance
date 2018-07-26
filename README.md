@@ -1,3 +1,5 @@
+[DEPRECATED] This repo has been deprecated and now resides at [https://github.com/ComplianceAsCode/redhat](https://github.com/ComplianceAsCode/redhat)
+
 # openshift-compliance
 OpenShift Compliance documentation. See [http://openshift-compliance-guide.readthedocs.io](http://openshift-compliance-guide.readthedocs.io/en/latest/index.html).
 
